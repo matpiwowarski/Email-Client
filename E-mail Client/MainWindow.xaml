@@ -8,5 +8,32 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
 
+        <ListView Height="Auto" Margin="100,50,20,20" Background="LightGray">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <StackPanel Orientation="Vertical">
+            <Grid x:Name="TopGrid" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="50" Background="WhiteSmoke">
+                <Menu x:Name="MainMenu" HorizontalAlignment="Left" VerticalAlignment="Top" Background="WhiteSmoke" BorderThickness="2" FontSize="16" Margin="10,10,0,0">
+
+                    <Menu.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel Orientation="Horizontal"></VirtualizingStackPanel>
+                        </ItemsPanelTemplate>
+                    </Menu.ItemsPanel>
+               
+                    <MenuItem Header="Compose" Margin="10,0,0,0" FontWeight="Bold"></MenuItem>
+                    <MenuItem Header="Delete" Margin="50,0,0,0"></MenuItem>
+                    <MenuItem Header="Reply" Margin="50,0,0,0"></MenuItem>
+                    <MenuItem Header="Send forward" Margin="10,0,0,0"></MenuItem>
+                    <MenuItem Header="Star" Margin="10,0,0,0"></MenuItem>
+
+
+                </Menu>
+            </Grid>
+        </StackPanel>
     </Grid>
 </Window>
