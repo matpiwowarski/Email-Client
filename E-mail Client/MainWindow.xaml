@@ -74,6 +74,6 @@
                 </TextBox>
             </Grid>
         </StackPanel>
-        <TextBlock Background="LightGray" HorizontalAlignment="Right" Width="550" Margin="250,60,10,10" Height="auto"></TextBlock>
+        <TextBlock Background="LightGray" HorizontalAlignment="Stretch" Margin="250,60,10,10" Height="auto"></TextBlock>
     </Grid>
 </Window>
