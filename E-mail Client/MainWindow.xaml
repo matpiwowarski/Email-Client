@@ -5,16 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:E_mail_Client"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="E-mail Client" Height="450" Width="800">
     <Grid>
-
-        <ListView Height="Auto" HorizontalAlignment="Left" Width="200" Margin="10,60,10,10" Background="WhiteSmoke">
+        <StackPanel>
+            <TreeView VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,55,0,0">
+                <TreeViewItem Header="test@gmail.com">
+                    <TreeViewItem Header="Inbox"></TreeViewItem>
+                    <TreeViewItem Header="Sent items"></TreeViewItem>
+                    <TreeViewItem Header="deleted items"></TreeViewItem>
+                    <TreeViewItem Header="Starred"></TreeViewItem>
+                </TreeViewItem>
+                <TreeViewItem Header="email@coyg.com">
+                    <TreeViewItem Header="Inbox"></TreeViewItem>
+                    <TreeViewItem Header="Sent items"></TreeViewItem>
+                    <TreeViewItem Header="deleted items"></TreeViewItem>
+                    <TreeViewItem Header="Starred"></TreeViewItem>
+                </TreeViewItem>
+            </TreeView>
+            
+        <ListView Height="Auto" HorizontalAlignment="Left" Width="200" Margin="10,5,10,10" Background="WhiteSmoke">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
+        </StackPanel>
         <StackPanel Orientation="Vertical">
             <Grid x:Name="TopGrid" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="50" Background="WhiteSmoke">
                 <Menu x:Name="MainMenu" HorizontalAlignment="Left" VerticalAlignment="Top" Background="WhiteSmoke" BorderThickness="2" FontSize="16" Margin="10,10,0,0">
@@ -25,43 +41,39 @@
                         </ItemsPanelTemplate>
                     </Menu.ItemsPanel>
 
-                    <MenuItem Header="Compose" Margin="10,0,0,0" FontWeight="Bold">
-                        <Button x:Name="ComposeButton">
+                    <MenuItem Header="File" Margin="10,0,0,0" FontWeight="Bold">
+                        <MenuItem Header="New Message">
 
-                        </Button>
-                    </MenuItem>
-                    <MenuItem Header="Delete" Margin="50,0,0,0">
-                        <Button x:Name="DeleteButton"></Button>
-                    </MenuItem>
-                    <MenuItem Header="Reply" Margin="50,0,0,0">
-                        <Button x:Name="ReplyButton"></Button>
-                    </MenuItem>
-                    <MenuItem Header="Reply to all" Margin="10,0,0,0">
-                        <Button x:Name="ReplyToAllButton">
+                        </MenuItem>
+                        <MenuItem Header="Exit">
 
-                        </Button>
+                        </MenuItem>
                     </MenuItem>
-                    <MenuItem Header="Forward" Margin="10,0,0,0">
-                        <Button x:Name="ForwardButton">
-
-                        </Button>
-                    </MenuItem>
-                    <MenuItem Header="Star" Margin="10,0,0,0">
-                        <Button x:Name="StarButton">
-
-                        </Button>
-                    </MenuItem>
-
                 </Menu>
 
+                <ToolBar VerticalAlignment="Top" Margin="100,10,250,10">
+                    <Button Content="Delete" Margin="50,0,0,0">
+
+                    </Button>
+                    <Button Content="Reply" Margin="50,0,0,0">
+
+                    </Button>
+                    <Button Content="Reply to all" Margin="10,0,0,0">
+
+                    </Button>
+                    <Button Content="Forward" Margin="10,0,0,0">
+
+                    </Button>
+                    <Button Content="Star" Margin="10,0,0,0">
+
+                    </Button>
+                </ToolBar>
+
                 <TextBox x:Name="SearchTextBox" Text="Search" HorizontalAlignment="Right" Width="200" Margin="20,15,20,15" TextBlock.FontStyle="Normal">
-                    
+
                 </TextBox>
-                
             </Grid>
-
-            <TextBlock Background="LightGray" HorizontalAlignment="Right" Width="550" Margin="50,10,10,10" Height="auto"></TextBlock>
-
         </StackPanel>
+        <TextBlock Background="LightGray" HorizontalAlignment="Right" Width="550" Margin="250,60,10,10" Height="auto"></TextBlock>
     </Grid>
 </Window>
