@@ -8,22 +8,22 @@
         Title="E-mail Client" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <TreeView VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,55,0,0">
+            <TreeView VerticalAlignment="Top" HorizontalAlignment="Left" Width="230" Margin="10,60,0,0">
                 <TreeViewItem Header="test@gmail.com">
                     <TreeViewItem Header="Inbox"></TreeViewItem>
                     <TreeViewItem Header="Sent items"></TreeViewItem>
-                    <TreeViewItem Header="deleted items"></TreeViewItem>
+                    <TreeViewItem Header="Deleted items"></TreeViewItem>
                     <TreeViewItem Header="Starred"></TreeViewItem>
                 </TreeViewItem>
                 <TreeViewItem Header="email@coyg.com">
                     <TreeViewItem Header="Inbox"></TreeViewItem>
                     <TreeViewItem Header="Sent items"></TreeViewItem>
-                    <TreeViewItem Header="deleted items"></TreeViewItem>
+                    <TreeViewItem Header="Deleted items"></TreeViewItem>
                     <TreeViewItem Header="Starred"></TreeViewItem>
                 </TreeViewItem>
             </TreeView>
             
-        <ListView Height="Auto" HorizontalAlignment="Left" Width="200" Margin="10,5,10,10" Background="WhiteSmoke">
+        <ListView Height="Auto" HorizontalAlignment="Left" Width="230" Margin="10,5,10,10" Background="WhiteSmoke">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
@@ -69,8 +69,8 @@
                     </Button>
                 </ToolBar>
 
-                <TextBox x:Name="SearchTextBox" Text="Search" HorizontalAlignment="Right" Width="200" Margin="20,15,20,15" TextBlock.FontStyle="Normal">
-
+                <TextBox x:Name="SearchTextBox" HorizontalAlignment="Right" Width="200" Margin="20,15,20,15" TextBlock.FontStyle="Normal">
+                    Search
                 </TextBox>
             </Grid>
         </StackPanel>
