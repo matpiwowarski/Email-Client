@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
 
-        <ListView Height="Auto" Margin="100,50,20,20" Background="LightGray">
+        <ListView Height="Auto" HorizontalAlignment="Left" Width="200" Margin="10,60,10,10" Background="WhiteSmoke">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
@@ -24,16 +24,44 @@
                             <VirtualizingStackPanel Orientation="Horizontal"></VirtualizingStackPanel>
                         </ItemsPanelTemplate>
                     </Menu.ItemsPanel>
-               
-                    <MenuItem Header="Compose" Margin="10,0,0,0" FontWeight="Bold"></MenuItem>
-                    <MenuItem Header="Delete" Margin="50,0,0,0"></MenuItem>
-                    <MenuItem Header="Reply" Margin="50,0,0,0"></MenuItem>
-                    <MenuItem Header="Send forward" Margin="10,0,0,0"></MenuItem>
-                    <MenuItem Header="Star" Margin="10,0,0,0"></MenuItem>
 
+                    <MenuItem Header="Compose" Margin="10,0,0,0" FontWeight="Bold">
+                        <Button x:Name="ComposeButton">
+
+                        </Button>
+                    </MenuItem>
+                    <MenuItem Header="Delete" Margin="50,0,0,0">
+                        <Button x:Name="DeleteButton"></Button>
+                    </MenuItem>
+                    <MenuItem Header="Reply" Margin="50,0,0,0">
+                        <Button x:Name="ReplyButton"></Button>
+                    </MenuItem>
+                    <MenuItem Header="Reply to all" Margin="10,0,0,0">
+                        <Button x:Name="ReplyToAllButton">
+
+                        </Button>
+                    </MenuItem>
+                    <MenuItem Header="Forward" Margin="10,0,0,0">
+                        <Button x:Name="ForwardButton">
+
+                        </Button>
+                    </MenuItem>
+                    <MenuItem Header="Star" Margin="10,0,0,0">
+                        <Button x:Name="StarButton">
+
+                        </Button>
+                    </MenuItem>
 
                 </Menu>
+
+                <TextBox x:Name="SearchTextBox" Text="Search" HorizontalAlignment="Right" Width="200" Margin="20,15,20,15" TextBlock.FontStyle="Normal">
+                    
+                </TextBox>
+                
             </Grid>
+
+            <TextBlock Background="LightGray" HorizontalAlignment="Right" Width="550" Margin="50,10,10,10" Height="auto"></TextBlock>
+
         </StackPanel>
     </Grid>
 </Window>
