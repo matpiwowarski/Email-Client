@@ -6,33 +6,10 @@
         xmlns:local="clr-namespace:E_mail_Client"
         mc:Ignorable="d"
         Title="E-mail Client" Height="450" Width="800">
-    <Grid>
-        <StackPanel>
-            <TreeView VerticalAlignment="Top" HorizontalAlignment="Left" Width="230" Margin="10,60,0,0">
-                <TreeViewItem Header="test@gmail.com">
-                    <TreeViewItem Header="Inbox"></TreeViewItem>
-                    <TreeViewItem Header="Sent items"></TreeViewItem>
-                    <TreeViewItem Header="Deleted items"></TreeViewItem>
-                    <TreeViewItem Header="Starred"></TreeViewItem>
-                </TreeViewItem>
-                <TreeViewItem Header="email@coyg.com">
-                    <TreeViewItem Header="Inbox"></TreeViewItem>
-                    <TreeViewItem Header="Sent items"></TreeViewItem>
-                    <TreeViewItem Header="Deleted items"></TreeViewItem>
-                    <TreeViewItem Header="Starred"></TreeViewItem>
-                </TreeViewItem>
-            </TreeView>
-
-            <ListView HorizontalAlignment="Left" Width="230" Margin="10,5,10,10" Background="WhiteSmoke">
-                <ListViewItem>Message 1</ListViewItem>
-                <ListViewItem>Message 2</ListViewItem>
-                <ListViewItem>Message 3</ListViewItem>
-                <ListViewItem>Message 4</ListViewItem>
-        </ListView>
-        </StackPanel>
+    <Grid Background="#FF376DCB">
         <StackPanel Orientation="Vertical">
-            <Grid x:Name="TopGrid" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="50" Background="WhiteSmoke">
-                <Menu x:Name="MainMenu" HorizontalAlignment="Left" VerticalAlignment="Top" Background="WhiteSmoke" BorderThickness="2" FontSize="16" Margin="10,10,0,0">
+            <Grid x:Name="TopGrid" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="50" Background="Gray">
+                <Menu x:Name="MainMenu" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Gray" BorderThickness="2" FontSize="16" Margin="10,10,0,0" Foreground="White">
 
                     <Menu.ItemsPanel>
                         <ItemsPanelTemplate>
@@ -40,45 +17,45 @@
                         </ItemsPanelTemplate>
                     </Menu.ItemsPanel>
 
-                    <MenuItem Header="File" Margin="10,0,0,0" FontWeight="Bold">
-                        <MenuItem Header="New Message">
+                    <MenuItem Header="File" Margin="10,0,0,0" FontWeight="Bold" Background="Gray">
+                        <MenuItem Header="New Message" Background="Gray">
 
                         </MenuItem>
-                        <MenuItem Header="Exit">
+                        <MenuItem Header="Exit" Background="Gray">
 
                         </MenuItem>
                     </MenuItem>
                 </Menu>
 
-                <ToolBar VerticalAlignment="Top" Margin="100,5,230,5" HorizontalAlignment="Center">
+                <ToolBar VerticalAlignment="Top" Margin="100,5,230,5" HorizontalAlignment="Center" Background="#FF376DCB">
                     <Button Width="85" Height="35" HorizontalAlignment="Left">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="delete.png" ></Image>
-                            <Label FontSize="12">Delete</Label>
+                            <Label FontSize="12" Foreground="White">Delete</Label>
                         </StackPanel>
                     </Button>
                     <Button Width="85" Height="35" HorizontalAlignment="Left">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="mail.png" ></Image>
-                            <Label FontSize="12">Reply</Label>
+                            <Label FontSize="12" Foreground="White">Reply</Label>
                         </StackPanel>
                     </Button>
                     <Button Width="85" Height="35" HorizontalAlignment="Left">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="mail.png" ></Image>
-                            <Label FontSize="12">Reply all</Label>
+                            <Label FontSize="12" Foreground="White">Reply all</Label>
                         </StackPanel>
                     </Button>
                     <Button Width="85" Height="35" HorizontalAlignment="Left">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="mail.png" ></Image>
-                            <Label FontSize="12">Forward</Label>
+                            <Label FontSize="12" Foreground="White">Forward</Label>
                         </StackPanel>
                     </Button>
                     <Button Width="85" Height="35" HorizontalAlignment="Left">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="star.png"></Image>
-                            <Label FontSize="12">Star</Label>
+                            <Label FontSize="12" Foreground="White">Star</Label>
                         </StackPanel>
                     </Button>
                 </ToolBar>
@@ -88,6 +65,30 @@
                 </TextBox>
             </Grid>
         </StackPanel>
-        <TextBlock Background="LightGray" HorizontalAlignment="Stretch" Margin="250,60,10,10" Height="auto"></TextBlock>
+        <StackPanel>
+            <TreeView VerticalAlignment="Top" HorizontalAlignment="Left" Width="230" Margin="10,65,10,5" Background="Gray" Foreground="White">
+                <TreeViewItem Header="test@gmail.com" Foreground="White">
+                    <TreeViewItem Header="Inbox" Foreground="White"></TreeViewItem>
+                    <TreeViewItem Header="Sent items" Foreground="White"></TreeViewItem>
+                    <TreeViewItem Header="Deleted items" Foreground="White"></TreeViewItem>
+                    <TreeViewItem Header="Starred" Foreground="White"></TreeViewItem>
+                </TreeViewItem>
+                <TreeViewItem Header="email@coyg.com" Foreground="White">
+                    <TreeViewItem Header="Inbox" Foreground="White"></TreeViewItem>
+                    <TreeViewItem Header="Sent items" Foreground="White"></TreeViewItem>
+                    <TreeViewItem Header="Deleted items" Foreground="White"></TreeViewItem>
+                    <TreeViewItem Header="Starred" Foreground="White"></TreeViewItem>
+                </TreeViewItem>
+            </TreeView>
+
+            <ListView HorizontalAlignment="Left" Width="230" Margin="10,5,10,10" Background="Gray" Foreground="White">
+                <ListViewItem>Message 1</ListViewItem>
+                <ListViewItem>Message 2</ListViewItem>
+                <ListViewItem>Message 3</ListViewItem>
+                <ListViewItem>Message 4</ListViewItem>
+            </ListView>
+        </StackPanel>
+        
+        <TextBlock Background="DimGray" HorizontalAlignment="Stretch" Margin="255,65,10,15" Height="auto"></TextBlock>
     </Grid>
 </Window>
