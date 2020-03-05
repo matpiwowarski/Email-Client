@@ -7,4 +7,29 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="delete.png" />
+    <None Remove="mail.png" />
+    <None Remove="Resources\Icons Info.txt" />
+    <None Remove="star.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="delete.png" />
+    <Resource Include="mail.png" />
+    <Resource Include="star.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Resources\delete.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\mail.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\star.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

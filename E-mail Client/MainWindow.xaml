@@ -22,13 +22,12 @@
                     <TreeViewItem Header="Starred"></TreeViewItem>
                 </TreeViewItem>
             </TreeView>
-            
-        <ListView Height="Auto" HorizontalAlignment="Left" Width="230" Margin="10,5,10,10" Background="WhiteSmoke">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
+
+            <ListView HorizontalAlignment="Left" Width="230" Margin="10,5,10,10" Background="WhiteSmoke">
+                <ListViewItem>Message 1</ListViewItem>
+                <ListViewItem>Message 2</ListViewItem>
+                <ListViewItem>Message 3</ListViewItem>
+                <ListViewItem>Message 4</ListViewItem>
         </ListView>
         </StackPanel>
         <StackPanel Orientation="Vertical">
@@ -51,25 +50,40 @@
                     </MenuItem>
                 </Menu>
 
-                <ToolBar VerticalAlignment="Top" Margin="100,10,250,10">
-                    <Button Content="Delete" Margin="50,0,0,0">
-
+                <ToolBar VerticalAlignment="Top" Margin="100,5,230,5" HorizontalAlignment="Center">
+                    <Button Width="85" Height="35" HorizontalAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="delete.png" ></Image>
+                            <Label FontSize="12">Delete</Label>
+                        </StackPanel>
                     </Button>
-                    <Button Content="Reply" Margin="50,0,0,0">
-
+                    <Button Width="85" Height="35" HorizontalAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="mail.png" ></Image>
+                            <Label FontSize="12">Reply</Label>
+                        </StackPanel>
                     </Button>
-                    <Button Content="Reply to all" Margin="10,0,0,0">
-
+                    <Button Width="85" Height="35" HorizontalAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="mail.png" ></Image>
+                            <Label FontSize="12">Reply all</Label>
+                        </StackPanel>
                     </Button>
-                    <Button Content="Forward" Margin="10,0,0,0">
-
+                    <Button Width="85" Height="35" HorizontalAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="mail.png" ></Image>
+                            <Label FontSize="12">Forward</Label>
+                        </StackPanel>
                     </Button>
-                    <Button Content="Star" Margin="10,0,0,0">
-
+                    <Button Width="85" Height="35" HorizontalAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="star.png"></Image>
+                            <Label FontSize="12">Star</Label>
+                        </StackPanel>
                     </Button>
                 </ToolBar>
 
-                <TextBox x:Name="SearchTextBox" HorizontalAlignment="Right" Width="200" Margin="20,15,20,15" TextBlock.FontStyle="Normal">
+                <TextBox x:Name="SearchTextBox" HorizontalAlignment="Right" Width="200" Margin="100,15,20,15" TextBlock.FontStyle="Normal">
                     Search
                 </TextBox>
             </Grid>
