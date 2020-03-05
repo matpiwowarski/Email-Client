@@ -7,7 +7,18 @@
         mc:Ignorable="d"
         Title="E-mail Client" Height="450" Width="800">
     <Grid Background="#FF376DCB">
-        <StackPanel Orientation="Vertical">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        
+        <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
             <Grid x:Name="TopGrid" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="50" Background="Gray">
                 <Menu x:Name="MainMenu" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Gray" BorderThickness="2" FontSize="16" Margin="10,10,0,0" Foreground="White">
 
@@ -65,7 +76,7 @@
                 </TextBox>
             </Grid>
         </StackPanel>
-        <StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="1">
             <TreeView VerticalAlignment="Top" HorizontalAlignment="Left" Width="230" Margin="10,65,10,5" Background="Gray" Foreground="White">
                 <TreeViewItem Header="test@gmail.com" Foreground="White">
                     <TreeViewItem Header="Inbox" Foreground="White"></TreeViewItem>
@@ -89,6 +100,6 @@
             </ListView>
         </StackPanel>
         
-        <TextBlock Background="DimGray" HorizontalAlignment="Stretch" Margin="255,65,10,15" Height="auto"></TextBlock>
+        <TextBlock Background="DimGray" HorizontalAlignment="Stretch" Margin="15,15,15,15" Height="auto" Grid.Row="1" Grid.Column="1"></TextBlock>
     </Grid>
 </Window>
