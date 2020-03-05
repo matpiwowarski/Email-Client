@@ -14,70 +14,66 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        
-        
-        <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
-            <Grid x:Name="TopGrid" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="50" Background="Gray">
-                <Menu x:Name="MainMenu" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Gray" BorderThickness="2" FontSize="16" Margin="10,10,0,0" Foreground="White">
 
-                    <Menu.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <VirtualizingStackPanel Orientation="Horizontal"></VirtualizingStackPanel>
-                        </ItemsPanelTemplate>
-                    </Menu.ItemsPanel>
+        <Grid x:Name="TopGrid" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="50" Background="Gray" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+            <Menu x:Name="MainMenu" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Gray" BorderThickness="2" FontSize="16" Margin="10,10,0,0" Foreground="White">
+                <Menu.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel Orientation="Horizontal"></VirtualizingStackPanel>
+                    </ItemsPanelTemplate>
+                </Menu.ItemsPanel>
 
-                    <MenuItem Header="File" Margin="10,0,0,0" FontWeight="Bold" Background="Gray">
-                        <MenuItem Header="New Message" Background="Gray">
+                <MenuItem Header="File" Margin="10,0,0,0" FontWeight="Bold" Background="Gray">
+                    <MenuItem Header="New Message" Background="Gray">
 
-                        </MenuItem>
-                        <MenuItem Header="Exit" Background="Gray">
-
-                        </MenuItem>
                     </MenuItem>
-                </Menu>
+                    <MenuItem Header="Exit" Background="Gray">
 
-                <ToolBar VerticalAlignment="Top" Margin="100,5,230,5" HorizontalAlignment="Center" Background="#FF376DCB">
-                    <Button Width="85" Height="35" HorizontalAlignment="Left">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="delete.png" ></Image>
-                            <Label FontSize="12" Foreground="White">Delete</Label>
-                        </StackPanel>
-                    </Button>
-                    <Button Width="85" Height="35" HorizontalAlignment="Left">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="mail.png" ></Image>
-                            <Label FontSize="12" Foreground="White">Reply</Label>
-                        </StackPanel>
-                    </Button>
-                    <Button Width="85" Height="35" HorizontalAlignment="Left">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="mail.png" ></Image>
-                            <Label FontSize="12" Foreground="White">Reply all</Label>
-                        </StackPanel>
-                    </Button>
-                    <Button Width="85" Height="35" HorizontalAlignment="Left">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="mail.png" ></Image>
-                            <Label FontSize="12" Foreground="White">Forward</Label>
-                        </StackPanel>
-                    </Button>
-                    <Button Width="85" Height="35" HorizontalAlignment="Left">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="star.png"></Image>
-                            <Label FontSize="12" Foreground="White">Star</Label>
-                        </StackPanel>
-                    </Button>
-                </ToolBar>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
 
-                <TextBox x:Name="SearchTextBox" HorizontalAlignment="Right" Width="200" Margin="100,15,20,15" TextBlock.FontStyle="Normal">
-                    Search
-                </TextBox>
-            </Grid>
-        </StackPanel>
-        <StackPanel Grid.Column="0" Grid.Row="1">
-            <TreeView VerticalAlignment="Top" HorizontalAlignment="Left" Width="230" Margin="10,65,10,5" Background="Gray" Foreground="White">
+            <ToolBar VerticalAlignment="Top" Margin="100,5,230,5" HorizontalAlignment="Center" Background="#FF376DCB">
+                <Button Width="85" Height="35" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="delete.png" ></Image>
+                        <Label FontSize="12" Foreground="White">Delete</Label>
+                    </StackPanel>
+                </Button>
+                <Button Width="85" Height="35" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="mail.png" ></Image>
+                        <Label FontSize="12" Foreground="White">Reply</Label>
+                    </StackPanel>
+                </Button>
+                <Button Width="85" Height="35" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="mail.png" ></Image>
+                        <Label FontSize="12" Foreground="White">Reply all</Label>
+                    </StackPanel>
+                </Button>
+                <Button Width="85" Height="35" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="mail.png" ></Image>
+                        <Label FontSize="12" Foreground="White">Forward</Label>
+                    </StackPanel>
+                </Button>
+                <Button Width="85" Height="35" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="star.png"></Image>
+                        <Label FontSize="12" Foreground="White">Star</Label>
+                    </StackPanel>
+                </Button>
+            </ToolBar>
+
+            <TextBox x:Name="SearchTextBox" HorizontalAlignment="Right" Width="200" Margin="150,15,20,15" TextBlock.FontStyle="Normal">
+                Search
+            </TextBox>
+        </Grid>
+        <TreeView Grid.Column="0" Grid.Row="1" Margin="10,15,10,5" Background="Gray" Foreground="White">
                 <TreeViewItem Header="test@gmail.com" Foreground="White">
                     <TreeViewItem Header="Inbox" Foreground="White"></TreeViewItem>
                     <TreeViewItem Header="Sent items" Foreground="White"></TreeViewItem>
@@ -92,14 +88,29 @@
                 </TreeViewItem>
             </TreeView>
 
-            <ListView HorizontalAlignment="Left" Width="230" Margin="10,5,10,10" Background="Gray" Foreground="White">
+            <ListView Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="Auto" Margin="10,10,10,10"  Background="Gray" Foreground="White">
                 <ListViewItem>Message 1</ListViewItem>
                 <ListViewItem>Message 2</ListViewItem>
                 <ListViewItem>Message 3</ListViewItem>
                 <ListViewItem>Message 4</ListViewItem>
+                <ListViewItem>Message 5</ListViewItem>
+                <ListViewItem>Message 6</ListViewItem>
+                <ListViewItem>Message 7</ListViewItem>
+                <ListViewItem>Message 8</ListViewItem>
+                <ListViewItem>Message 9</ListViewItem>
+                <ListViewItem>Message 10</ListViewItem>
+                <ListViewItem>Message 11</ListViewItem>
+                <ListViewItem>Message 12</ListViewItem>
+                <ListViewItem>Message 13</ListViewItem>
+                <ListViewItem>Message 14</ListViewItem>
+                <ListViewItem>Message 15</ListViewItem>
+                <ListViewItem>Message 16</ListViewItem>
+                <ListViewItem>Message 17</ListViewItem>
+                <ListViewItem>Message 18</ListViewItem>
+                <ListViewItem>Message 19</ListViewItem>
+                <ListViewItem>Message 20</ListViewItem>
             </ListView>
-        </StackPanel>
-        
-        <TextBlock Background="DimGray" HorizontalAlignment="Stretch" Margin="15,15,15,15" Height="auto" Grid.Row="1" Grid.Column="1"></TextBlock>
+            
+            <TextBlock Background="DimGray" HorizontalAlignment="Stretch" Margin="10,15,15,15" Height="auto" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"></TextBlock>
     </Grid>
 </Window>
