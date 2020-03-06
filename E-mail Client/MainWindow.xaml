@@ -43,33 +43,33 @@
             </Menu>
 
             <ToolBar Grid.Column="1" VerticalAlignment="Top" Margin="10,5,10,5" HorizontalAlignment="Center" Background="#FF376DCB">
-                <Button Width="85" Height="35" HorizontalAlignment="Left">
+                <Button Width="85" Height="35" HorizontalAlignment="Left" Background="#FF376DCB">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="Resources/delete.png" ></Image>
+                        <Image Source="delete.png" ></Image>
                         <Label FontSize="12" Foreground="White">Delete</Label>
                     </StackPanel>
                 </Button>
-                <Button Width="85" Height="35" HorizontalAlignment="Left">
+                <Button Width="85" Height="35" HorizontalAlignment="Left" Background="#FF376DCB">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="Resources/mail.png" ></Image>
+                        <Image Source="mail.png" ></Image>
                         <Label FontSize="12" Foreground="White">Reply</Label>
                     </StackPanel>
                 </Button>
-                <Button Width="85" Height="35" HorizontalAlignment="Left">
+                <Button Width="85" Height="35" HorizontalAlignment="Left" Background="#FF376DCB">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="Resources/mail.png" ></Image>
+                        <Image Source="mail.png"></Image>
                         <Label FontSize="12" Foreground="White">Reply all</Label>
                     </StackPanel>
                 </Button>
-                <Button Width="85" Height="35" HorizontalAlignment="Left">
+                <Button Width="85" Height="35" HorizontalAlignment="Left" Background="#FF376DCB">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="Resources/mail.png" ></Image>
+                        <Image Source="mail.png"></Image>
                         <Label FontSize="12" Foreground="White">Forward</Label>
                     </StackPanel>
                 </Button>
-                <Button Width="85" Height="35" HorizontalAlignment="Left">
+                <Button Width="85" Height="35" HorizontalAlignment="Left" Background="#FF376DCB">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="Resources/star.png"></Image>
+                        <Image Source="star.png"></Image>
                         <Label FontSize="12" Foreground="White">Star</Label>
                     </StackPanel>
                 </Button>

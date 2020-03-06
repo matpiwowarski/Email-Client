@@ -17,6 +17,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="delete.png" />
+    <Resource Include="mail.png" />
+    <Resource Include="star.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Resources\delete.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
