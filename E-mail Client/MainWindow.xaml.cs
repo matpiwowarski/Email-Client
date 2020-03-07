@@ -92,5 +92,10 @@ namespace E_mail_Client
         {
             MessagesListView.Items.Clear();
         }
+
+        private void ExitMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
     }
 }

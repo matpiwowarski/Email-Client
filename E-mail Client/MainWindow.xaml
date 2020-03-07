@@ -36,7 +36,7 @@
                     <MenuItem Header="New Message" Background="Gray">
 
                     </MenuItem>
-                    <MenuItem Header="Exit" Background="Gray">
+                    <MenuItem Header="Exit" Background="Gray" Click="ExitMenuItem_Click">
 
                     </MenuItem>
                 </MenuItem>
