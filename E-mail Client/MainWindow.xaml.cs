@@ -31,63 +31,66 @@ namespace E_mail_Client
             Mailbox fakeMailbox = new Mailbox("test@test.pl");
 
             controller.LoadTreeViewEmails(myMailbox, fakeMailbox);
-            /*
-            Mail mail1 = new Mail("a1", "r1", "t1", "content1");
-            Mail mail2 = new Mail("a1", "r1", "t1", "content2");
-            Mail mail3 = new Mail("a1", "r1", "t1", "content3");
-            Mail mail4 = new Mail("a1", "r1", "t1", "content4");
-            Mail mail5 = new Mail("a1", "r1", "t1", "content5");
-            */
+            
+            Mail mail1 = new Mail("content1");
+            Mail mail2 = new Mail("content2");
+            Mail mail3 = new Mail("content3");
+            Mail mail4 = new Mail("content4");
+            Mail mail5 = new Mail("content5");
+            Mail mail6 = new Mail("content6");
+
+            //controller.LoadMails(myMailbox, mail1, mail2, mail3);
+            //controller.LoadMails(fakeMailbox, mail4, mail5, mail6);
         }
 
         private void Email1TreeViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-           
+            MessagesListView.Items.Clear();
         }
 
         private void Inbox1TreeViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-
+            MessagesListView.Items.Clear();
         }
 
         private void Sent1TreeViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-
+            MessagesListView.Items.Clear();
         }
 
         private void Deleted1TreeViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-
+            MessagesListView.Items.Clear();
         }
 
         private void Starred1TreeViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-
+            MessagesListView.Items.Clear();
         }
 
         private void Email2TreeViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-
+            MessagesListView.Items.Clear();
         }
 
         private void Inbox2TreeViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-
+            MessagesListView.Items.Clear();
         }
 
         private void Sent2TreeViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-
+            MessagesListView.Items.Clear();
         }
 
         private void Deleted2TreeViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-
+            MessagesListView.Items.Clear();
         }
 
         private void Starred2TreeViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-
+            MessagesListView.Items.Clear();
         }
     }
 }

@@ -23,12 +23,13 @@ namespace E_mail_Client
 
             foreach(Mailbox m in mailboxes)
             {
-                TreeViewItem mailbox = new TreeViewItem();
-                mailbox.Header = m.MailAddress;
-                mailbox.Foreground = Brushes.White;
-
-                _window.EmailTreeView.Items.Add(mailbox);
+                _window.EmailTreeView.Items.Add(m);
             }
+        }
+
+        public void LoadMails(Mailbox mailbox, params Mail[] mails)
+        {
+            mailbox.Inbox.AddMails(mails);
         }
     }
 }

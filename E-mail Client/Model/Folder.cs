@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace E_mail_Client.Model
 {
-    public class Folder
+    public class Folder: TreeViewItem
     {
         private string _folderName;
         public List<Mail> Mails { get; set; }
@@ -20,6 +22,10 @@ namespace E_mail_Client.Model
         {
             this.Mails = new List<Mail>();
             _folderName = folderName;
+
+            // TreeViewItem properties
+            this.Header = folderName;
+            this.Foreground = Brushes.White;
         }
 
     }

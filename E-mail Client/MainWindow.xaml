@@ -92,9 +92,9 @@
                     <TreeViewItem Header="Deleted items" Foreground="White" MouseDoubleClick="Deleted2TreeViewItem_MouseDoubleClick"></TreeViewItem>
                     <TreeViewItem Header="Starred" Foreground="White" MouseDoubleClick="Starred2TreeViewItem_MouseDoubleClick"></TreeViewItem>
                 </TreeViewItem>
-            </TreeView>
+        </TreeView>
 
-            <ListView Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="Auto" Margin="10,10,10,10"  Background="Gray" Foreground="White">
+            <ListView x:Name="MessagesListView" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="Auto" Margin="10,10,10,10"  Background="Gray" Foreground="White">
                 <ListViewItem>Message 1</ListViewItem>
                 <ListViewItem>Message 2</ListViewItem>
                 <ListViewItem>Message 3</ListViewItem>

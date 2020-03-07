@@ -1,33 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace E_mail_Client.Model
 {
-    public class Mailbox
+    public class Mailbox: TreeViewItem
     {
         public string MailAddress;
 
-        public List<Folder> Folders { get; set; }
+        public Folder Inbox = new Folder("Inbox");
+        public Folder Sent = new Folder("Sent items");
+        public Folder Deleted = new Folder("Deleted items");
+        public Folder Starred = new Folder("Starred");
 
         public Mailbox(string mailAddress)
         {
-            this.Folders = new List<Folder>();
             this.MailAddress = mailAddress;
 
-            Folder inbox = new Folder("Inbox");
-            Folder sent = new Folder("Sent items");
-            Folder deleted = new Folder("Deleted items");
-            Folder starred = new Folder("Starred");
+            this.Inbox = new Folder("Inbox");
+            this.Sent = new Folder("Sent items");
+            this.Deleted = new Folder("Deleted items");
+            this.Starred = new Folder("Starred");
 
-            AddFolders(inbox, sent, deleted, starred);
-        }
-        public void AddFolders(params Folder[] folders)
-        {
-            foreach (Folder folder in folders)
-            {
-                Folders.Add(folder);
-            }
+
+            // TreeViewItem properties
+            this.Header = mailAddress;
+            this.Foreground = Brushes.White;
+            this.Items.Add(Inbox);
+            this.Items.Add(Sent);
+            this.Items.Add(Deleted);
+            this.Items.Add(Starred);
         }
     }
 }
