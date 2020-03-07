@@ -39,8 +39,8 @@ namespace E_mail_Client
             Mail mail5 = new Mail("content5");
             Mail mail6 = new Mail("content6");
 
-            //controller.LoadMails(myMailbox, mail1, mail2, mail3);
-            //controller.LoadMails(fakeMailbox, mail4, mail5, mail6);
+            controller.AddMails(myMailbox, mail1, mail2, mail3);
+            controller.AddMails(fakeMailbox, mail4, mail5, mail6);
         }
 
         private void Email1TreeViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)

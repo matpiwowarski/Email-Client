@@ -10,8 +10,12 @@ namespace E_mail_Client
 {
     public class Controller
     {
-        private MainWindow _window;
+        static private MainWindow _window;
 
+        public Controller()
+        {
+
+        }
         public Controller(MainWindow window)
         {
             _window = window;
@@ -27,9 +31,19 @@ namespace E_mail_Client
             }
         }
 
-        public void LoadMails(Mailbox mailbox, params Mail[] mails)
+        public void AddMails(Mailbox mailbox, params Mail[] mails)
         {
             mailbox.Inbox.AddMails(mails);
+        }
+
+        public void LoadMails(Folder folder)
+        {
+            _window.MessagesListView.Items.Clear();
+
+            foreach(Mail m in folder.Mails)
+            {
+                _window.MessagesListView.Items.Add(m);
+            }
         }
     }
 }

@@ -26,7 +26,15 @@ namespace E_mail_Client.Model
             // TreeViewItem properties
             this.Header = folderName;
             this.Foreground = Brushes.White;
+
+            this.MouseDoubleClick += Folder_MouseDoubleClick;
         }
 
+        private void Folder_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            Controller controller = new Controller();
+
+            controller.LoadMails(this);
+        }
     }
 }
