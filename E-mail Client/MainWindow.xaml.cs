@@ -1,5 +1,4 @@
-﻿using E_mail_Client.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,24 +22,33 @@ namespace E_mail_Client
     {
         public MainWindow()
         {
+            String mail1 = "mail1";
+            String mail2 = "mail2";
+            String mail3 = "mail3";
+            String mail4 = "mail4";
+            String mail5 = "mail5";
+            String mail6 = "mail6";
+            String mail7 = "mail7";
+            String mail8 = "mail8";
+            String mail9 = "mail9";
+            String mail10 = "mail10";
+
+            List<String> email1 = new List<String>();
+            List<String> email2 = new List<String>();
+
+            email1.Add(mail1);
+            email1.Add(mail2);
+            email1.Add(mail3);
+            email1.Add(mail4);
+            email1.Add(mail5);
+
+            email2.Add(mail6);
+            email2.Add(mail7);
+            email2.Add(mail8);
+            email2.Add(mail9);
+            email2.Add(mail10);
+
             InitializeComponent();
-
-            Controller controller = new Controller(this);
-
-            Mailbox myMailbox = new Mailbox("matpiwowarski7@gmail.com");
-            Mailbox fakeMailbox = new Mailbox("test@test.pl");
-
-            controller.LoadTreeViewEmails(myMailbox, fakeMailbox);
-            
-            Mail mail1 = new Mail("content1");
-            Mail mail2 = new Mail("content2");
-            Mail mail3 = new Mail("content3");
-            Mail mail4 = new Mail("content4");
-            Mail mail5 = new Mail("content5");
-            Mail mail6 = new Mail("content6");
-
-            //controller.LoadMails(myMailbox, mail1, mail2, mail3);
-            //controller.LoadMails(fakeMailbox, mail4, mail5, mail6);
         }
 
         private void Email1TreeViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)

@@ -105,17 +105,7 @@
                 <ListViewItem>Message 8</ListViewItem>
                 <ListViewItem>Message 9</ListViewItem>
                 <ListViewItem>Message 10</ListViewItem>
-                <ListViewItem>Message 11</ListViewItem>
-                <ListViewItem>Message 12</ListViewItem>
-                <ListViewItem>Message 13</ListViewItem>
-                <ListViewItem>Message 14</ListViewItem>
-                <ListViewItem>Message 15</ListViewItem>
-                <ListViewItem>Message 16</ListViewItem>
-                <ListViewItem>Message 17</ListViewItem>
-                <ListViewItem>Message 18</ListViewItem>
-                <ListViewItem>Message 19</ListViewItem>
-                <ListViewItem>Message 20</ListViewItem>
-            </ListView>
+        </ListView>
             
             <TextBlock Background="DimGray" HorizontalAlignment="Stretch" Margin="10,15,15,15" Height="auto" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"></TextBlock>
     </Grid>
