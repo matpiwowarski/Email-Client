@@ -117,6 +117,6 @@
                 <ListViewItem>Message 20</ListViewItem>
             </ListView>
             
-            <TextBlock Background="DimGray" HorizontalAlignment="Stretch" Margin="10,15,15,15" Height="auto" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"></TextBlock>
+            <TextBlock x:Name="MessageTextBlock" Text="Message Text" Background="DimGray" Foreground="White" HorizontalAlignment="Stretch" Margin="10,15,15,15" Height="auto" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"></TextBlock>
     </Grid>
 </Window>

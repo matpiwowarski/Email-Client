@@ -32,12 +32,12 @@ namespace E_mail_Client
 
             controller.LoadTreeViewEmails(myMailbox, fakeMailbox);
             
-            Mail mail1 = new Mail("content1");
-            Mail mail2 = new Mail("content2");
-            Mail mail3 = new Mail("content3");
-            Mail mail4 = new Mail("content4");
-            Mail mail5 = new Mail("content5");
-            Mail mail6 = new Mail("content6");
+            Mail mail1 = new Mail("message1", "content1");
+            Mail mail2 = new Mail("message2", "content2");
+            Mail mail3 = new Mail("message3", "content3");
+            Mail mail4 = new Mail("message4", "content4");
+            Mail mail5 = new Mail("message5", "content5");
+            Mail mail6 = new Mail("message6", "content6");
 
             controller.AddMails(myMailbox, mail1, mail2, mail3);
             controller.AddMails(fakeMailbox, mail4, mail5, mail6);

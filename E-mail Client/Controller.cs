@@ -45,5 +45,9 @@ namespace E_mail_Client
                 _window.MessagesListView.Items.Add(m);
             }
         }
+        public void LoadMail(Mail mail)
+        {
+            _window.MessageTextBlock.Text = mail.Text;
+        }
     }
 }

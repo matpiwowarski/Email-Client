@@ -19,13 +19,23 @@ namespace E_mail_Client.Model
             Text = content;
             // ListViewItem properties
             Content = content;
+            this.MouseDoubleClick += Mail_MouseDoubleClick;
         }
 
-        public Mail(string content)
+        private void Mail_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            Controller controller = new Controller();
+
+            controller.LoadMail(this);
+        }
+
+        public Mail(string topic, string content)
         {
             Text = content;
+            Topic = topic;
             // ListViewItem properties
-            Content = content;
+            Content = topic;
+            this.MouseDoubleClick += Mail_MouseDoubleClick;
         }
     }
 }
