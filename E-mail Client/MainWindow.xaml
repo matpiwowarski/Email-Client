@@ -79,18 +79,18 @@
                 Search
             </TextBox>
         </Grid>
-        <TreeView Grid.Column="0" Grid.Row="1" Margin="10,15,10,5" Background="Gray" Foreground="White">
-                <TreeViewItem Header="test@gmail.com" Foreground="White">
-                    <TreeViewItem Header="Inbox" Foreground="White"></TreeViewItem>
-                    <TreeViewItem Header="Sent items" Foreground="White"></TreeViewItem>
-                    <TreeViewItem Header="Deleted items" Foreground="White"></TreeViewItem>
-                    <TreeViewItem Header="Starred" Foreground="White"></TreeViewItem>
-                </TreeViewItem>
-                <TreeViewItem Header="email@coyg.com" Foreground="White">
-                    <TreeViewItem Header="Inbox" Foreground="White"></TreeViewItem>
-                    <TreeViewItem Header="Sent items" Foreground="White"></TreeViewItem>
-                    <TreeViewItem Header="Deleted items" Foreground="White"></TreeViewItem>
-                    <TreeViewItem Header="Starred" Foreground="White"></TreeViewItem>
+        <TreeView x:Name="EmailTreeView" Grid.Column="0" Grid.Row="1" Margin="10,15,10,5" Background="Gray" Foreground="White">
+            <TreeViewItem Header="test@gmail.com" Foreground="White" MouseDoubleClick="Email1TreeViewItem_MouseDoubleClick">
+                <TreeViewItem Header="Inbox" Foreground="White" MouseDoubleClick="Inbox1TreeViewItem_MouseDoubleClick"></TreeViewItem>
+                <TreeViewItem Header="Sent items" Foreground="White" MouseDoubleClick="Sent1TreeViewItem_MouseDoubleClick"></TreeViewItem>
+                <TreeViewItem Header="Deleted items" Foreground="White" MouseDoubleClick="Deleted1TreeViewItem_MouseDoubleClick"></TreeViewItem>
+                <TreeViewItem Header="Starred" Foreground="White" MouseDoubleClick="Starred1TreeViewItem_MouseDoubleClick"></TreeViewItem>
+            </TreeViewItem>
+            <TreeViewItem Header="email@coyg.com" Foreground="White" MouseDoubleClick="Email2TreeViewItem_MouseDoubleClick">
+                    <TreeViewItem Header="Inbox" Foreground="White" MouseDoubleClick="Inbox2TreeViewItem_MouseDoubleClick"></TreeViewItem>
+                    <TreeViewItem Header="Sent items" Foreground="White" MouseDoubleClick="Sent2TreeViewItem_MouseDoubleClick"></TreeViewItem>
+                    <TreeViewItem Header="Deleted items" Foreground="White" MouseDoubleClick="Deleted2TreeViewItem_MouseDoubleClick"></TreeViewItem>
+                    <TreeViewItem Header="Starred" Foreground="White" MouseDoubleClick="Starred2TreeViewItem_MouseDoubleClick"></TreeViewItem>
                 </TreeViewItem>
             </TreeView>
 
