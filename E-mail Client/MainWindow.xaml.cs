@@ -97,5 +97,12 @@ namespace E_mail_Client
         {
             System.Windows.Application.Current.Shutdown();
         }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            Controller controller = new Controller();
+
+            controller.DeleteCurrentMail();
+        }   
     }
 }

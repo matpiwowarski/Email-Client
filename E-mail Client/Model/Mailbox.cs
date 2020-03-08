@@ -10,28 +10,28 @@ namespace E_mail_Client.Model
     {
         public string MailAddress;
 
-        public Folder Inbox = new Folder("Inbox");
-        public Folder Sent = new Folder("Sent items");
-        public Folder Deleted = new Folder("Deleted items");
-        public Folder Starred = new Folder("Starred");
+        public Folder Inbox;
+        public Folder Sent;
+        public Folder Deleted;
+        public Folder Starred;
 
         public Mailbox(string mailAddress)
         {
-            this.MailAddress = mailAddress;
+            MailAddress = mailAddress;
 
-            this.Inbox = new Folder("Inbox");
-            this.Sent = new Folder("Sent items");
-            this.Deleted = new Folder("Deleted items");
-            this.Starred = new Folder("Starred");
+            Inbox = new Folder("Inbox", this);
+            Sent = new Folder("Sent items", this);
+            Deleted = new Folder("Deleted items", this);
+            Starred = new Folder("Starred", this);
 
 
             // TreeViewItem properties
-            this.Header = mailAddress;
-            this.Foreground = Brushes.White;
-            this.Items.Add(Inbox);
-            this.Items.Add(Sent);
-            this.Items.Add(Deleted);
-            this.Items.Add(Starred);
+            Header = mailAddress;
+            Foreground = Brushes.White;
+            Items.Add(Inbox);
+            Items.Add(Sent);
+            Items.Add(Deleted);
+            Items.Add(Starred);
         }
     }
 }

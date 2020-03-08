@@ -20,13 +20,7 @@ namespace E_mail_Client.Model
             // ListViewItem properties
             Content = content;
             this.MouseDoubleClick += Mail_MouseDoubleClick;
-        }
-
-        private void Mail_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            Controller controller = new Controller();
-
-            controller.LoadMail(this);
+            this.Selected += Mail_Selected;
         }
 
         public Mail(string topic, string content)
@@ -36,6 +30,26 @@ namespace E_mail_Client.Model
             // ListViewItem properties
             Content = topic;
             this.MouseDoubleClick += Mail_MouseDoubleClick;
+            this.Selected += Mail_Selected;
+        }
+
+        public Mail()
+        {
+            // ListViewItem properties
+            this.MouseDoubleClick += Mail_MouseDoubleClick;
+            this.Selected += Mail_Selected;
+        }
+        private void Mail_Selected(object sender, System.Windows.RoutedEventArgs e)
+        {
+            Controller controller = new Controller();
+            controller.setCurrentMail(this);
+        }
+
+        private void Mail_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            Controller controller = new Controller();
+
+            controller.LoadMail(this);
         }
     }
 }

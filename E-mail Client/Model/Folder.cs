@@ -8,7 +8,8 @@ namespace E_mail_Client.Model
 {
     public class Folder: TreeViewItem
     {
-        private string _folderName;
+        public string FolderName { get; set; }
+        public Mailbox Email { get; set; }
         public List<Mail> Mails { get; set; }
 
         public void AddMails(params Mail[] mails)
@@ -18,10 +19,11 @@ namespace E_mail_Client.Model
                 Mails.Add(mail);
             }
         }
-        public Folder(string folderName)
+        public Folder(string folderName, Mailbox email)
         {
-            this.Mails = new List<Mail>();
-            _folderName = folderName;
+            Email = email;
+            Mails = new List<Mail>();
+            FolderName = folderName;
 
             // TreeViewItem properties
             this.Header = folderName;
