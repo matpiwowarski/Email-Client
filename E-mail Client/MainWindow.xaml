@@ -43,7 +43,7 @@
             </Menu>
 
             <ToolBar Grid.Column="1" VerticalAlignment="Top" Margin="10,5,10,5" HorizontalAlignment="Center" Background="#FF376DCB">
-                <Button x:Name="DeleteButton" Click="DeleteButton_Click" Width="85" Height="35" HorizontalAlignment="Left" Background="#FF376DCB">
+                <Button x:Name="DeleteButton" Click="DeleteButton_Click" IsEnabled="False" Width="85" Height="35" HorizontalAlignment="Left" Background="#FF376DCB">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="delete.png" ></Image>
                         <Label FontSize="12" Foreground="White">Delete</Label>

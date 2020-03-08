@@ -51,7 +51,6 @@ namespace E_mail_Client
         }
         public void LoadMail(Mail mail)
         {
-            _currentMail = mail;
             _window.MessageTextBlock.Text = mail.Text;
         }
 
@@ -67,7 +66,9 @@ namespace E_mail_Client
                         case MessageBoxResult.Yes:
                             _currentFolder.Mails.Remove(_currentMail);
                             _currentMail = null;
+                            DisableDeleteButton();
                             LoadMails(_currentFolder);
+                            
                             break;
                         case MessageBoxResult.No:
                             break;
@@ -83,14 +84,25 @@ namespace E_mail_Client
 
                     _currentFolder.Mails.Remove(_currentMail);
                     _currentMail = null;
+                    DisableDeleteButton();
                     LoadMails(_currentFolder);
                 }
             }
         }
 
-        public void setCurrentMail(Mail mail)
+        public void SetCurrentMail(Mail mail)
         {
             _currentMail = mail;
+        }
+
+        public void EnableDeleteButton()
+        {
+            _window.DeleteButton.IsEnabled = true;
+        }
+
+        public void DisableDeleteButton()
+        {
+            _window.DeleteButton.IsEnabled = false;
         }
     }
 }

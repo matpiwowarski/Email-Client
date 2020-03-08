@@ -32,6 +32,13 @@ namespace E_mail_Client.Model
             Items.Add(Sent);
             Items.Add(Deleted);
             Items.Add(Starred);
+            MouseLeftButtonUp += Mailbox_MouseLeftButtonUp;
+        }
+
+        private void Mailbox_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            Controller controller = new Controller();
+            controller.DisableDeleteButton();
         }
     }
 }

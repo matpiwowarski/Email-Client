@@ -26,16 +26,16 @@ namespace E_mail_Client.Model
             FolderName = folderName;
 
             // TreeViewItem properties
-            this.Header = folderName;
-            this.Foreground = Brushes.White;
+            Header = folderName;
+            Foreground = Brushes.White;
 
-            this.MouseDoubleClick += Folder_MouseDoubleClick;
+            MouseLeftButtonUp += Folder_MouseLeftButtonUp;
         }
 
-        private void Folder_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void Folder_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             Controller controller = new Controller();
-
+            controller.DisableDeleteButton();
             controller.LoadMails(this);
         }
     }

@@ -19,8 +19,7 @@ namespace E_mail_Client.Model
             Text = content;
             // ListViewItem properties
             Content = content;
-            this.MouseDoubleClick += Mail_MouseDoubleClick;
-            this.Selected += Mail_Selected;
+            MouseLeftButtonUp += Mail_MouseLeftButtonUp;
         }
 
         public Mail(string topic, string content)
@@ -29,26 +28,19 @@ namespace E_mail_Client.Model
             Topic = topic;
             // ListViewItem properties
             Content = topic;
-            this.MouseDoubleClick += Mail_MouseDoubleClick;
-            this.Selected += Mail_Selected;
+            MouseLeftButtonUp += Mail_MouseLeftButtonUp;
         }
 
         public Mail()
         {
             // ListViewItem properties
-            this.MouseDoubleClick += Mail_MouseDoubleClick;
-            this.Selected += Mail_Selected;
+            MouseLeftButtonUp += Mail_MouseLeftButtonUp;
         }
-        private void Mail_Selected(object sender, System.Windows.RoutedEventArgs e)
+        private void Mail_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             Controller controller = new Controller();
-            controller.setCurrentMail(this);
-        }
-
-        private void Mail_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            Controller controller = new Controller();
-
+            controller.SetCurrentMail(this);
+            controller.EnableDeleteButton();
             controller.LoadMail(this);
         }
     }
