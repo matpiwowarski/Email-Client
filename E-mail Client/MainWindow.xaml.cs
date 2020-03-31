@@ -24,15 +24,8 @@ namespace E_mail_Client
     {
         private List<Mail> _currentFolder;
 
-        private List<Mail> inbox1 = new List<Mail>();
-        private List<Mail> sent1 = new List<Mail>();
-        private List<Mail> deleted1 = new List<Mail>();
-        private List<Mail> starred1 = new List<Mail>();
-
-        private List<Mail> inbox2 = new List<Mail>();
-        private List<Mail> sent2 = new List<Mail>();
-        private List<Mail> deleted2 = new List<Mail>();
-        private List<Mail> starred2 = new List<Mail>();
+        private Mailbox _mailbox1 = new Mailbox();
+        private Mailbox _mailbox2 = new Mailbox();
 
         public MainWindow()
         {
@@ -74,15 +67,15 @@ namespace E_mail_Client
             Mail mail32 = new Mail("author32", "receiver32", "topic32", "content32");
 
             // load mails for mailbox1
-            AddMailsToList(inbox1, mail1, mail2, mail3, mail4);
-            AddMailsToList(sent1, mail5, mail6, mail7, mail8);
-            AddMailsToList(deleted1, mail9, mail10, mail11, mail12);
-            AddMailsToList(starred1, mail13, mail14, mail15, mail16);
+            AddMailsToList(_mailbox1.Inbox, mail1, mail2, mail3, mail4);
+            AddMailsToList(_mailbox1.Sent, mail5, mail6, mail7, mail8);
+            AddMailsToList(_mailbox1.Deleted, mail9, mail10, mail11, mail12);
+            AddMailsToList(_mailbox1.Starred, mail13, mail14, mail15, mail16);
             // load mails for mailbox2
-            AddMailsToList(inbox2, mail17, mail18, mail19, mail20);
-            AddMailsToList(sent2, mail21, mail22, mail23, mail24);
-            AddMailsToList(deleted2, mail25, mail26, mail27, mail28);
-            AddMailsToList(starred2, mail29, mail30, mail31, mail32);
+            AddMailsToList(_mailbox2.Inbox, mail17, mail18, mail19, mail20);
+            AddMailsToList(_mailbox2.Sent, mail21, mail22, mail23, mail24);
+            AddMailsToList(_mailbox2.Deleted, mail25, mail26, mail27, mail28);
+            AddMailsToList(_mailbox2.Starred, mail29, mail30, mail31, mail32);
         }
 
         private void AddMailsToList(List<Mail> list, params Mail[] mails)
@@ -114,58 +107,58 @@ namespace E_mail_Client
 
         private void Inbox1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            _currentFolder = inbox1;
+            _currentFolder = _mailbox1.Inbox;
             DisableDeleteButton();
-            LoadMails(inbox1);
+            LoadMails(_currentFolder);
         }
 
         private void Sent1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            _currentFolder = sent1;
+            _currentFolder = _mailbox1.Sent;
             DisableDeleteButton();
-            LoadMails(sent1);
+            LoadMails(_currentFolder);
         }
 
         private void Starred1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            _currentFolder = starred1;
+            _currentFolder = _mailbox1.Starred;
             DisableDeleteButton();
-            LoadMails(starred1);
+            LoadMails(_currentFolder);
         }
 
         private void Deleted1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            _currentFolder = deleted1;
+            _currentFolder = _mailbox1.Deleted;
             DisableDeleteButton();
-            LoadMails(deleted1);
+            LoadMails(_currentFolder);
         }
 
         private void Inbox2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            _currentFolder = inbox2;
+            _currentFolder = _mailbox2.Inbox;
             DisableDeleteButton();
-            LoadMails(inbox2);
+            LoadMails(_currentFolder);
         }
 
         private void Sent2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            _currentFolder = sent2;
+            _currentFolder = _mailbox2.Sent;
             DisableDeleteButton();
-            LoadMails(sent2);
+            LoadMails(_currentFolder);
         }
 
         private void Starred2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            _currentFolder = starred2;
+            _currentFolder = _mailbox2.Starred;
             DisableDeleteButton();
-            LoadMails(starred2);
+            LoadMails(_currentFolder);
         }
 
         private void Deleted2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            _currentFolder = deleted2;
+            _currentFolder = _mailbox2.Deleted;
             DisableDeleteButton();
-            LoadMails(deleted2);
+            LoadMails(_currentFolder);
         }
 
         private void Mail_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -208,7 +201,7 @@ namespace E_mail_Client
         {
             if (_currentFolder[mailIndex] != null)
             {
-                if (_currentFolder == deleted1 || _currentFolder == deleted2)
+                if (_currentFolder == _mailbox1.Deleted || _currentFolder == _mailbox2.Deleted)
                 {
                     MessageBoxResult result = MessageBox.Show("Do you really wish to delete the message?", "Delete message", MessageBoxButton.YesNo);
                     switch (result)
@@ -229,13 +222,14 @@ namespace E_mail_Client
 
                     Mail mailCopy = new Mail(currentMail.Author, currentMail.Receiver, currentMail.Topic, currentMail.Text);
 
-                    if (_currentFolder == inbox1 || _currentFolder == sent1 || _currentFolder == starred1)
+                    if (_currentFolder == _mailbox1.Inbox || _currentFolder == _mailbox1.Sent || _currentFolder == _mailbox1.Starred)
                     {
-                        deleted1.Add(mailCopy);
+                        // 1st mailbox
+                        _mailbox1.Deleted.Add(mailCopy);
                     }
                     else // 2nd mailbox
                     {
-                        deleted2.Add(mailCopy);
+                        _mailbox2.Deleted.Add(mailCopy);
                     }
 
                     _currentFolder.RemoveAt(mailIndex);
