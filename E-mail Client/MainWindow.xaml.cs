@@ -22,20 +22,17 @@ namespace E_mail_Client
     /// </summary>
     public partial class MainWindow : Window
     {
-        enum EmailType { EMAIL1, EMAIL2 };
-
-        private EmailType _currentEmail = EmailType.EMAIL1;
         private List<Mail> _currentFolder;
 
-        List<Mail> inbox1 = new List<Mail>();
-        List<Mail> sent1 = new List<Mail>();
-        List<Mail> deleted1 = new List<Mail>();
-        List<Mail> starred1 = new List<Mail>();
+        private List<Mail> inbox1 = new List<Mail>();
+        private List<Mail> sent1 = new List<Mail>();
+        private List<Mail> deleted1 = new List<Mail>();
+        private List<Mail> starred1 = new List<Mail>();
 
-        List<Mail> inbox2 = new List<Mail>();
-        List<Mail> sent2 = new List<Mail>();
-        List<Mail> deleted2 = new List<Mail>();
-        List<Mail> starred2 = new List<Mail>();
+        private List<Mail> inbox2 = new List<Mail>();
+        private List<Mail> sent2 = new List<Mail>();
+        private List<Mail> deleted2 = new List<Mail>();
+        private List<Mail> starred2 = new List<Mail>();
 
         public MainWindow()
         {
@@ -117,7 +114,6 @@ namespace E_mail_Client
 
         private void Inbox1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            _currentEmail = EmailType.EMAIL1;
             _currentFolder = inbox1;
             DisableDeleteButton();
             LoadMails(inbox1);
@@ -125,7 +121,6 @@ namespace E_mail_Client
 
         private void Sent1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            _currentEmail = EmailType.EMAIL1;
             _currentFolder = sent1;
             DisableDeleteButton();
             LoadMails(sent1);
@@ -133,7 +128,6 @@ namespace E_mail_Client
 
         private void Starred1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            _currentEmail = EmailType.EMAIL1;
             _currentFolder = starred1;
             DisableDeleteButton();
             LoadMails(starred1);
@@ -141,7 +135,6 @@ namespace E_mail_Client
 
         private void Deleted1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            _currentEmail = EmailType.EMAIL1;
             _currentFolder = deleted1;
             DisableDeleteButton();
             LoadMails(deleted1);
@@ -149,7 +142,6 @@ namespace E_mail_Client
 
         private void Inbox2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            _currentEmail = EmailType.EMAIL2;
             _currentFolder = inbox2;
             DisableDeleteButton();
             LoadMails(inbox2);
@@ -157,7 +149,6 @@ namespace E_mail_Client
 
         private void Sent2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            _currentEmail = EmailType.EMAIL2;
             _currentFolder = sent2;
             DisableDeleteButton();
             LoadMails(sent2);
@@ -165,7 +156,6 @@ namespace E_mail_Client
 
         private void Starred2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            _currentEmail = EmailType.EMAIL2;
             _currentFolder = starred2;
             DisableDeleteButton();
             LoadMails(starred2);
@@ -173,7 +163,6 @@ namespace E_mail_Client
 
         private void Deleted2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            _currentEmail = EmailType.EMAIL2;
             _currentFolder = deleted2;
             DisableDeleteButton();
             LoadMails(deleted2);
@@ -237,12 +226,17 @@ namespace E_mail_Client
                 else // other folder = move to Deleted items
                 {
                     var currentMail = _currentFolder[mailIndex];
+
                     Mail mailCopy = new Mail(currentMail.Author, currentMail.Receiver, currentMail.Topic, currentMail.Text);
 
-                    if (_currentEmail == EmailType.EMAIL1)
+                    if (_currentFolder == inbox1 || _currentFolder == sent1 || _currentFolder == starred1)
+                    {
                         deleted1.Add(mailCopy);
-                    else // EmailType.EMAIL2
+                    }
+                    else // 2nd mailbox
+                    {
                         deleted2.Add(mailCopy);
+                    }
 
                     _currentFolder.RemoveAt(mailIndex);
 
