@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:E_mail_Client"
         mc:Ignorable="d"
-        Title="E-mail Client" Height="450" Width="800">
+        Title="E-mail Client" Height="600" Width="1000">
     <Grid Background="#FF376DCB">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"></ColumnDefinition>
@@ -32,46 +32,46 @@
                     </ItemsPanelTemplate>
                 </Menu.ItemsPanel>
 
-                <MenuItem Header="File" Margin="10,0,0,0" FontWeight="Bold" Background="Gray">
+                <MenuItem Header="File" Margin="10,0,0,0" FontWeight="Bold" Background="Gray" FontSize="14">
                     <MenuItem Header="New Message" Background="Gray">
                         <MenuItem.Icon>
-                            <Image Source="Resources/new.png" ></Image>
+                            <Image Source="Resources/new.png"></Image>
                         </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem Header="Exit" Background="Gray" Click="ExitMenuItem_Click">
                         <MenuItem.Icon>
-                            <Image Source="Resources/cross.png" ></Image>
+                            <Image Source="Resources/cross.png"></Image>
                         </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
             </Menu>
 
             <ToolBar Grid.Column="1" VerticalAlignment="Top" Margin="10,5,10,5" HorizontalAlignment="Center" Background="#FF376DCB">
-                <Button x:Name="DeleteButton" Click="DeleteButton_Click" IsEnabled="False" Width="85" Height="35" HorizontalAlignment="Left" Background="#FF376DCB">
+                <Button x:Name="DeleteButton" Click="DeleteButton_Click" IsEnabled="False" Width="100" Height="40" HorizontalAlignment="Left" Background="#FF376DCB">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Resources/cross.png" ></Image>
                         <Label FontSize="12" Foreground="White">Delete</Label>
                     </StackPanel>
                 </Button>
-                <Button Width="85" Height="35" HorizontalAlignment="Left" Background="#FF376DCB">
+                <Button Width="100" Height="40" HorizontalAlignment="Left" Background="#FF376DCB">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Resources/reply.png" ></Image>
                         <Label FontSize="12" Foreground="White">Reply</Label>
                     </StackPanel>
                 </Button>
-                <Button Width="85" Height="35" HorizontalAlignment="Left" Background="#FF376DCB">
+                <Button Width="100" Height="40" HorizontalAlignment="Left" Background="#FF376DCB">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Resources/toall.png"></Image>
                         <Label FontSize="12" Foreground="White">Reply all</Label>
                     </StackPanel>
                 </Button>
-                <Button Width="85" Height="35" HorizontalAlignment="Left" Background="#FF376DCB">
+                <Button Width="100" Height="40" HorizontalAlignment="Left" Background="#FF376DCB">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Resources/forward.png"></Image>
                         <Label FontSize="12" Foreground="White">Forward</Label>
                     </StackPanel>
                 </Button>
-                <Button Width="85" Height="35" HorizontalAlignment="Left" Background="#FF376DCB">
+                <Button Width="100" Height="40" HorizontalAlignment="Left" Background="#FF376DCB">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Resources/star.png"></Image>
                         <Label FontSize="12" Foreground="White">Star</Label>
@@ -85,17 +85,41 @@
         </Grid>
         <TreeView x:Name="EmailTreeView" Grid.Column="0" Grid.Row="1" Margin="10,15,10,5" Background="Gray" Foreground="White">
             <TreeViewItem x:Name="Email1" Header="test@gmail.com" Foreground="White" MouseLeftButtonUp="Email_MouseLeftButtonUp">
-                <TreeViewItem Header="Inbox" Foreground="White" MouseLeftButtonUp="Inbox1_MouseLeftButtonUp"></TreeViewItem>
-                <TreeViewItem Header="Sent items" Foreground="White" MouseLeftButtonUp="Sent1_MouseLeftButtonUp"></TreeViewItem>
-                <TreeViewItem Header="Deleted items" Foreground="White" MouseLeftButtonUp="Deleted1_MouseLeftButtonUp"></TreeViewItem>
-                <TreeViewItem Header="Starred" Foreground="White" MouseLeftButtonUp="Starred1_MouseLeftButtonUp"></TreeViewItem>
+                <StackPanel Orientation="Horizontal" MouseLeftButtonUp="Inbox1_MouseLeftButtonUp">
+                    <Image Source="Resources/folder.png" Width="20" Height="20" ></Image>
+                    <Label Content="Inbox" Foreground="White"></Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" MouseLeftButtonUp="Sent1_MouseLeftButtonUp">
+                    <Image Source="Resources/folder.png" Width="20" Height="20" ></Image>
+                    <Label Content="Sent items" Foreground="White"></Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" MouseLeftButtonUp="Deleted1_MouseLeftButtonUp">
+                    <Image Source="Resources/deleted.png" Width="20" Height="20" ></Image>
+                    <Label Content="Deleted items" Foreground="White"></Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" MouseLeftButtonUp="Starred1_MouseLeftButtonUp">
+                    <Image Source="Resources/starred.png" Width="20" Height="20" ></Image>
+                    <Label Content="Starred" Foreground="White"></Label>
+                </StackPanel>
             </TreeViewItem>
             <TreeViewItem x:Name="Email2" Header="email@coyg.com" Foreground="White" MouseLeftButtonUp="Email_MouseLeftButtonUp">
-                <TreeViewItem Header="Inbox" Foreground="White" MouseLeftButtonUp="Inbox2_MouseLeftButtonUp"></TreeViewItem>
-                <TreeViewItem Header="Sent items" Foreground="White" MouseLeftButtonUp="Sent2_MouseLeftButtonUp"></TreeViewItem>
-                <TreeViewItem Header="Deleted items" Foreground="White" MouseLeftButtonUp="Deleted2_MouseLeftButtonUp"></TreeViewItem>
-                <TreeViewItem Header="Starred" Foreground="White" MouseLeftButtonUp="Starred2_MouseLeftButtonUp"></TreeViewItem>
-                </TreeViewItem>
+                <StackPanel Orientation="Horizontal" MouseLeftButtonUp="Inbox2_MouseLeftButtonUp">
+                    <Image Source="Resources/folder.png" Width="20" Height="20" ></Image>
+                    <Label Content="Inbox" Foreground="White"></Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" MouseLeftButtonUp="Sent2_MouseLeftButtonUp">
+                    <Image Source="Resources/folder.png" Width="20" Height="20" ></Image>
+                    <Label Content="Sent items" Foreground="White"></Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" MouseLeftButtonUp="Deleted2_MouseLeftButtonUp">
+                    <Image Source="Resources/deleted.png" Width="20" Height="20" ></Image>
+                    <Label Content="Deleted items" Foreground="White"></Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" MouseLeftButtonUp="Starred2_MouseLeftButtonUp">
+                    <Image Source="Resources/starred.png" Width="20" Height="20" ></Image>
+                    <Label Content="Starred" Foreground="White"></Label>
+                </StackPanel>
+            </TreeViewItem>
         </TreeView>
 
             <ListView x:Name="MessagesListView" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="Auto" Margin="10,10,10,10"  Background="Gray" Foreground="White">

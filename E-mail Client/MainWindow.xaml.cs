@@ -17,9 +17,6 @@ using System.Windows.Shapes;
 
 namespace E_mail_Client
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private List<Mail> _currentFolder;
