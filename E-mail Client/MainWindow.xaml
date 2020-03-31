@@ -127,9 +127,9 @@
             </ListView>
 
         <Grid Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Background="DimGray"  HorizontalAlignment="Stretch" Margin="10,15,15,15" Height="auto">
-            <Label x:Name="AuthorLabel" Foreground="White" HorizontalAlignment="Right" Margin="0,5,10,0" FontSize="14" FontWeight="Bold"></Label>
-            <Label x:Name="TopicLabel" Foreground="White" HorizontalAlignment="Center" Margin="0,5,0,0" FontSize="14" FontWeight="Bold"></Label>
-            <TextBlock x:Name="MessageTextBlock" Foreground="White" Margin="20,40,20,10" FontSize="12"></TextBlock>
+            <Label x:Name="AuthorLabel" Foreground="White" HorizontalAlignment="Right" Margin="10,5,10,0" FontSize="14" FontWeight="Bold" VerticalAlignment="Top"></Label>
+            <Label x:Name="TopicLabel" Foreground="White" HorizontalAlignment="Center" Margin="10,5,10,0" FontSize="14" FontWeight="Bold" VerticalAlignment="Top"></Label>
+            <TextBlock x:Name="MessageTextBlock" Foreground="White" Margin="20,40,20,10" FontSize="12" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"></TextBlock>
         </Grid>
     </Grid>
 </Window>

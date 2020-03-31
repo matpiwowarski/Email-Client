@@ -29,7 +29,7 @@ namespace E_mail_Client
             InitializeComponent();
 
             // mails for 1st mailbox
-            Mail mail1 = new Mail("author1", "receiver1", "topic1", "content1");
+            Mail mail1 = new Mail("author1", "receiver1", "topic1", "LONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONG");
             Mail mail2 = new Mail("author2", "receiver2", "topic2", "content2");
             Mail mail3 = new Mail("author3", "receiver3", "topic3", "content3");
             Mail mail4 = new Mail("author4", "receiver4", "topic4", "content4");
@@ -191,8 +191,8 @@ namespace E_mail_Client
         private void LoadMail(int mailIndex)
         {
             MessageTextBlock.Text = _currentFolder[mailIndex].Text;
-            AuthorLabel.Content = _currentFolder[mailIndex].Author;
-            TopicLabel.Content = _currentFolder[mailIndex].Topic;
+            AuthorLabel.Content = "by: " + _currentFolder[mailIndex].Author;
+            TopicLabel.Content = "topic: " + _currentFolder[mailIndex].Topic;
         }
         public void DeleteMail(int mailIndex)
         {
