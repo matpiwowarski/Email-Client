@@ -1,5 +1,6 @@
 ﻿using E_mail_Client.Model;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,20 +22,24 @@ namespace E_mail_Client
     /// </summary>
     public partial class MainWindow : Window
     {
+        enum EmailType { EMAIL1, EMAIL2 };
+
+        private EmailType _currentEmail = EmailType.EMAIL1;
+        private List<Mail> _currentFolder;
+
+        List<Mail> inbox1 = new List<Mail>();
+        List<Mail> sent1 = new List<Mail>();
+        List<Mail> deleted1 = new List<Mail>();
+        List<Mail> starred1 = new List<Mail>();
+
+        List<Mail> inbox2 = new List<Mail>();
+        List<Mail> sent2 = new List<Mail>();
+        List<Mail> deleted2 = new List<Mail>();
+        List<Mail> starred2 = new List<Mail>();
+
         public MainWindow()
         {
             InitializeComponent();
-
-            //Events are created in Mailbox.cs, Folder.cs, Mail.cs files
-
-            Controller controller = new Controller(this);
-
-            Mailbox mailbox1 = new Mailbox("matpiwowarski7@gmail.com");
-            Mailbox mailbox2 = new Mailbox("test@test.pl");
-            //Mailbox mailbox3 = new Mailbox("onetwothree@onetwo.three");
-
-            controller.LoadTreeViewEmails(mailbox1, mailbox2);
-            //controller.LoadTreeViewEmails(mailbox1, mailbox2, mailbox3);
 
             // mails for 1st mailbox
             Mail mail1 = new Mail("author1", "receiver1", "topic1", "content1");
@@ -72,15 +77,23 @@ namespace E_mail_Client
             Mail mail32 = new Mail("author32", "receiver32", "topic32", "content32");
 
             // load mails for mailbox1
-            controller.AddMailsToInbox(mailbox1, mail1, mail2, mail3, mail4);
-            controller.AddMailsToSentItems(mailbox1, mail5, mail6, mail7, mail8);
-            controller.AddMailsToDeleted(mailbox1, mail9, mail10, mail11, mail12);
-            controller.AddMailsToStarred(mailbox1, mail13, mail14, mail15, mail16);
+            AddMailsToList(inbox1, mail1, mail2, mail3, mail4);
+            AddMailsToList(sent1, mail5, mail6, mail7, mail8);
+            AddMailsToList(deleted1, mail9, mail10, mail11, mail12);
+            AddMailsToList(starred1, mail13, mail14, mail15, mail16);
             // load mails for mailbox2
-            controller.AddMailsToInbox(mailbox2, mail17, mail18, mail19, mail20);
-            controller.AddMailsToSentItems(mailbox2, mail21, mail22, mail23, mail24);
-            controller.AddMailsToDeleted(mailbox2, mail25, mail26, mail27, mail28);
-            controller.AddMailsToStarred(mailbox2, mail29, mail30, mail31, mail32);
+            AddMailsToList(inbox2, mail17, mail18, mail19, mail20);
+            AddMailsToList(sent2, mail21, mail22, mail23, mail24);
+            AddMailsToList(deleted2, mail25, mail26, mail27, mail28);
+            AddMailsToList(starred2, mail29, mail30, mail31, mail32);
+        }
+
+        private void AddMailsToList(List<Mail> list, params Mail[] mails)
+        {
+            foreach (Mail m in mails)
+            {
+                list.Add(m);
+            }
         }
 
         private void ExitMenuItem_Click(object sender, RoutedEventArgs e)
@@ -90,9 +103,153 @@ namespace E_mail_Client
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            Controller controller = new Controller();
+            if (MessagesListView.SelectedItems.Count > 0)
+            {
+                DisableDeleteButton();
+                DeleteMail(MessagesListView.SelectedIndex);
+            }
+        }
 
-            controller.DeleteCurrentMail();
-        }   
+        private void Email_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            DisableDeleteButton();
+        }
+
+        private void Inbox1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            _currentEmail = EmailType.EMAIL1;
+            _currentFolder = inbox1;
+            DisableDeleteButton();
+            LoadMails(inbox1);
+        }
+
+        private void Sent1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            _currentEmail = EmailType.EMAIL1;
+            _currentFolder = sent1;
+            DisableDeleteButton();
+            LoadMails(sent1);
+        }
+
+        private void Starred1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            _currentEmail = EmailType.EMAIL1;
+            _currentFolder = starred1;
+            DisableDeleteButton();
+            LoadMails(starred1);
+        }
+
+        private void Deleted1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            _currentEmail = EmailType.EMAIL1;
+            _currentFolder = deleted1;
+            DisableDeleteButton();
+            LoadMails(deleted1);
+        }
+
+        private void Inbox2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            _currentEmail = EmailType.EMAIL2;
+            _currentFolder = inbox2;
+            DisableDeleteButton();
+            LoadMails(inbox2);
+        }
+
+        private void Sent2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            _currentEmail = EmailType.EMAIL2;
+            _currentFolder = sent2;
+            DisableDeleteButton();
+            LoadMails(sent2);
+        }
+
+        private void Starred2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            _currentEmail = EmailType.EMAIL2;
+            _currentFolder = starred2;
+            DisableDeleteButton();
+            LoadMails(starred2);
+        }
+
+        private void Deleted2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            _currentEmail = EmailType.EMAIL2;
+            _currentFolder = deleted2;
+            DisableDeleteButton();
+            LoadMails(deleted2);
+        }
+
+        private void Mail_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            EnableDeleteButton();
+
+            LoadMail(MessagesListView.SelectedIndex);
+        }
+
+        private void DisableDeleteButton()
+        {
+            DeleteButton.IsEnabled = false;
+        }
+        private void EnableDeleteButton()
+        {
+            DeleteButton.IsEnabled = true;
+        }
+        private void LoadMails(List<Mail> mails)
+        {
+            this.MessagesListView.Items.Clear();
+
+            foreach (Mail m in mails)
+            {
+                ListViewItem mailItem = new ListViewItem();
+                mailItem.Content = m.Topic + " by " + m.Author;
+                mailItem.MouseLeftButtonUp += Mail_MouseLeftButtonUp;
+                MessagesListView.Items.Add(mailItem);
+            }
+            MessageTextBlock.Text = "";
+            AuthorLabel.Content = "";
+            TopicLabel.Content = "";
+        }
+        private void LoadMail(int mailIndex)
+        {
+            MessageTextBlock.Text = _currentFolder[mailIndex].Text;
+            AuthorLabel.Content = _currentFolder[mailIndex].Author;
+            TopicLabel.Content = _currentFolder[mailIndex].Topic;
+        }
+        public void DeleteMail(int mailIndex)
+        {
+            if (_currentFolder[mailIndex] != null)
+            {
+                if (_currentFolder == deleted1 || _currentFolder == deleted2)
+                {
+                    MessageBoxResult result = MessageBox.Show("Do you really wish to delete the message?", "Delete message", MessageBoxButton.YesNo);
+                    switch (result)
+                    {
+                        case MessageBoxResult.Yes:
+                            _currentFolder.RemoveAt(mailIndex);
+                            DisableDeleteButton();
+                            LoadMails(_currentFolder);
+
+                            break;
+                        case MessageBoxResult.No:
+                            break;
+                    }
+                }
+                else // other folder = move to Deleted items
+                {
+                    var currentMail = _currentFolder[mailIndex];
+                    Mail mailCopy = new Mail(currentMail.Author, currentMail.Receiver, currentMail.Topic, currentMail.Text);
+
+                    if (_currentEmail == EmailType.EMAIL1)
+                        deleted1.Add(mailCopy);
+                    else // EmailType.EMAIL2
+                        deleted2.Add(mailCopy);
+
+                    _currentFolder.RemoveAt(mailIndex);
+
+                    DisableDeleteButton();
+                    LoadMails(_currentFolder);
+                }
+            }
+        }
     }
 }

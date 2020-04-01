@@ -5,7 +5,7 @@ using System.Windows.Controls;
 
 namespace E_mail_Client.Model
 {
-    public class Mail: ListViewItem
+    public class Mail
     {
         public string Topic { get; set; }
         public string Text { get; set; }
@@ -17,17 +17,6 @@ namespace E_mail_Client.Model
             Receiver = receiver;
             Topic = topic;
             Text = content;
-            // ListViewItem properties
-            Content = topic + " by " + author;
-            MouseLeftButtonUp += Mail_MouseLeftButtonUp;
-        }
-
-        private void Mail_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            Controller controller = new Controller();
-            controller.SetCurrentMail(this);
-            controller.EnableDeleteButton();
-            controller.LoadMail(this);
         }
     }
 }

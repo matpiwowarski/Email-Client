@@ -84,17 +84,17 @@
             </TextBox>
         </Grid>
         <TreeView x:Name="EmailTreeView" Grid.Column="0" Grid.Row="1" Margin="10,15,10,5" Background="Gray" Foreground="White">
-            <TreeViewItem x:Name="Email1" Header="test@gmail.com" Foreground="White">
-                <TreeViewItem Header="Inbox" Foreground="White"></TreeViewItem>
-                <TreeViewItem Header="Sent items" Foreground="White"></TreeViewItem>
-                <TreeViewItem Header="Deleted items" Foreground="White"></TreeViewItem>
-                <TreeViewItem Header="Starred" Foreground="White"></TreeViewItem>
+            <TreeViewItem x:Name="Email1" Header="test@gmail.com" Foreground="White" MouseLeftButtonUp="Email_MouseLeftButtonUp">
+                <TreeViewItem Header="Inbox" Foreground="White" MouseLeftButtonUp="Inbox1_MouseLeftButtonUp"></TreeViewItem>
+                <TreeViewItem Header="Sent items" Foreground="White" MouseLeftButtonUp="Sent1_MouseLeftButtonUp"></TreeViewItem>
+                <TreeViewItem Header="Deleted items" Foreground="White" MouseLeftButtonUp="Deleted1_MouseLeftButtonUp"></TreeViewItem>
+                <TreeViewItem Header="Starred" Foreground="White" MouseLeftButtonUp="Starred1_MouseLeftButtonUp"></TreeViewItem>
             </TreeViewItem>
-            <TreeViewItem x:Name="Email2" Header="email@coyg.com" Foreground="White">
-                    <TreeViewItem Header="Inbox" Foreground="White"></TreeViewItem>
-                    <TreeViewItem Header="Sent items" Foreground="White"></TreeViewItem>
-                    <TreeViewItem Header="Deleted items" Foreground="White"></TreeViewItem>
-                    <TreeViewItem Header="Starred" Foreground="White"></TreeViewItem>
+            <TreeViewItem x:Name="Email2" Header="email@coyg.com" Foreground="White" MouseLeftButtonUp="Email_MouseLeftButtonUp">
+                <TreeViewItem Header="Inbox" Foreground="White" MouseLeftButtonUp="Inbox2_MouseLeftButtonUp"></TreeViewItem>
+                <TreeViewItem Header="Sent items" Foreground="White" MouseLeftButtonUp="Sent2_MouseLeftButtonUp"></TreeViewItem>
+                <TreeViewItem Header="Deleted items" Foreground="White" MouseLeftButtonUp="Deleted2_MouseLeftButtonUp"></TreeViewItem>
+                <TreeViewItem Header="Starred" Foreground="White" MouseLeftButtonUp="Starred2_MouseLeftButtonUp"></TreeViewItem>
                 </TreeViewItem>
         </TreeView>
 
