@@ -10,19 +10,32 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="cross.png" />
     <None Remove="delete.png" />
+    <None Remove="forward.png" />
     <None Remove="mail.png" />
+    <None Remove="new.png" />
+    <None Remove="reply.png" />
+    <None Remove="Resources\cross.png" />
     <None Remove="Resources\delete.png" />
+    <None Remove="Resources\forward.png" />
     <None Remove="Resources\Icons Info.txt" />
     <None Remove="Resources\mail.png" />
+    <None Remove="Resources\new.png" />
+    <None Remove="Resources\reply.png" />
     <None Remove="Resources\star.png" />
+    <None Remove="Resources\toall.png" />
     <None Remove="star.png" />
+    <None Remove="toall.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\delete.png" />
-    <Resource Include="Resources\mail.png" />
+    <Resource Include="Resources\cross.png" />
+    <Resource Include="Resources\forward.png" />
+    <Resource Include="Resources\new.png" />
+    <Resource Include="Resources\reply.png" />
     <Resource Include="Resources\star.png" />
+    <Resource Include="Resources\toall.png" />
   </ItemGroup>
 
 </Project>

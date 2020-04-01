@@ -34,10 +34,14 @@
 
                 <MenuItem Header="File" Margin="10,0,0,0" FontWeight="Bold" Background="Gray">
                     <MenuItem Header="New Message" Background="Gray">
-
+                        <MenuItem.Icon>
+                            <Image Source="Resources/new.png" ></Image>
+                        </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem Header="Exit" Background="Gray" Click="ExitMenuItem_Click">
-
+                        <MenuItem.Icon>
+                            <Image Source="Resources/cross.png" ></Image>
+                        </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
             </Menu>
@@ -45,25 +49,25 @@
             <ToolBar Grid.Column="1" VerticalAlignment="Top" Margin="10,5,10,5" HorizontalAlignment="Center" Background="#FF376DCB">
                 <Button x:Name="DeleteButton" Click="DeleteButton_Click" IsEnabled="False" Width="85" Height="35" HorizontalAlignment="Left" Background="#FF376DCB">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="Resources/delete.png" ></Image>
+                        <Image Source="Resources/cross.png" ></Image>
                         <Label FontSize="12" Foreground="White">Delete</Label>
                     </StackPanel>
                 </Button>
                 <Button Width="85" Height="35" HorizontalAlignment="Left" Background="#FF376DCB">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="Resources/mail.png" ></Image>
+                        <Image Source="Resources/reply.png" ></Image>
                         <Label FontSize="12" Foreground="White">Reply</Label>
                     </StackPanel>
                 </Button>
                 <Button Width="85" Height="35" HorizontalAlignment="Left" Background="#FF376DCB">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="Resources/mail.png"></Image>
+                        <Image Source="Resources/toall.png"></Image>
                         <Label FontSize="12" Foreground="White">Reply all</Label>
                     </StackPanel>
                 </Button>
                 <Button Width="85" Height="35" HorizontalAlignment="Left" Background="#FF376DCB">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="Resources/mail.png"></Image>
+                        <Image Source="Resources/forward.png"></Image>
                         <Label FontSize="12" Foreground="White">Forward</Label>
                     </StackPanel>
                 </Button>
@@ -99,9 +103,9 @@
             </ListView>
 
         <Grid Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Background="DimGray"  HorizontalAlignment="Stretch" Margin="10,15,15,15" Height="auto">
-            <Label x:Name="AuthorLabel" Foreground="White" HorizontalAlignment="Right" Margin="0,5,10,0"></Label>
-            <Label x:Name="TopicLabel" Foreground="White" HorizontalAlignment="Center" Margin="0,5,0,0"></Label>
-            <TextBlock x:Name="MessageTextBlock" Foreground="White" Margin="20,40,20,10"></TextBlock>
+            <Label x:Name="AuthorLabel" Foreground="White" HorizontalAlignment="Right" Margin="0,5,10,0" FontSize="14" FontWeight="Bold"></Label>
+            <Label x:Name="TopicLabel" Foreground="White" HorizontalAlignment="Center" Margin="0,5,0,0" FontSize="14" FontWeight="Bold"></Label>
+            <TextBlock x:Name="MessageTextBlock" Foreground="White" Margin="20,40,20,10" FontSize="12"></TextBlock>
         </Grid>
     </Grid>
 </Window>
