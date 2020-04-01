@@ -18,24 +18,10 @@ namespace E_mail_Client.Model
             Topic = topic;
             Text = content;
             // ListViewItem properties
-            Content = content;
+            Content = topic + " by " + author;
             MouseLeftButtonUp += Mail_MouseLeftButtonUp;
         }
 
-        public Mail(string topic, string content)
-        {
-            Text = content;
-            Topic = topic;
-            // ListViewItem properties
-            Content = topic;
-            MouseLeftButtonUp += Mail_MouseLeftButtonUp;
-        }
-
-        public Mail()
-        {
-            // ListViewItem properties
-            MouseLeftButtonUp += Mail_MouseLeftButtonUp;
-        }
         private void Mail_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             Controller controller = new Controller();

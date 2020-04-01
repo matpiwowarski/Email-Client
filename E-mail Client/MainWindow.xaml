@@ -45,31 +45,31 @@
             <ToolBar Grid.Column="1" VerticalAlignment="Top" Margin="10,5,10,5" HorizontalAlignment="Center" Background="#FF376DCB">
                 <Button x:Name="DeleteButton" Click="DeleteButton_Click" IsEnabled="False" Width="85" Height="35" HorizontalAlignment="Left" Background="#FF376DCB">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="delete.png" ></Image>
+                        <Image Source="Resources/delete.png" ></Image>
                         <Label FontSize="12" Foreground="White">Delete</Label>
                     </StackPanel>
                 </Button>
                 <Button Width="85" Height="35" HorizontalAlignment="Left" Background="#FF376DCB">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="mail.png" ></Image>
+                        <Image Source="Resources/mail.png" ></Image>
                         <Label FontSize="12" Foreground="White">Reply</Label>
                     </StackPanel>
                 </Button>
                 <Button Width="85" Height="35" HorizontalAlignment="Left" Background="#FF376DCB">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="mail.png"></Image>
+                        <Image Source="Resources/mail.png"></Image>
                         <Label FontSize="12" Foreground="White">Reply all</Label>
                     </StackPanel>
                 </Button>
                 <Button Width="85" Height="35" HorizontalAlignment="Left" Background="#FF376DCB">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="mail.png"></Image>
+                        <Image Source="Resources/mail.png"></Image>
                         <Label FontSize="12" Foreground="White">Forward</Label>
                     </StackPanel>
                 </Button>
                 <Button Width="85" Height="35" HorizontalAlignment="Left" Background="#FF376DCB">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="star.png"></Image>
+                        <Image Source="Resources/star.png"></Image>
                         <Label FontSize="12" Foreground="White">Star</Label>
                     </StackPanel>
                 </Button>
@@ -80,17 +80,17 @@
             </TextBox>
         </Grid>
         <TreeView x:Name="EmailTreeView" Grid.Column="0" Grid.Row="1" Margin="10,15,10,5" Background="Gray" Foreground="White">
-            <TreeViewItem Header="test@gmail.com" Foreground="White" MouseDoubleClick="Email1TreeViewItem_MouseDoubleClick">
-                <TreeViewItem Header="Inbox" Foreground="White" MouseDoubleClick="Inbox1TreeViewItem_MouseDoubleClick"></TreeViewItem>
-                <TreeViewItem Header="Sent items" Foreground="White" MouseDoubleClick="Sent1TreeViewItem_MouseDoubleClick"></TreeViewItem>
-                <TreeViewItem Header="Deleted items" Foreground="White" MouseDoubleClick="Deleted1TreeViewItem_MouseDoubleClick"></TreeViewItem>
-                <TreeViewItem Header="Starred" Foreground="White" MouseDoubleClick="Starred1TreeViewItem_MouseDoubleClick"></TreeViewItem>
+            <TreeViewItem x:Name="Email1" Header="test@gmail.com" Foreground="White">
+                <TreeViewItem Header="Inbox" Foreground="White"></TreeViewItem>
+                <TreeViewItem Header="Sent items" Foreground="White"></TreeViewItem>
+                <TreeViewItem Header="Deleted items" Foreground="White"></TreeViewItem>
+                <TreeViewItem Header="Starred" Foreground="White"></TreeViewItem>
             </TreeViewItem>
-            <TreeViewItem Header="email@coyg.com" Foreground="White" MouseDoubleClick="Email2TreeViewItem_MouseDoubleClick">
-                    <TreeViewItem Header="Inbox" Foreground="White" MouseDoubleClick="Inbox2TreeViewItem_MouseDoubleClick"></TreeViewItem>
-                    <TreeViewItem Header="Sent items" Foreground="White" MouseDoubleClick="Sent2TreeViewItem_MouseDoubleClick"></TreeViewItem>
-                    <TreeViewItem Header="Deleted items" Foreground="White" MouseDoubleClick="Deleted2TreeViewItem_MouseDoubleClick"></TreeViewItem>
-                    <TreeViewItem Header="Starred" Foreground="White" MouseDoubleClick="Starred2TreeViewItem_MouseDoubleClick"></TreeViewItem>
+            <TreeViewItem x:Name="Email2" Header="email@coyg.com" Foreground="White">
+                    <TreeViewItem Header="Inbox" Foreground="White"></TreeViewItem>
+                    <TreeViewItem Header="Sent items" Foreground="White"></TreeViewItem>
+                    <TreeViewItem Header="Deleted items" Foreground="White"></TreeViewItem>
+                    <TreeViewItem Header="Starred" Foreground="White"></TreeViewItem>
                 </TreeViewItem>
         </TreeView>
 

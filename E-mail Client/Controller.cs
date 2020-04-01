@@ -33,9 +33,21 @@ namespace E_mail_Client
             }
         }
 
-        public void AddMails(Mailbox mailbox, params Mail[] mails)
+        public void AddMailsToInbox(Mailbox mailbox, params Mail[] mails)
         {
             mailbox.Inbox.AddMails(mails);
+        }
+        public void AddMailsToSentItems(Mailbox mailbox, params Mail[] mails)
+        {
+            mailbox.Sent.AddMails(mails);
+        }
+        public void AddMailsToDeleted(Mailbox mailbox, params Mail[] mails)
+        {
+            mailbox.Deleted.AddMails(mails);
+        }
+        public void AddMailsToStarred(Mailbox mailbox, params Mail[] mails)
+        {
+            mailbox.Starred.AddMails(mails);
         }
 
         public void LoadMails(Folder folder)
@@ -60,7 +72,7 @@ namespace E_mail_Client
             {
                 if (_currentFolder.FolderName == "Deleted items")
                 {
-                    MessageBoxResult result = MessageBox.Show("“Do you really wish to delete the message?", "Delete message", MessageBoxButton.YesNo);
+                    MessageBoxResult result = MessageBox.Show("Do you really wish to delete the message?", "Delete message", MessageBoxButton.YesNo);
                     switch (result)
                     {
                         case MessageBoxResult.Yes:
