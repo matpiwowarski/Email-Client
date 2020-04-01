@@ -95,28 +95,13 @@
         </TreeView>
 
             <ListView x:Name="MessagesListView" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="Auto" Margin="10,10,10,10"  Background="Gray" Foreground="White">
-                <ListViewItem>Message 1</ListViewItem>
-                <ListViewItem>Message 2</ListViewItem>
-                <ListViewItem>Message 3</ListViewItem>
-                <ListViewItem>Message 4</ListViewItem>
-                <ListViewItem>Message 5</ListViewItem>
-                <ListViewItem>Message 6</ListViewItem>
-                <ListViewItem>Message 7</ListViewItem>
-                <ListViewItem>Message 8</ListViewItem>
-                <ListViewItem>Message 9</ListViewItem>
-                <ListViewItem>Message 10</ListViewItem>
-                <ListViewItem>Message 11</ListViewItem>
-                <ListViewItem>Message 12</ListViewItem>
-                <ListViewItem>Message 13</ListViewItem>
-                <ListViewItem>Message 14</ListViewItem>
-                <ListViewItem>Message 15</ListViewItem>
-                <ListViewItem>Message 16</ListViewItem>
-                <ListViewItem>Message 17</ListViewItem>
-                <ListViewItem>Message 18</ListViewItem>
-                <ListViewItem>Message 19</ListViewItem>
-                <ListViewItem>Message 20</ListViewItem>
+
             </ListView>
-            
-            <TextBlock x:Name="MessageTextBlock" Text="Message Text" Background="DimGray" Foreground="White" HorizontalAlignment="Stretch" Margin="10,15,15,15" Height="auto" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"></TextBlock>
+
+        <Grid Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Background="DimGray"  HorizontalAlignment="Stretch" Margin="10,15,15,15" Height="auto">
+            <Label x:Name="AuthorLabel" Foreground="White" HorizontalAlignment="Right" Margin="0,5,10,0"></Label>
+            <Label x:Name="TopicLabel" Foreground="White" HorizontalAlignment="Center" Margin="0,5,0,0"></Label>
+            <TextBlock x:Name="MessageTextBlock" Foreground="White" Margin="20,40,20,10"></TextBlock>
+        </Grid>
     </Grid>
 </Window>

@@ -60,10 +60,14 @@ namespace E_mail_Client
                 _window.MessagesListView.Items.Add(m);
             }
             _window.MessageTextBlock.Text = "";
+            _window.AuthorLabel.Content = "";
+            _window.TopicLabel.Content = "";
         }
         public void LoadMail(Mail mail)
         {
             _window.MessageTextBlock.Text = mail.Text;
+            _window.AuthorLabel.Content = mail.Author;
+            _window.TopicLabel.Content = mail.Topic;
         }
 
         public void DeleteCurrentMail()
