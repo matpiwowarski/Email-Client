@@ -30,40 +30,46 @@ namespace E_mail_Client
             this.Email1.Header = Mailbox1.EmailAdress;
             this.Email2.Header = Mailbox2.EmailAdress;
 
+            // to test "reply all"
+            List<String> moreReceivers = new List<String>();
+            moreReceivers.Add("receiver1.1"); 
+            moreReceivers.Add(Mailbox1.EmailAdress);
+            moreReceivers.Add("receiver1.2");
+
             // mails for 1st mailbox
-            Mail mail1 = new Mail("author1", "receiver1", "topic1", "LONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONG");
-            Mail mail2 = new Mail("author2", "receiver2", "topic2", "content2");
-            Mail mail3 = new Mail("author3", "receiver3", "topic3", "content3");
-            Mail mail4 = new Mail("author4", "receiver4", "topic4", "content4");
-            Mail mail5 = new Mail("author5", "receiver5", "topic5", "content5");
-            Mail mail6 = new Mail("author6", "receiver6", "topic6", "content6");
-            Mail mail7 = new Mail("author7", "receiver7", "topic7", "content7");
-            Mail mail8 = new Mail("author8", "receiver8", "topic8", "content8");
-            Mail mail9 = new Mail("author9", "receiver9", "topic9", "content9");
-            Mail mail10 = new Mail("author10", "receiver10", "topic10", "content10");
-            Mail mail11 = new Mail("author11", "receiver11", "topic11", "content11");
-            Mail mail12 = new Mail("author12", "receiver12", "topic12", "content12");
-            Mail mail13 = new Mail("author13", "receiver13", "topic13", "content13");
-            Mail mail14 = new Mail("author14", "receiver14", "topic14", "content14");
-            Mail mail15 = new Mail("author15", "receiver15", "topic15", "content15");
-            Mail mail16 = new Mail("author16", "receiver16", "topic16", "content16");
+            Mail mail1 = new Mail("author1", moreReceivers, "topic1", "LONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONG");
+            Mail mail2 = new Mail("author2", Mailbox1.EmailAdress, "topic2", "content2");
+            Mail mail3 = new Mail("author3", Mailbox1.EmailAdress, "topic3", "content3");
+            Mail mail4 = new Mail("author4", Mailbox1.EmailAdress, "topic4", "content4");
+            Mail mail5 = new Mail("author5", Mailbox1.EmailAdress, "topic5", "content5");
+            Mail mail6 = new Mail("author6", Mailbox1.EmailAdress, "topic6", "content6");
+            Mail mail7 = new Mail("author7", Mailbox1.EmailAdress, "topic7", "content7");
+            Mail mail8 = new Mail("author8", Mailbox1.EmailAdress, "topic8", "content8");
+            Mail mail9 = new Mail("author9", Mailbox1.EmailAdress, "topic9", "content9");
+            Mail mail10 = new Mail("author10", Mailbox1.EmailAdress, "topic10", "content10");
+            Mail mail11 = new Mail("author11", Mailbox1.EmailAdress, "topic11", "content11");
+            Mail mail12 = new Mail("author12", Mailbox1.EmailAdress, "topic12", "content12");
+            Mail mail13 = new Mail("author13", Mailbox1.EmailAdress, "topic13", "content13");
+            Mail mail14 = new Mail("author14", Mailbox1.EmailAdress, "topic14", "content14");
+            Mail mail15 = new Mail("author15", Mailbox1.EmailAdress, "topic15", "content15");
+            Mail mail16 = new Mail("author16", Mailbox1.EmailAdress, "topic16", "content16");
             // mails for 2nd mailbox
-            Mail mail17 = new Mail("author17", "receiver17", "topic17", "content17");
-            Mail mail18 = new Mail("author18", "receiver18", "topic18", "content18");
-            Mail mail19 = new Mail("author19", "receiver19", "topic19", "content19");
-            Mail mail20 = new Mail("author20", "receiver20", "topic20", "content20");
-            Mail mail21 = new Mail("author21", "receiver21", "topic21", "content21");
-            Mail mail22 = new Mail("author22", "receiver22", "topic22", "content22");
-            Mail mail23 = new Mail("author23", "receiver23", "topic23", "content23");
-            Mail mail24 = new Mail("author24", "receiver24", "topic24", "content24");
-            Mail mail25 = new Mail("author25", "receiver25", "topic25", "content25");
-            Mail mail26 = new Mail("author26", "receiver26", "topic26", "content26");
-            Mail mail27 = new Mail("author27", "receiver27", "topic27", "content27");
-            Mail mail28 = new Mail("author28", "receiver28", "topic28", "content28");
-            Mail mail29 = new Mail("author29", "receiver29", "topic29", "content29");
-            Mail mail30 = new Mail("author30", "receiver30", "topic30", "content30");
-            Mail mail31 = new Mail("author31", "receiver31", "topic31", "content31");
-            Mail mail32 = new Mail("author32", "receiver32", "topic32", "content32");
+            Mail mail17 = new Mail("author17", Mailbox2.EmailAdress, "topic17", "content17");
+            Mail mail18 = new Mail("author18", Mailbox2.EmailAdress, "topic18", "content18");
+            Mail mail19 = new Mail("author19", Mailbox2.EmailAdress, "topic19", "content19");
+            Mail mail20 = new Mail("author20", Mailbox2.EmailAdress, "topic20", "content20");
+            Mail mail21 = new Mail("author21", Mailbox2.EmailAdress, "topic21", "content21");
+            Mail mail22 = new Mail("author22", Mailbox2.EmailAdress, "topic22", "content22");
+            Mail mail23 = new Mail("author23", Mailbox2.EmailAdress, "topic23", "content23");
+            Mail mail24 = new Mail("author24", Mailbox2.EmailAdress, "topic24", "content24");
+            Mail mail25 = new Mail("author25", Mailbox2.EmailAdress, "topic25", "content25");
+            Mail mail26 = new Mail("author26", Mailbox2.EmailAdress, "topic26", "content26");
+            Mail mail27 = new Mail("author27", Mailbox2.EmailAdress, "topic27", "content27");
+            Mail mail28 = new Mail("author28", Mailbox2.EmailAdress, "topic28", "content28");
+            Mail mail29 = new Mail("author29", Mailbox2.EmailAdress, "topic29", "content29");
+            Mail mail30 = new Mail("author30", Mailbox2.EmailAdress, "topic30", "content30");
+            Mail mail31 = new Mail("author31", Mailbox2.EmailAdress, "topic31", "content31");
+            Mail mail32 = new Mail("author32", Mailbox2.EmailAdress, "topic32", "content32");
 
             // load mails for mailbox1
             AddMailsToList(Mailbox1.Inbox, mail1, mail2, mail3, mail4);
@@ -342,6 +348,48 @@ namespace E_mail_Client
             {
                 // some changes in MainWindow if needed
             }
+        }
+
+        private void ReplyAllButton_Click(object sender, RoutedEventArgs e)
+        {
+            NewMessageWindow messageWindow = new NewMessageWindow(this);
+
+            messageWindow.Email1.Content = this.Mailbox1.EmailAdress;
+            messageWindow.Email2.Content = this.Mailbox2.EmailAdress;
+
+            // find selected mail
+            int mailIndex = MessagesListView.SelectedIndex;
+            var currentMail = _currentFolder[mailIndex];
+
+            // rewrite author to recipient in message window
+            messageWindow.RecipientTextBox.Text = currentMail.Author;
+
+            // rewrite all the recipients except this email address
+            foreach(String r in currentMail.Receivers)
+            {
+                if(r != GetCurrentMailboxAddress())
+                {
+                    messageWindow.RecipientTextBox.Text += ";" + r;
+                }
+            }
+
+            if (messageWindow.ShowDialog() == true)
+            {
+                // some changes in MainWindow if needed
+            }
+        }
+        private String GetCurrentMailboxAddress()
+        {
+            if(_currentFolder == Mailbox1.Inbox || _currentFolder == Mailbox1.Sent || _currentFolder == Mailbox1.Starred || _currentFolder == Mailbox1.Deleted)
+            {
+                return Mailbox1.EmailAdress;
+            }
+            else if(_currentFolder == Mailbox2.Inbox || _currentFolder == Mailbox2.Sent || _currentFolder == Mailbox2.Starred || _currentFolder == Mailbox2.Deleted)
+            {
+                return Mailbox2.EmailAdress;
+            }
+
+            return ""; 
         }
     }
 }

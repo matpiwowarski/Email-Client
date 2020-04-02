@@ -59,7 +59,7 @@
                         <Label FontSize="12" Foreground="White">Reply</Label>
                     </StackPanel>
                 </Button>
-                <Button x:Name="ReplyAllButton" Width="100" Height="40" IsEnabled="False" HorizontalAlignment="Left" Background="#FF376DCB">
+                <Button x:Name="ReplyAllButton" Width="100" Height="40" IsEnabled="False" HorizontalAlignment="Left" Background="#FF376DCB" Click="ReplyAllButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Resources/toall.png"></Image>
                         <Label FontSize="12" Foreground="White">Reply all</Label>
