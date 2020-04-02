@@ -10,11 +10,22 @@ namespace E_mail_Client.Model
         public String Topic { get; set; }
         public String Text { get; set; }
         public String Author { get; set; }
-        public String Receiver { get; set; }
-        public Mail(string author, string receiver, string topic, string content)
+
+        public List<String> Receivers = new List<String>();
+
+        // one receiver
+        public Mail(String author, String receiver, String topic, String content)
         {
             Author = author;
-            Receiver = receiver;
+            Receivers.Add(receiver);
+            Topic = topic;
+            Text = content;
+        }
+        // more receivers
+        public Mail(String author, List<String> receivers, String topic, String content)
+        {
+            Author = author;
+            Receivers = receivers;
             Topic = topic;
             Text = content;
         }

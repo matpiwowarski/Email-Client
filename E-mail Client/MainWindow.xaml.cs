@@ -205,7 +205,15 @@ namespace E_mail_Client
             MessageTextBlock.Text = _currentFolder[mailIndex].Text;
             AuthorLabel.Content = "By: " + _currentFolder[mailIndex].Author;
             TopicLabel.Content = "Subject: " + _currentFolder[mailIndex].Topic;
-            ReceiverLabel.Content = "To: " + _currentFolder[mailIndex].Receiver;
+
+            String Receivers = "";
+            foreach(String r in _currentFolder[mailIndex].Receivers)
+            {
+                Receivers += r;
+                Receivers += "; ";
+            }
+
+            ReceiverLabel.Content = "To: " + Receivers;
         }
         public void DeleteMail(int mailIndex)
         {
@@ -230,7 +238,7 @@ namespace E_mail_Client
                 {
                     var currentMail = _currentFolder[mailIndex];
 
-                    Mail mailCopy = new Mail(currentMail.Author, currentMail.Receiver, currentMail.Topic, currentMail.Text);
+                    Mail mailCopy = new Mail(currentMail.Author, currentMail.Receivers, currentMail.Topic, currentMail.Text);
 
                     if (_currentFolder == Mailbox1.Inbox || _currentFolder == Mailbox1.Sent || _currentFolder == Mailbox1.Starred)
                     {
@@ -258,7 +266,7 @@ namespace E_mail_Client
 
                 var currentMail = _currentFolder[mailIndex];
 
-                Mail mailCopy = new Mail(currentMail.Author, currentMail.Receiver, currentMail.Topic, currentMail.Text);
+                Mail mailCopy = new Mail(currentMail.Author, currentMail.Receivers, currentMail.Topic, currentMail.Text);
 
                 if (_currentFolder == Mailbox1.Inbox || _currentFolder == Mailbox1.Sent || _currentFolder == Mailbox1.Deleted)
                 {

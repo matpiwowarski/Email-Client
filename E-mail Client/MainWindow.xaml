@@ -127,11 +127,11 @@
             </ListView>
 
         <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Background="LightGray"  HorizontalAlignment="Stretch" Margin="10,15,15,15" Height="auto">
-            <Label x:Name="ReceiverLabel" HorizontalAlignment="Left" Margin="10,0,10,0" FontSize="14" VerticalAlignment="Top">taras</Label>
-            <Label x:Name="AuthorLabel" HorizontalAlignment="Left" Margin="10,0,10,0" FontSize="14" VerticalAlignment="Top">taasta</Label>
-            <Label x:Name="TopicLabel" HorizontalAlignment="left" Margin="10,0,10,0" FontSize="14" VerticalAlignment="Top">tatsat</Label>
+            <Label x:Name="ReceiverLabel" HorizontalAlignment="Left" Margin="10,0,10,0" FontSize="14" VerticalAlignment="Top"></Label>
+            <Label x:Name="AuthorLabel" HorizontalAlignment="Left" Margin="10,0,10,0" FontSize="14" VerticalAlignment="Top"></Label>
+            <Label x:Name="TopicLabel" HorizontalAlignment="left" Margin="10,0,10,0" FontSize="14" VerticalAlignment="Top"></Label>
             <Separator></Separator>
-            <TextBlock x:Name="MessageTextBlock" Margin="20,5,20,10" FontSize="13" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top">content</TextBlock>
+            <TextBlock x:Name="MessageTextBlock" Margin="20,5,20,10" FontSize="13" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"></TextBlock>
         </StackPanel>
     </Grid>
 </Window>

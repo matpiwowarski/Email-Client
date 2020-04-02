@@ -35,16 +35,24 @@ namespace E_mail_Client
                 String topic = SubjectTextBox.Text;
                 String content = ContentTextBox.Text;
 
-                Mail mail = new Mail(author, receiver, topic, content);
+                String copyReceiver = CopyRecipientTextBox.Text;
+
+                List<String> receivers = new List<string>();
+                receivers.Add(receiver);
+
+                if (copyReceiver.Length > 0)
+                    receivers.Add(copyReceiver);
+
+                Mail mail = new Mail(author, receivers, topic, content);
 
                 if(_mainWindow != null)
                 {
                     // adding to inbox
-                    if (_mainWindow.Mailbox1.EmailAdress == receiver)
+                    if (_mainWindow.Mailbox1.EmailAdress == receiver || _mainWindow.Mailbox1.EmailAdress == copyReceiver)
                     {
                         _mainWindow.Mailbox1.Inbox.Add(mail);
                     }
-                    else if (_mainWindow.Mailbox2.EmailAdress == receiver)
+                    else if (_mainWindow.Mailbox2.EmailAdress == receiver || _mainWindow.Mailbox2.EmailAdress == copyReceiver)
                     {
                         _mainWindow.Mailbox2.Inbox.Add(mail);
                     }
