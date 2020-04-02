@@ -83,29 +83,12 @@ namespace E_mail_Client
             {
                 foreach(String file in dlg.FileNames)
                 {
-                    string fileName = GetFileNameFromPath(file);
+                    string fileName = System.IO.Path.GetFileName(file);
                     AttachmentListBox.Items.Add(fileName);
                 }
             }
             // make attachment list visible
             AttachmentListBox.Visibility = Visibility.Visible;
-        }
-
-        private string GetFileNameFromPath(string path)
-        {
-            int lastFolderIndex = 0;
-            string file;
-            for(int i = 0; i < path.Length; i++)
-            {
-                if (path[i] == '\\')
-                {
-                    lastFolderIndex = i;
-                }
-            }
-
-            file = path.Substring(lastFolderIndex + 1);
-
-            return file;
         }
     }
 }

@@ -21,9 +21,8 @@ namespace E_mail_Client
     {
         private List<Mail> _currentFolder;
 
-        public Mailbox Mailbox1 = new Mailbox("arsenalfc@london.com");
+        public Mailbox Mailbox1 = new Mailbox("mateusz.piwowarski@student.um.si");
         public Mailbox Mailbox2 = new Mailbox("matpiwowarski7@gmail.com");
-
         public MainWindow()
         {
             InitializeComponent();

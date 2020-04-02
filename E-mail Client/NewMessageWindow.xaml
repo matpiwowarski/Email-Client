@@ -22,26 +22,36 @@
         </Grid.RowDefinitions>
 
         <Label Grid.Column="1" Grid.RowSpan="4" Foreground="#FF376DCB" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold">New Message</Label>
-        <ComboBox x:Name="MailboxComboBox" Grid.Row="0" Margin="10,10,10,5">
-            <ComboBoxItem x:Name="Email1" IsSelected="True">
-                Email1
-            </ComboBoxItem>
-            <ComboBoxItem x:Name="Email2">
-                Email2
-            </ComboBoxItem>
-        </ComboBox>
 
-        <TextBox x:Name="RecipientTextBox" Grid.Row="1" Margin="10,5,10,5" Padding="1">
-            Recipient
-        </TextBox>
-        <TextBox x:Name="CopyRecipientTextBox" Grid.Row="2" Margin="10,5,10,5" Padding="1">
-            CopyRecipient
-        </TextBox>
-        <TextBox x:Name="SubjectTextBox" Grid.Row="3" Margin="10,5,10,5" Padding="1">
-            Subject
-        </TextBox>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="10,10,10,5">
+            <Label HorizontalAlignment="Left">by:</Label>
+            <ComboBox x:Name="MailboxComboBox" Width="205">
+                <ComboBoxItem x:Name="Email1" IsSelected="True">
+                    Email1
+                </ComboBoxItem>
+                <ComboBoxItem x:Name="Email2">
+                    Email2
+                </ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="1">
+            <Label HorizontalAlignment="Left" FontSize="12">Recipient:</Label>
+            <TextBox x:Name="RecipientTextBox" Grid.Row="1" Margin="0,3,10,3" Width="160">
+            </TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="2">
+            <Label HorizontalAlignment="Left" FontSize="10">Copy Recipient:</Label>
+            <TextBox x:Name="CopyRecipientTextBox" Grid.Row="2" Margin="0,3,10,3" Width="160">
+            </TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="3">
+            <Label HorizontalAlignment="Left" FontSize="12">Subject:</Label>
+            <TextBox x:Name="SubjectTextBox" Grid.Row="3" Margin="0,3,10,3" Width="160">
+            </TextBox>
+        </StackPanel>
         <TextBox x:Name="ContentTextBox" Grid.Row="4" Grid.ColumnSpan="2" Margin="10,5,10,10" Padding="10">
-            Content
+            
         </TextBox>
 
         <ListBox x:Name="AttachmentListBox" Grid.Row="5" Margin="10,5,0,10" Visibility="Hidden">
