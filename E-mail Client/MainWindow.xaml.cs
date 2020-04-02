@@ -199,12 +199,14 @@ namespace E_mail_Client
             MessageTextBlock.Text = "";
             AuthorLabel.Content = "";
             TopicLabel.Content = "";
+            ReceiverLabel.Content = "";
         }
         private void LoadMail(int mailIndex)
         {
             MessageTextBlock.Text = _currentFolder[mailIndex].Text;
-            AuthorLabel.Content = "by: " + _currentFolder[mailIndex].Author;
-            TopicLabel.Content = "topic: " + _currentFolder[mailIndex].Topic;
+            AuthorLabel.Content = "By: " + _currentFolder[mailIndex].Author;
+            TopicLabel.Content = "Subject: " + _currentFolder[mailIndex].Topic;
+            ReceiverLabel.Content = "To: " + _currentFolder[mailIndex].Receiver;
         }
         public void DeleteMail(int mailIndex)
         {
