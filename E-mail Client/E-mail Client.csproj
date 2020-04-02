@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="attachment.png" />
     <None Remove="cross.png" />
     <None Remove="delete.png" />
     <None Remove="deleted.png" />
@@ -18,6 +19,7 @@
     <None Remove="mail.png" />
     <None Remove="new.png" />
     <None Remove="reply.png" />
+    <None Remove="Resources\attachment.png" />
     <None Remove="Resources\cross.png" />
     <None Remove="Resources\delete.png" />
     <None Remove="Resources\deleted.png" />
@@ -36,6 +38,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\attachment.png" />
     <Resource Include="Resources\cross.png" />
     <Resource Include="Resources\deleted.png" />
     <Resource Include="Resources\folder.png" />

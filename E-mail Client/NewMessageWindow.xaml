@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:E_mail_Client"
         mc:Ignorable="d"
-        Title="NewMessageWindow" Height="600" Width="500">
+        Title="New Message" Height="600" Width="500">
     <Grid Background="LightGray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300"></ColumnDefinition>
@@ -21,8 +21,8 @@
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Label Grid.Column="1" Foreground="#FF376DCB" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold">New Message</Label>
-        <ComboBox Grid.Row="0" Margin="10,10,10,5">
+        <Label Grid.Column="1" Grid.RowSpan="4" Foreground="#FF376DCB" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold">New Message</Label>
+        <ComboBox x:Name="MailboxComboBox" Grid.Row="0" Margin="10,10,10,5">
             <ComboBoxItem x:Name="Email1" IsSelected="True">
                 Email1
             </ComboBoxItem>
@@ -49,12 +49,12 @@
         </ListBox>
         
         <StackPanel Orientation="Horizontal"  Grid.Row="5" Grid.Column="1" HorizontalAlignment="Right">
-            <Button x:Name="AttachmentButton" Margin="10,5,0,10" Padding="1">
-                <Image Width="30" Height="30" Source="Resources/attachment.png">
+            <Button x:Name="AttachmentButton" Margin="10,5,0,10">
+                <Image Source="Resources/attachment.png">
                     
                 </Image>
             </Button>
-            <Button x:Name="SendButton" HorizontalAlignment="Right" Margin="5,5,10,10" Width="150">
+            <Button x:Name="SendButton" HorizontalAlignment="Right" Margin="5,5,10,10" Width="140" Click="SendButton_Click">
                 Send
             </Button>
         </StackPanel>

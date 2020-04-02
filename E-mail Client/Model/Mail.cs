@@ -7,10 +7,10 @@ namespace E_mail_Client.Model
 {
     public class Mail
     {
-        public string Topic { get; set; }
-        public string Text { get; set; }
-        public string Author { get; set; }
-        public string Receiver { get; set; }
+        public String Topic { get; set; }
+        public String Text { get; set; }
+        public String Author { get; set; }
+        public String Receiver { get; set; }
         public Mail(string author, string receiver, string topic, string content)
         {
             Author = author;
