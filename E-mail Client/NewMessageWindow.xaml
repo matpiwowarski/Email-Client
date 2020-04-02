@@ -7,29 +7,41 @@
         mc:Ignorable="d"
         Title="NewMessageWindow" Height="600" Width="500">
     <Grid Background="LightGray">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"></ColumnDefinition>
-                <ColumnDefinition Width="Auto"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50"></RowDefinition>
-                <RowDefinition Height="25"></RowDefinition>
-                <RowDefinition Height="25"></RowDefinition>
-                <RowDefinition Height="25"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-            </Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
 
-            <Label Grid.Column="1" Foreground="#FF376DCB" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold">New Message</Label>
-            <ComboBox Grid.Row="1" Margin="10,0,10,0">
-                <ComboBoxItem x:Name="Email1" IsSelected="True">
-                    Email1
-                </ComboBoxItem>
-                <ComboBoxItem x:Name="Email2">
-                    Email2
-                </ComboBoxItem>
-            </ComboBox>
+        <Label Grid.Column="1" Foreground="#FF376DCB" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold">New Message</Label>
+        <ComboBox Grid.Row="0" Margin="10,10,10,5">
+            <ComboBoxItem x:Name="Email1" IsSelected="True">
+                Email1
+            </ComboBoxItem>
+            <ComboBoxItem x:Name="Email2">
+                Email2
+            </ComboBoxItem>
+        </ComboBox>
 
+        <TextBox x:Name="RecipientTextBox" Grid.Row="1" Margin="10,5,10,5" Padding="1">
+            Recipient
+        </TextBox>
+        <TextBox x:Name="CopyRecipientTextBox" Grid.Row="2" Margin="10,5,10,5" Padding="1">
+            CopyRecipient
+        </TextBox>
+        <TextBox x:Name="SubjectTextBox" Grid.Row="3" Margin="10,5,10,5" Padding="1">
+            Subject
+        </TextBox>
+        <TextBox x:Name="ContentTextBox" Grid.Row="4" Grid.ColumnSpan="2" Margin="10,5,10,10" Padding="10">
+            Content
+        </TextBox>
 
-        </Grid>
+    </Grid>
 </Window>

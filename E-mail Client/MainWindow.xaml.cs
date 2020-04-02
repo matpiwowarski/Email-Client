@@ -95,85 +95,95 @@ namespace E_mail_Client
         {
             if (MessagesListView.SelectedItems.Count > 0)
             {
-                DisableDeleteButton();
+                DisableAllButtons();
                 DeleteMail(MessagesListView.SelectedIndex);
             }
         }
 
         private void Email_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            DisableDeleteButton();
+            DisableAllButtons();
         }
 
         private void Inbox1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             _currentFolder = _mailbox1.Inbox;
-            DisableDeleteButton();
+            DisableAllButtons();
             LoadMails(_currentFolder);
         }
 
         private void Sent1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             _currentFolder = _mailbox1.Sent;
-            DisableDeleteButton();
+            DisableAllButtons();
             LoadMails(_currentFolder);
         }
 
         private void Starred1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             _currentFolder = _mailbox1.Starred;
-            DisableDeleteButton();
+            DisableAllButtons();
             LoadMails(_currentFolder);
         }
 
         private void Deleted1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             _currentFolder = _mailbox1.Deleted;
-            DisableDeleteButton();
+            DisableAllButtons();
             LoadMails(_currentFolder);
         }
 
         private void Inbox2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             _currentFolder = _mailbox2.Inbox;
-            DisableDeleteButton();
+            DisableAllButtons();
             LoadMails(_currentFolder);
         }
 
         private void Sent2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             _currentFolder = _mailbox2.Sent;
-            DisableDeleteButton();
+            DisableAllButtons();
             LoadMails(_currentFolder);
         }
 
         private void Starred2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             _currentFolder = _mailbox2.Starred;
-            DisableDeleteButton();
+            DisableAllButtons();
             LoadMails(_currentFolder);
         }
 
         private void Deleted2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             _currentFolder = _mailbox2.Deleted;
-            DisableDeleteButton();
+            DisableAllButtons();
             LoadMails(_currentFolder);
         }
 
         private void Mail_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            EnableDeleteButton();
+            EnableAllButtons();
             LoadMail(MessagesListView.SelectedIndex);
         }
 
-        private void DisableDeleteButton()
+        private void DisableAllButtons()
         {
             DeleteButton.IsEnabled = false;
+            StarButton.IsEnabled = false;
+            ForwardButton.IsEnabled = false;
+            ReplyAllButton.IsEnabled = false;
+            ReplyButton.IsEnabled = false;
+            
         }
-        private void EnableDeleteButton()
+        private void EnableAllButtons()
         {
             DeleteButton.IsEnabled = true;
+            StarButton.IsEnabled = true;
+            ForwardButton.IsEnabled = true;
+            ReplyAllButton.IsEnabled = true;
+            ReplyButton.IsEnabled = true;
+
         }
         private void LoadMails(List<Mail> mails)
         {
@@ -207,7 +217,7 @@ namespace E_mail_Client
                     {
                         case MessageBoxResult.Yes:
                             _currentFolder.RemoveAt(mailIndex);
-                            DisableDeleteButton();
+                            DisableAllButtons();
                             LoadMails(_currentFolder);
 
                             break;
@@ -233,9 +243,41 @@ namespace E_mail_Client
 
                     _currentFolder.RemoveAt(mailIndex);
 
-                    DisableDeleteButton();
+                    DisableAllButtons();
                     LoadMails(_currentFolder);
                 }
+            }
+        }
+
+        private void Star_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessagesListView.SelectedItems.Count > 0)
+            { 
+                int mailIndex = MessagesListView.SelectedIndex;
+
+                var currentMail = _currentFolder[mailIndex];
+
+                Mail mailCopy = new Mail(currentMail.Author, currentMail.Receiver, currentMail.Topic, currentMail.Text);
+
+                if (_currentFolder == _mailbox1.Inbox || _currentFolder == _mailbox1.Sent || _currentFolder == _mailbox1.Deleted)
+                {
+                    // 1st mailbox
+                    _mailbox1.Starred.Add(mailCopy);
+                }
+                else if(_currentFolder == _mailbox2.Inbox || _currentFolder == _mailbox2.Sent || _currentFolder == _mailbox2.Deleted) // 2nd mailbox
+                {
+                    // 2nd mailbox
+                    _mailbox2.Starred.Add(mailCopy);
+                }
+                else
+                {
+                    return;
+                }
+
+                _currentFolder.RemoveAt(mailIndex);
+
+                DisableAllButtons();
+                LoadMails(_currentFolder);
             }
         }
 
@@ -243,6 +285,7 @@ namespace E_mail_Client
         private void NewMessage_Click(object sender, RoutedEventArgs e)
         {
             NewMessageWindow nmWindow = new NewMessageWindow();
+
             nmWindow.Email1.Content = _mailbox1.EmailAdress;
             nmWindow.Email2.Content = _mailbox2.EmailAdress;
 
@@ -252,5 +295,6 @@ namespace E_mail_Client
             }
 
         }
+
     }
 }

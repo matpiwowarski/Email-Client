@@ -53,25 +53,25 @@
                         <Label FontSize="12" Foreground="White">Delete</Label>
                     </StackPanel>
                 </Button>
-                <Button Width="100" Height="40" HorizontalAlignment="Left" Background="#FF376DCB">
+                <Button x:Name="ReplyButton" Width="100" Height="40" IsEnabled="False" HorizontalAlignment="Left" Background="#FF376DCB">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Resources/reply.png" ></Image>
                         <Label FontSize="12" Foreground="White">Reply</Label>
                     </StackPanel>
                 </Button>
-                <Button Width="100" Height="40" HorizontalAlignment="Left" Background="#FF376DCB">
+                <Button x:Name="ReplyAllButton" Width="100" Height="40" IsEnabled="False" HorizontalAlignment="Left" Background="#FF376DCB">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Resources/toall.png"></Image>
                         <Label FontSize="12" Foreground="White">Reply all</Label>
                     </StackPanel>
                 </Button>
-                <Button Width="100" Height="40" HorizontalAlignment="Left" Background="#FF376DCB">
+                <Button x:Name="ForwardButton" Width="100" Height="40" IsEnabled="False" HorizontalAlignment="Left" Background="#FF376DCB">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Resources/forward.png"></Image>
                         <Label FontSize="12" Foreground="White">Forward</Label>
                     </StackPanel>
                 </Button>
-                <Button Width="100" Height="40" HorizontalAlignment="Left" Background="#FF376DCB">
+                <Button x:Name="StarButton" IsEnabled="False" Width="100" Height="40" HorizontalAlignment="Left" Background="#FF376DCB" Click="Star_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Resources/star.png"></Image>
                         <Label FontSize="12" Foreground="White">Star</Label>
