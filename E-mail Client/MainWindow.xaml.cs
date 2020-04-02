@@ -293,17 +293,34 @@ namespace E_mail_Client
         // 3rd assignment
         private void NewMessage_Click(object sender, RoutedEventArgs e)
         {
-            NewMessageWindow nmWindow = new NewMessageWindow(this);
+            NewMessageWindow messageWindow = new NewMessageWindow(this);
 
-            nmWindow.Email1.Content = Mailbox1.EmailAdress;
-            nmWindow.Email2.Content = Mailbox2.EmailAdress;
+            messageWindow.Email1.Content = this.Mailbox1.EmailAdress;
+            messageWindow.Email2.Content = this.Mailbox2.EmailAdress;
 
-            if(nmWindow.ShowDialog() == true)
+            if(messageWindow.ShowDialog() == true)
             {
-                
+                // some changes in MainWindow if needed
             }
-
         }
+        private void ReplyButton_Click(object sender, RoutedEventArgs e)
+        {
+            NewMessageWindow messageWindow = new NewMessageWindow(this);
 
+            messageWindow.Email1.Content = this.Mailbox1.EmailAdress;
+            messageWindow.Email2.Content = this.Mailbox2.EmailAdress;
+
+            // find selected mail
+            int mailIndex = MessagesListView.SelectedIndex;
+            var currentMail = _currentFolder[mailIndex];
+
+            // rewrite author to recipient in message window
+            messageWindow.RecipientTextBox.Text = currentMail.Author;
+
+            if (messageWindow.ShowDialog() == true)
+            {
+                // some changes in MainWindow if needed
+            }
+        }
     }
 }
