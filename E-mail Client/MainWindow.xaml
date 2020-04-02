@@ -65,7 +65,7 @@
                         <Label FontSize="12" Foreground="White">Reply all</Label>
                     </StackPanel>
                 </Button>
-                <Button x:Name="ForwardButton" Width="100" Height="40" IsEnabled="False" HorizontalAlignment="Left" Background="#FF376DCB">
+                <Button x:Name="ForwardButton" Width="100" Height="40" IsEnabled="False" HorizontalAlignment="Left" Background="#FF376DCB" Click="ForwardButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Resources/forward.png"></Image>
                         <Label FontSize="12" Foreground="White">Forward</Label>

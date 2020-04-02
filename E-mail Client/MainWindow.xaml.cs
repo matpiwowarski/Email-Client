@@ -322,5 +322,26 @@ namespace E_mail_Client
                 // some changes in MainWindow if needed
             }
         }
+
+        private void ForwardButton_Click(object sender, RoutedEventArgs e)
+        {
+            NewMessageWindow messageWindow = new NewMessageWindow(this);
+
+            messageWindow.Email1.Content = this.Mailbox1.EmailAdress;
+            messageWindow.Email2.Content = this.Mailbox2.EmailAdress;
+
+            // find selected mail
+            int mailIndex = MessagesListView.SelectedIndex;
+            var currentMail = _currentFolder[mailIndex];
+
+            // rewrite content to message window
+            messageWindow.SubjectTextBox.Text = currentMail.Topic;
+            messageWindow.ContentTextBox.Text = currentMail.Text;
+
+            if (messageWindow.ShowDialog() == true)
+            {
+                // some changes in MainWindow if needed
+            }
+        }
     }
 }
