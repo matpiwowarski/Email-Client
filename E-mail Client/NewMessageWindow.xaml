@@ -49,7 +49,7 @@
         </ListBox>
         
         <StackPanel Orientation="Horizontal"  Grid.Row="5" Grid.Column="1" HorizontalAlignment="Right">
-            <Button x:Name="AttachmentButton" Margin="10,5,0,10">
+            <Button x:Name="AttachmentButton" Margin="10,5,0,10" Click="AttachmentButton_Click">
                 <Image Source="Resources/attachment.png">
                     
                 </Image>

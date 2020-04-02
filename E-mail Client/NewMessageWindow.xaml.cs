@@ -66,5 +66,26 @@ namespace E_mail_Client
                 MessageBox.Show("The recipient and the subject should be filled.");
             }
         }
+
+        private void AttachmentButton_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            dlg.Multiselect = true;
+            dlg.Title = "Select Attachments";
+            // .jpg, .png, .gif, .bmp, .wmv, .mp3, .mpg, .mpeg, and all files
+            var imageFilter = "Image(*.JPG; *.PNG; *.GIF; *.BMP)| *.JPG; *.PNG; *.GIF; *.BMP |";
+            var videoFilter = "Video(*.WMV;*.MPG;*.MPEG)| *.WMV;*.MPG;*.MPEG |";
+            var audioFilter = "Audio(*.MP3)| *.MP3 |";
+
+            
+            dlg.Filter = imageFilter + videoFilter + audioFilter + "All files (*.*)|*.*";
+            if(dlg.ShowDialog() == true)
+            {
+                foreach(String file in dlg.FileNames)
+                {
+                    AttachmentListBox.Items.Add(file);
+                }
+            }
+        }
     }
 }
