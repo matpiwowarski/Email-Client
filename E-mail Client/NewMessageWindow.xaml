@@ -54,7 +54,7 @@
                     
                 </Image>
             </Button>
-            <Button x:Name="SendButton" HorizontalAlignment="Right" Margin="5,5,10,10" Width="140" Click="SendButton_Click">
+            <Button x:Name="SendButton" HorizontalAlignment="Right" Margin="5,5,10,10" Width="130" Click="SendButton_Click">
                 Send
             </Button>
         </StackPanel>

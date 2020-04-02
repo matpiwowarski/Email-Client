@@ -22,15 +22,15 @@ namespace E_mail_Client
 
         public NewMessageWindow(MainWindow mainWindow)
         {
-            _mainWindow = mainWindow;
             InitializeComponent();
+            _mainWindow = mainWindow;
         }
 
         private void SendButton_Click(object sender, RoutedEventArgs e)
         {
             if(RecipientTextBox.Text.Length > 0 && SubjectTextBox.Text.Length > 0)
             {
-                String author = MailboxComboBox.SelectedItem.ToString();
+                String author = MailboxComboBox.Text;
                 String receiver = RecipientTextBox.Text;
                 String topic = SubjectTextBox.Text;
                 String content = ContentTextBox.Text;
