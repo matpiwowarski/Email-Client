@@ -21,12 +21,15 @@ namespace E_mail_Client
     {
         private List<Mail> _currentFolder;
 
-        private Mailbox _mailbox1 = new Mailbox();
-        private Mailbox _mailbox2 = new Mailbox();
+        public Mailbox _mailbox1 = new Mailbox("arsenalfc@london.com");
+        public Mailbox _mailbox2 = new Mailbox("matpiwowarski7@gmail.com");
 
         public MainWindow()
         {
             InitializeComponent();
+
+            this.Email1.Header = _mailbox1.EmailAdress;
+            this.Email2.Header = _mailbox2.EmailAdress;
 
             // mails for 1st mailbox
             Mail mail1 = new Mail("author1", "receiver1", "topic1", "LONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONG");
@@ -161,7 +164,6 @@ namespace E_mail_Client
         private void Mail_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             EnableDeleteButton();
-
             LoadMail(MessagesListView.SelectedIndex);
         }
 
@@ -235,6 +237,20 @@ namespace E_mail_Client
                     LoadMails(_currentFolder);
                 }
             }
+        }
+
+        // 3rd assignment
+        private void NewMessage_Click(object sender, RoutedEventArgs e)
+        {
+            NewMessageWindow nmWindow = new NewMessageWindow();
+            nmWindow.Email1.Content = _mailbox1.EmailAdress;
+            nmWindow.Email2.Content = _mailbox2.EmailAdress;
+
+            if(nmWindow.ShowDialog() == true)
+            {
+                
+            }
+
         }
     }
 }

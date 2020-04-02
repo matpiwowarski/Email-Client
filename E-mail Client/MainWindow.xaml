@@ -33,7 +33,7 @@
                 </Menu.ItemsPanel>
 
                 <MenuItem Header="File" Margin="10,0,0,0" FontWeight="Bold" Background="Gray" FontSize="14">
-                    <MenuItem Header="New Message" Background="Gray">
+                    <MenuItem Header="New Message" Background="Gray" Click="NewMessage_Click">
                         <MenuItem.Icon>
                             <Image Source="Resources/new.png"></Image>
                         </MenuItem.Icon>
