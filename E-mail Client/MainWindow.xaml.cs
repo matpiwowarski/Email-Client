@@ -446,7 +446,7 @@ namespace E_mail_Client
                 }
                 messageWindow.SubjectTextBox.Text = currentMail.Topic;
                 messageWindow.ContentTextBox.Text = currentMail.Text;
-                if (messageWindow.AttachmentListBox.Items.Count > 0)
+                if (currentMail.Attachments.Count > 0)
                 {
                     messageWindow.AttachmentListBox.Visibility = Visibility.Visible;
                     foreach (string attachment in currentMail.Attachments)
