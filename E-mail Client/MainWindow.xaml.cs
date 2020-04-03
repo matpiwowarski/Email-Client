@@ -31,7 +31,7 @@ namespace E_mail_Client
             this.Email2.Header = Mailbox2.EmailAdress;
 
             // to test "reply all"
-            List<String> moreReceivers = new List<String>();
+            HashSet<String> moreReceivers = new HashSet<String>();
             moreReceivers.Add("receiver1.1"); 
             moreReceivers.Add(Mailbox1.EmailAdress);
             moreReceivers.Add("receiver1.2");

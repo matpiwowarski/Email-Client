@@ -31,17 +31,17 @@ namespace E_mail_Client
             if(RecipientTextBox.Text.Length > 0 && SubjectTextBox.Text.Length > 0)
             {
                 String author = MailboxComboBox.Text;
-                String receiver = RecipientTextBox.Text;
+                String receiverString = RecipientTextBox.Text;
                 String topic = SubjectTextBox.Text;
                 String content = ContentTextBox.Text;
 
-                String copyReceiver = CopyRecipientTextBox.Text;
+                String copyReceiverString = CopyRecipientTextBox.Text;
 
-                List<String> receivers = new List<string>();
-                receivers.Add(receiver);
-
-                if (copyReceiver.Length > 0)
-                    receivers.Add(copyReceiver);
+                HashSet<String> receivers = new HashSet<String>();
+                // add all receivers
+                AddAllReceivers(receiverString, receivers);
+                // add all copy receivers
+                AddAllReceivers(copyReceiverString, receivers);
 
                 Mail mail = new Mail(author, receivers, topic, content);
 
@@ -56,14 +56,10 @@ namespace E_mail_Client
                 if(_mainWindow != null)
                 {
                     // adding to inbox
-                    if (_mainWindow.Mailbox1.EmailAdress == receiver || _mainWindow.Mailbox1.EmailAdress == copyReceiver)
-                    {
+                    if (receivers.Contains(_mainWindow.Mailbox1.EmailAdress))
                         _mainWindow.Mailbox1.Inbox.Add(mail);
-                    }
-                    else if (_mainWindow.Mailbox2.EmailAdress == receiver || _mainWindow.Mailbox2.EmailAdress == copyReceiver)
-                    {
+                    if (receivers.Contains(_mainWindow.Mailbox2.EmailAdress))
                         _mainWindow.Mailbox2.Inbox.Add(mail);
-                    }
                     // adding to sent
                     if (_mainWindow.Mailbox1.EmailAdress == author)
                     {
@@ -80,6 +76,24 @@ namespace E_mail_Client
             else
             {
                 MessageBox.Show("The recipient and the subject should be filled.");
+            }
+        }
+
+        private void AddAllReceivers(string receiverString, HashSet<string> receiverSet)
+        {
+            if (receiverString.Length > 0)
+            {
+                // filling ';' instead of every ' '
+                receiverString.Replace(' ', ';');
+
+                // adding every receiver to the set
+
+                string[] receivers = receiverString.Split(';');
+
+                foreach(string receiver in receivers)
+                {
+                    receiverSet.Add(receiver);
+                }
             }
         }
 

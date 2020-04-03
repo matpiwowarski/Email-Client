@@ -11,7 +11,8 @@ namespace E_mail_Client.Model
         public String Text { get; set; }
         public String Author { get; set; }
 
-        public List<String> Receivers = new List<String>();
+        // hashset because email adresses should be unique
+        public HashSet<String> Receivers = new HashSet<String>();
 
         public List<String> Attachments = new List<String>();
 
@@ -24,7 +25,7 @@ namespace E_mail_Client.Model
             Text = content;
         }
         // more receivers
-        public Mail(String author, List<String> receivers, String topic, String content)
+        public Mail(String author, HashSet<String> receivers, String topic, String content)
         {
             Author = author;
             Receivers = receivers;
