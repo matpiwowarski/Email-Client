@@ -21,7 +21,7 @@
             <RowDefinition Height="70"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Label Grid.Column="1" Grid.RowSpan="4" Foreground="#FF376DCB" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold">New Message</Label>
+        <Label x:Name="TitleLabel" Grid.Column="1" Grid.RowSpan="4" Foreground="#FF376DCB" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold">New Message</Label>
 
         <DockPanel Grid.Row="0" Margin="10,10,10,5">
             <Label Margin="46,0,0,0">by:</Label>

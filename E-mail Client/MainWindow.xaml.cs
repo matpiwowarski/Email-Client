@@ -37,7 +37,10 @@ namespace E_mail_Client
             moreReceivers.Add("receiver1.2");
 
             // mails for 1st mailbox
-            Mail mail1 = new Mail("author1", moreReceivers, "topic1", "LONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONGLONG");
+            // mail1 is for testing
+            Mail mail1 = new Mail("author1", moreReceivers, "topic1", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fringilla diam sed purus interdum cursus. Fusce commodo felis est, eu cursus velit lobortis nec. Pellentesque dictum tellus ac sapien tincidunt, a ullamcorper nisi aliquam. Fusce vel dolor convallis turpis rhoncus sodales ut et elit. Donec hendrerit fringilla ante, ac lacinia diam consectetur vitae. Maecenas molestie neque sit amet congue bibendum. Aenean vitae porta neque. Sed et elit sit amet nulla aliquet laoreet eget ac metus. Fusce id ullamcorper tellus. Pellentesque placerat, elit a porttitor consectetur, ante risus convallis ipsum, ut accumsan lacus nisi non felis. Integer nec tellus a risus.");
+            mail1.AddAttachment("TestAttachment");
+            // mail1 is for testing
             Mail mail2 = new Mail("author2", Mailbox1.EmailAdress, "topic2", "content2");
             Mail mail3 = new Mail("author3", Mailbox1.EmailAdress, "topic3", "content3");
             Mail mail4 = new Mail("author4", Mailbox1.EmailAdress, "topic4", "content4");
@@ -427,7 +430,47 @@ namespace E_mail_Client
 
         private void Mail_DoubleClick(object sender, MouseButtonEventArgs e)
         {
-            throw new NotImplementedException();
+            // inbox or sent folders
+            if(_currentFolder == Mailbox1.Inbox || _currentFolder == Mailbox2.Inbox || _currentFolder == Mailbox1.Sent || _currentFolder == Mailbox2.Sent)
+            {
+                NewMessageWindow messageWindow = new NewMessageWindow(this);
+
+                // load selected mail
+                int mailIndex = MessagesListView.SelectedIndex;
+                var currentMail = _currentFolder[mailIndex];
+                messageWindow.MailboxComboBox.Items.Add(currentMail.Author);
+                messageWindow.MailboxComboBox.SelectedIndex = 0;
+                foreach (string receiver in currentMail.Receivers)
+                {
+                    messageWindow.RecipientTextBox.Text += receiver + ";";
+                }
+                messageWindow.SubjectTextBox.Text = currentMail.Topic;
+                messageWindow.ContentTextBox.Text = currentMail.Text;
+                if (messageWindow.AttachmentListBox.Items.Count > 0)
+                {
+                    messageWindow.AttachmentListBox.Visibility = Visibility.Visible;
+                    foreach (string attachment in currentMail.Attachments)
+                    {
+                        messageWindow.AttachmentListBox.Items.Add(attachment);
+                    }
+                }
+
+                // block/hide components in messageWindow (READONLY)
+                messageWindow.Title = "Message";
+                messageWindow.TitleLabel.Content = "Message";
+                messageWindow.MailboxComboBox.IsReadOnly = true;
+                messageWindow.RecipientTextBox.IsReadOnly = true;
+                messageWindow.CopyRecipientTextBox.Visibility = Visibility.Collapsed;
+                messageWindow.SubjectTextBox.IsReadOnly = true;
+                messageWindow.ContentTextBox.IsReadOnly = true;
+                messageWindow.AttachmentButton.Visibility = Visibility.Collapsed;
+                messageWindow.SendButton.Visibility = Visibility.Collapsed;
+
+                if (messageWindow.ShowDialog() == true)
+                {
+                    // some changes in MainWindow if needed
+                }
+            }
         }
     }
 }
