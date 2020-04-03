@@ -26,12 +26,6 @@
         <DockPanel Grid.Row="0" Margin="10,10,10,5">
             <Label Margin="46,0,0,0">by:</Label>
             <ComboBox x:Name="MailboxComboBox" HorizontalAlignment="Stretch">
-                <ComboBoxItem x:Name="Email1" IsSelected="True">
-                    Email1
-                </ComboBoxItem>
-                <ComboBoxItem x:Name="Email2">
-                    Email2
-                </ComboBoxItem>
             </ComboBox>
         </DockPanel>
 

@@ -321,20 +321,33 @@ namespace E_mail_Client
         {
             NewMessageWindow messageWindow = new NewMessageWindow(this);
 
-            messageWindow.Email1.Content = this.Mailbox1.EmailAdress;
-            messageWindow.Email2.Content = this.Mailbox2.EmailAdress;
+            // passing email addresses
+            PassEmailAdresses(messageWindow, Mailbox1.EmailAdress, Mailbox2.EmailAdress);
 
-            if(messageWindow.ShowDialog() == true)
+            if (messageWindow.ShowDialog() == true)
             {
                 // some changes in MainWindow if needed
             }
         }
+
+        private void PassEmailAdresses(NewMessageWindow messageWindow, params string[] emailAddresses)
+        {
+            foreach(string address in emailAddresses)
+            {
+                ComboBoxItem emailAddress = new ComboBoxItem();
+                emailAddress.Content = address;
+                messageWindow.MailboxComboBox.Items.Add(emailAddress);
+            }
+
+            messageWindow.MailboxComboBox.SelectedIndex = 0;
+        }
+
         private void ReplyButton_Click(object sender, RoutedEventArgs e)
         {
             NewMessageWindow messageWindow = new NewMessageWindow(this);
 
-            messageWindow.Email1.Content = this.Mailbox1.EmailAdress;
-            messageWindow.Email2.Content = this.Mailbox2.EmailAdress;
+            // passing email address
+            PassEmailAdresses(messageWindow, GetCurrentMailboxAddress());
 
             // find selected mail
             int mailIndex = MessagesListView.SelectedIndex;
@@ -353,8 +366,8 @@ namespace E_mail_Client
         {
             NewMessageWindow messageWindow = new NewMessageWindow(this);
 
-            messageWindow.Email1.Content = this.Mailbox1.EmailAdress;
-            messageWindow.Email2.Content = this.Mailbox2.EmailAdress;
+            // passing email address
+            PassEmailAdresses(messageWindow, GetCurrentMailboxAddress());
 
             // find selected mail
             int mailIndex = MessagesListView.SelectedIndex;
@@ -374,8 +387,8 @@ namespace E_mail_Client
         {
             NewMessageWindow messageWindow = new NewMessageWindow(this);
 
-            messageWindow.Email1.Content = this.Mailbox1.EmailAdress;
-            messageWindow.Email2.Content = this.Mailbox2.EmailAdress;
+            // passing email address
+            PassEmailAdresses(messageWindow, GetCurrentMailboxAddress());
 
             // find selected mail
             int mailIndex = MessagesListView.SelectedIndex;
