@@ -45,6 +45,14 @@ namespace E_mail_Client
 
                 Mail mail = new Mail(author, receivers, topic, content);
 
+                if(AttachmentListBox.Items.Count > 0)
+                {
+                    foreach (String item in AttachmentListBox.Items)
+                    {
+                        mail.AddAttachment(item);
+                    }
+                }
+
                 if(_mainWindow != null)
                 {
                     // adding to inbox

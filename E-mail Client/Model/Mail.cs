@@ -13,6 +13,8 @@ namespace E_mail_Client.Model
 
         public List<String> Receivers = new List<String>();
 
+        public List<String> Attachments = new List<String>();
+
         // one receiver
         public Mail(String author, String receiver, String topic, String content)
         {
@@ -28,6 +30,11 @@ namespace E_mail_Client.Model
             Receivers = receivers;
             Topic = topic;
             Text = content;
+        }
+
+        public void AddAttachment(String attachment)
+        {
+            this.Attachments.Add(attachment);
         }
     }
 }

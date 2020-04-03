@@ -198,20 +198,31 @@ namespace E_mail_Client
             {
                 ListViewItem mailItem = new ListViewItem();
                 mailItem.Content = m.Topic + " by " + m.Author;
+                // display message in MainWindow on click
                 mailItem.MouseLeftButtonUp += Mail_MouseLeftButtonUp;
+                // display message in NewMessageWindow on double click
+                mailItem.MouseDoubleClick += Mail_DoubleClick;
+
                 MessagesListView.Items.Add(mailItem);
             }
             MessageTextBlock.Text = "";
             AuthorLabel.Content = "";
             TopicLabel.Content = "";
             ReceiverLabel.Content = "";
+            AttachmentListBox.Items.Clear();
+            AttachmentListBox.Visibility = Visibility.Hidden;
         }
+
         private void LoadMail(int mailIndex)
         {
+            AttachmentListBox.Items.Clear();
+            AttachmentListBox.Visibility = Visibility.Hidden;
+
             MessageTextBlock.Text = _currentFolder[mailIndex].Text;
             AuthorLabel.Content = "By: " + _currentFolder[mailIndex].Author;
             TopicLabel.Content = "Subject: " + _currentFolder[mailIndex].Topic;
 
+            // loading receivers
             String Receivers = "";
             foreach(String r in _currentFolder[mailIndex].Receivers)
             {
@@ -220,6 +231,15 @@ namespace E_mail_Client
             }
 
             ReceiverLabel.Content = "To: " + Receivers;
+            // loading attachments
+            if (_currentFolder[mailIndex].Attachments.Count > 0)
+            {
+                AttachmentListBox.Visibility = Visibility.Visible;
+                foreach (String a in _currentFolder[mailIndex].Attachments)
+                {
+                    AttachmentListBox.Items.Add(a);
+                }
+            }
         }
         public void DeleteMail(int mailIndex)
         {
@@ -390,6 +410,11 @@ namespace E_mail_Client
             }
 
             return ""; 
+        }
+
+        private void Mail_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

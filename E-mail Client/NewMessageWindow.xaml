@@ -23,9 +23,9 @@
 
         <Label Grid.Column="1" Grid.RowSpan="4" Foreground="#FF376DCB" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold">New Message</Label>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="10,10,10,5">
-            <Label HorizontalAlignment="Left">by:</Label>
-            <ComboBox x:Name="MailboxComboBox" Width="205">
+        <DockPanel Grid.Row="0" Margin="10,10,10,5">
+            <Label Margin="46,0,0,0">by:</Label>
+            <ComboBox x:Name="MailboxComboBox" HorizontalAlignment="Stretch">
                 <ComboBoxItem x:Name="Email1" IsSelected="True">
                     Email1
                 </ComboBoxItem>
@@ -33,7 +33,7 @@
                     Email2
                 </ComboBoxItem>
             </ComboBox>
-        </StackPanel>
+        </DockPanel>
 
         <DockPanel Grid.Row="1">
             <Label FontSize="12" Margin="20,0,0,0">Recipient:</Label>
