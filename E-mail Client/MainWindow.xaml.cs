@@ -262,7 +262,7 @@ namespace E_mail_Client
                 }
                 else // other folder = move to Deleted items
                 {
-                    var currentMail = _currentFolder[mailIndex];
+                    var currentMail = GetCurrentMail();
 
                     Mail mailCopy = new Mail(currentMail.Author, currentMail.Receivers, currentMail.Topic, currentMail.Text, currentMail.Time);
 
@@ -290,7 +290,7 @@ namespace E_mail_Client
             { 
                 int mailIndex = MessagesListView.SelectedIndex;
 
-                var currentMail = _currentFolder[mailIndex];
+                var currentMail = GetCurrentMail();
 
                 Mail mailCopy = new Mail(currentMail.Author, currentMail.Receivers, currentMail.Topic, currentMail.Text, currentMail.Time);
 
@@ -348,8 +348,7 @@ namespace E_mail_Client
             PassEmailAdresses(messageWindow, GetCurrentMailboxAddress());
 
             // find selected mail
-            int mailIndex = MessagesListView.SelectedIndex;
-            var currentMail = _currentFolder[mailIndex];
+            var currentMail = GetCurrentMail();
 
             // rewrite content to message window
             messageWindow.SubjectTextBox.Text = "Fwd: " + currentMail.Topic;
@@ -364,8 +363,7 @@ namespace E_mail_Client
         {
             NewMessageWindow messageWindow = new NewMessageWindow(this);
             // find selected mail
-            int mailIndex = MessagesListView.SelectedIndex;
-            var currentMail = _currentFolder[mailIndex];
+            var currentMail = GetCurrentMail();
 
             Reply(messageWindow, currentMail);
 
@@ -376,9 +374,7 @@ namespace E_mail_Client
         private void ReplyAllButton_Click(object sender, RoutedEventArgs e)
         {
             NewMessageWindow messageWindow = new NewMessageWindow(this);
-            // find selected mail
-            int mailIndex = MessagesListView.SelectedIndex;
-            var currentMail = _currentFolder[mailIndex];
+            var currentMail = GetCurrentMail();
 
             Reply(messageWindow, currentMail);
 
@@ -431,8 +427,7 @@ namespace E_mail_Client
                 ChangeNewMessageWindowTitle("Message View", messageWindow);
 
                 // load selected mail
-                int mailIndex = MessagesListView.SelectedIndex;
-                var currentMail = _currentFolder[mailIndex];
+                var currentMail = GetCurrentMail();
                 messageWindow.MailboxComboBox.Items.Add(currentMail.Author);
                 messageWindow.MailboxComboBox.SelectedIndex = 0;
                 foreach (string receiver in currentMail.Receivers)
@@ -501,6 +496,14 @@ namespace E_mail_Client
             const string breakLine = "\n\n\n- - - - - - - - - - - - - - - - - - - - - -";
             messageWindow.ContentTextBox.Text = breakLine + "\n" + currentMail.Time +
                 "\n" + currentMail.Author + ":" + "\n" + currentMail.Text;
+        }
+
+        Mail GetCurrentMail()
+        {
+            // find selected mail
+            int mailIndex = MessagesListView.SelectedIndex;
+            var currentMail = _currentFolder[mailIndex];
+            return currentMail;
         }
     }
 }
