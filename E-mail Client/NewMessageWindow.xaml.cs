@@ -80,11 +80,13 @@ namespace E_mail_Client
             if (receiverString.Length > 0)
             {
                 // filling ';' instead of every ' '
-                string convertedString = receiverString.Replace(" ", ";");
+                string convertedString1 = receiverString.Replace(" ", ";");
+                // filling ';' instead of every ','
+                string convertedString2 = convertedString1.Replace(",", ";");
 
                 // adding every receiver to the set
 
-                string[] receivers = convertedString.Split(';');
+                string[] receivers = convertedString2.Split(';');
 
                 foreach(string receiver in receivers)
                 {
