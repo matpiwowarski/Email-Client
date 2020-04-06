@@ -339,29 +339,6 @@ namespace E_mail_Client
             messageWindow.MailboxComboBox.SelectedIndex = 0;
         }
 
-        private void ReplyButton_Click(object sender, RoutedEventArgs e)
-        {
-            NewMessageWindow messageWindow = new NewMessageWindow(this);
-            ChangeNewMessageWindowTitle("Reply", messageWindow);
-
-            // passing email address
-            PassEmailAdresses(messageWindow, GetCurrentMailboxAddress());
-
-            // find selected mail
-            int mailIndex = MessagesListView.SelectedIndex;
-            var currentMail = _currentFolder[mailIndex];
-
-            // rewrite author to recipient in message window
-            messageWindow.RecipientTextBox.Text = currentMail.Author;
-            messageWindow.SubjectTextBox.Text = "Re: " + currentMail.Topic;
-            // rewrite previous message
-            const string breakLine = "\n\n\n- - - - - - - - - - - - - - - - - - - - - -";
-            messageWindow.ContentTextBox.Text = breakLine + "\n" + currentMail.Time +
-                "\n" + currentMail.Author + ":" + "\n" + currentMail.Text;
-
-            ShowWindow(messageWindow);
-        }
-
         private void ForwardButton_Click(object sender, RoutedEventArgs e)
         {
             NewMessageWindow messageWindow = new NewMessageWindow(this);
@@ -383,30 +360,32 @@ namespace E_mail_Client
             ShowWindow(messageWindow);
         }
 
-        private void ReplyAllButton_Click(object sender, RoutedEventArgs e)
+        private void ReplyButton_Click(object sender, RoutedEventArgs e)
         {
             NewMessageWindow messageWindow = new NewMessageWindow(this);
-            ChangeNewMessageWindowTitle("Reply All", messageWindow);
-
-            // passing email address
-            PassEmailAdresses(messageWindow, GetCurrentMailboxAddress());
-
             // find selected mail
             int mailIndex = MessagesListView.SelectedIndex;
             var currentMail = _currentFolder[mailIndex];
 
-            // rewrite author to recipient in message window
+            Reply(messageWindow, currentMail);
+
             messageWindow.RecipientTextBox.Text = currentMail.Author;
-            messageWindow.SubjectTextBox.Text = "Re: " + currentMail.Topic;
-            // rewrite previous message
-            const string breakLine = "\n\n\n- - - - - - - - - - - - - - - - - - - - - -";
-            messageWindow.ContentTextBox.Text = breakLine + "\n" + currentMail.Time +
-                "\n" + currentMail.Author + ":" + "\n" + currentMail.Text;
+
+            ShowWindow(messageWindow);
+        }
+        private void ReplyAllButton_Click(object sender, RoutedEventArgs e)
+        {
+            NewMessageWindow messageWindow = new NewMessageWindow(this);
+            // find selected mail
+            int mailIndex = MessagesListView.SelectedIndex;
+            var currentMail = _currentFolder[mailIndex];
+
+            Reply(messageWindow, currentMail);
 
             // rewrite all the recipients except this email address
             foreach (String r in currentMail.Receivers)
             {
-                if(r != GetCurrentMailboxAddress())
+                if (r != GetCurrentMailboxAddress())
                 {
                     messageWindow.RecipientTextBox.Text += ";" + r;
                 }
@@ -414,6 +393,21 @@ namespace E_mail_Client
 
             ShowWindow(messageWindow);
         }
+
+        private void Reply(NewMessageWindow messageWindow, Mail currentMail)
+        {
+            ChangeNewMessageWindowTitle("Reply", messageWindow);
+
+            RewritePreviousMessage(messageWindow, currentMail);
+
+            // passing email address
+            PassEmailAdresses(messageWindow, GetCurrentMailboxAddress());
+
+            // rewrite author to recipient in message window
+            messageWindow.RecipientTextBox.Text = currentMail.Author;
+            messageWindow.SubjectTextBox.Text = "Re: " + currentMail.Topic;
+        }
+
         private String GetCurrentMailboxAddress()
         {
             if(_currentFolder == Mailbox1.Inbox || _currentFolder == Mailbox1.Sent || _currentFolder == Mailbox1.Starred || _currentFolder == Mailbox1.Deleted)
@@ -499,6 +493,14 @@ namespace E_mail_Client
             TimeLabel.Content = "";
             AttachmentListBox.Items.Clear();
             AttachmentListBox.Visibility = Visibility.Hidden;
+        }
+
+        private void RewritePreviousMessage(NewMessageWindow messageWindow, Mail currentMail)
+        {
+            // rewrite previous message
+            const string breakLine = "\n\n\n- - - - - - - - - - - - - - - - - - - - - -";
+            messageWindow.ContentTextBox.Text = breakLine + "\n" + currentMail.Time +
+                "\n" + currentMail.Author + ":" + "\n" + currentMail.Text;
         }
     }
 }
