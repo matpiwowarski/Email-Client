@@ -359,6 +359,7 @@ namespace E_mail_Client
             // rewrite author to recipient in message window
             messageWindow.RecipientTextBox.Text = currentMail.Author;
             messageWindow.SubjectTextBox.Text = "Re: " + currentMail.Topic;
+            // rewrite previous message
             const string breakLine = "\n\n\n- - - - - - - - - - - - - - - - - - - - - -";
             messageWindow.ContentTextBox.Text = breakLine + "\n" + currentMail.Time +
                 "\n" + currentMail.Author + ":" + "\n" + currentMail.Text; 
@@ -381,8 +382,10 @@ namespace E_mail_Client
             var currentMail = _currentFolder[mailIndex];
 
             // rewrite content to message window
-            messageWindow.SubjectTextBox.Text = currentMail.Topic;
-            messageWindow.ContentTextBox.Text = currentMail.Text;
+            messageWindow.SubjectTextBox.Text = "Fwd: " + currentMail.Topic;
+            // rewrite previous message
+            messageWindow.ContentTextBox.Text = "\n" + currentMail.Time +
+                "\n" + currentMail.Author + ":" + "\n" + currentMail.Text;
 
             if (messageWindow.ShowDialog() == true)
             {
@@ -403,9 +406,14 @@ namespace E_mail_Client
 
             // rewrite author to recipient in message window
             messageWindow.RecipientTextBox.Text = currentMail.Author;
+            messageWindow.SubjectTextBox.Text = "Re: " + currentMail.Topic;
+            // rewrite previous message
+            const string breakLine = "\n\n\n- - - - - - - - - - - - - - - - - - - - - -";
+            messageWindow.ContentTextBox.Text = breakLine + "\n" + currentMail.Time +
+                "\n" + currentMail.Author + ":" + "\n" + currentMail.Text;
 
             // rewrite all the recipients except this email address
-            foreach(String r in currentMail.Receivers)
+            foreach (String r in currentMail.Receivers)
             {
                 if(r != GetCurrentMailboxAddress())
                 {
