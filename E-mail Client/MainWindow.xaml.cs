@@ -32,8 +32,8 @@ namespace E_mail_Client
 
             // to test "reply all"
             HashSet<String> moreReceivers = new HashSet<String>();
-            moreReceivers.Add("receiver1.1"); 
-            moreReceivers.Add(Mailbox1.EmailAdress);
+            moreReceivers.Add(Mailbox1.EmailAdress); 
+            moreReceivers.Add("receiver1.1");
             moreReceivers.Add("receiver1.2");
 
             // mails for 1st mailbox
@@ -208,12 +208,8 @@ namespace E_mail_Client
 
                 MessagesListView.Items.Add(mailItem);
             }
-            MessageTextBlock.Text = "";
-            AuthorLabel.Content = "";
-            TopicLabel.Content = "";
-            ReceiverLabel.Content = "";
-            AttachmentListBox.Items.Clear();
-            AttachmentListBox.Visibility = Visibility.Hidden;
+
+            ClearAllDisplayedInfo();
         }
 
         private void LoadMail(int mailIndex)
@@ -224,6 +220,7 @@ namespace E_mail_Client
             MessageTextBlock.Text = _currentFolder[mailIndex].Text;
             AuthorLabel.Content = "By: " + _currentFolder[mailIndex].Author;
             TopicLabel.Content = "Subject: " + _currentFolder[mailIndex].Topic;
+            TimeLabel.Content = _currentFolder[mailIndex].Time;
 
             // loading receivers
             String Receivers = "";
@@ -327,10 +324,7 @@ namespace E_mail_Client
             // passing email addresses
             PassEmailAdresses(messageWindow, Mailbox1.EmailAdress, Mailbox2.EmailAdress);
 
-            if (messageWindow.ShowDialog() == true)
-            {
-                // some changes in MainWindow if needed
-            }
+            ShowWindow(messageWindow);
         }
 
         private void PassEmailAdresses(NewMessageWindow messageWindow, params string[] emailAddresses)
@@ -348,6 +342,7 @@ namespace E_mail_Client
         private void ReplyButton_Click(object sender, RoutedEventArgs e)
         {
             NewMessageWindow messageWindow = new NewMessageWindow(this);
+            ChangeNewMessageWindowTitle("Reply", messageWindow);
 
             // passing email address
             PassEmailAdresses(messageWindow, GetCurrentMailboxAddress());
@@ -362,17 +357,15 @@ namespace E_mail_Client
             // rewrite previous message
             const string breakLine = "\n\n\n- - - - - - - - - - - - - - - - - - - - - -";
             messageWindow.ContentTextBox.Text = breakLine + "\n" + currentMail.Time +
-                "\n" + currentMail.Author + ":" + "\n" + currentMail.Text; 
+                "\n" + currentMail.Author + ":" + "\n" + currentMail.Text;
 
-            if (messageWindow.ShowDialog() == true)
-            {
-                // some changes in MainWindow if needed
-            }
+            ShowWindow(messageWindow);
         }
 
         private void ForwardButton_Click(object sender, RoutedEventArgs e)
         {
             NewMessageWindow messageWindow = new NewMessageWindow(this);
+            ChangeNewMessageWindowTitle("Forward", messageWindow);
 
             // passing email address
             PassEmailAdresses(messageWindow, GetCurrentMailboxAddress());
@@ -387,15 +380,13 @@ namespace E_mail_Client
             messageWindow.ContentTextBox.Text = "\n" + currentMail.Time +
                 "\n" + currentMail.Author + ":" + "\n" + currentMail.Text;
 
-            if (messageWindow.ShowDialog() == true)
-            {
-                // some changes in MainWindow if needed
-            }
+            ShowWindow(messageWindow);
         }
 
         private void ReplyAllButton_Click(object sender, RoutedEventArgs e)
         {
             NewMessageWindow messageWindow = new NewMessageWindow(this);
+            ChangeNewMessageWindowTitle("Reply All", messageWindow);
 
             // passing email address
             PassEmailAdresses(messageWindow, GetCurrentMailboxAddress());
@@ -421,10 +412,7 @@ namespace E_mail_Client
                 }
             }
 
-            if (messageWindow.ShowDialog() == true)
-            {
-                // some changes in MainWindow if needed
-            }
+            ShowWindow(messageWindow);
         }
         private String GetCurrentMailboxAddress()
         {
@@ -446,6 +434,7 @@ namespace E_mail_Client
             if(_currentFolder == Mailbox1.Inbox || _currentFolder == Mailbox2.Inbox || _currentFolder == Mailbox1.Sent || _currentFolder == Mailbox2.Sent)
             {
                 NewMessageWindow messageWindow = new NewMessageWindow(this);
+                ChangeNewMessageWindowTitle("Message View", messageWindow);
 
                 // load selected mail
                 int mailIndex = MessagesListView.SelectedIndex;
@@ -457,7 +446,7 @@ namespace E_mail_Client
                     messageWindow.RecipientTextBox.Text += receiver + ";";
                 }
                 messageWindow.SubjectTextBox.Text = currentMail.Topic;
-                messageWindow.ContentTextBox.Text = currentMail.Text;
+                messageWindow.ContentTextBox.Text = currentMail.Time + "\n\n" + currentMail.Text;
                 if (currentMail.Attachments.Count > 0)
                 {
                     messageWindow.AttachmentListBox.Visibility = Visibility.Visible;
@@ -467,21 +456,49 @@ namespace E_mail_Client
                     }
                 }
 
-                // block/hide components in messageWindow (READONLY)
-                messageWindow.Title = "Message";
-                messageWindow.TitleLabel.Content = "Message";
-                messageWindow.MailboxComboBox.IsReadOnly = true;
-                messageWindow.RecipientTextBox.IsReadOnly = true;
-                messageWindow.SubjectTextBox.IsReadOnly = true;
-                messageWindow.ContentTextBox.IsReadOnly = true;
-                messageWindow.AttachmentButton.Visibility = Visibility.Collapsed;
-                messageWindow.SendButton.Visibility = Visibility.Collapsed;
-
-                if (messageWindow.ShowDialog() == true)
-                {
-                    // some changes in MainWindow if needed
-                }
+                ReadOnlyMode(messageWindow);
+                ShowWindow(messageWindow);
             }
+        }
+        private void ChangeNewMessageWindowTitle(string newTitle, NewMessageWindow nmWindow)
+        {
+            nmWindow.Title = newTitle;
+            nmWindow.TitleLabel.Content = newTitle;
+        }
+
+        private void ReadOnlyMode(NewMessageWindow messageWindow)
+        {
+            // block/hide components in messageWindow (READONLY)
+
+            messageWindow.MailboxComboBox.IsReadOnly = true;
+            messageWindow.RecipientTextBox.IsReadOnly = true;
+            messageWindow.SubjectTextBox.IsReadOnly = true;
+            messageWindow.ContentTextBox.IsReadOnly = true;
+            messageWindow.AttachmentButton.Visibility = Visibility.Collapsed;
+            messageWindow.SendButton.Visibility = Visibility.Collapsed;
+
+            // make textboxes background look non editable
+            messageWindow.RecipientTextBox.Background = Brushes.LightGray;
+            messageWindow.SubjectTextBox.Background = Brushes.LightGray;
+            messageWindow.ContentTextBox.Background = Brushes.LightGray;
+        }
+
+        private void ShowWindow(Window window)
+        {
+            if (window.ShowDialog() == true)
+            {
+                // some changes in MainWindow if needed
+            }
+        }
+        private void ClearAllDisplayedInfo()
+        {
+            MessageTextBlock.Text = "";
+            AuthorLabel.Content = "";
+            TopicLabel.Content = "";
+            ReceiverLabel.Content = "";
+            TimeLabel.Content = "";
+            AttachmentListBox.Items.Clear();
+            AttachmentListBox.Visibility = Visibility.Hidden;
         }
     }
 }
