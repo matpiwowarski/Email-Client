@@ -267,7 +267,7 @@ namespace E_mail_Client
                 {
                     var currentMail = _currentFolder[mailIndex];
 
-                    Mail mailCopy = new Mail(currentMail.Author, currentMail.Receivers, currentMail.Topic, currentMail.Text);
+                    Mail mailCopy = new Mail(currentMail.Author, currentMail.Receivers, currentMail.Topic, currentMail.Text, currentMail.Time);
 
                     if (_currentFolder == Mailbox1.Inbox || _currentFolder == Mailbox1.Sent || _currentFolder == Mailbox1.Starred)
                     {
@@ -295,7 +295,7 @@ namespace E_mail_Client
 
                 var currentMail = _currentFolder[mailIndex];
 
-                Mail mailCopy = new Mail(currentMail.Author, currentMail.Receivers, currentMail.Topic, currentMail.Text);
+                Mail mailCopy = new Mail(currentMail.Author, currentMail.Receivers, currentMail.Topic, currentMail.Text, currentMail.Time);
 
                 if (_currentFolder == Mailbox1.Inbox || _currentFolder == Mailbox1.Sent || _currentFolder == Mailbox1.Deleted)
                 {
@@ -358,6 +358,10 @@ namespace E_mail_Client
 
             // rewrite author to recipient in message window
             messageWindow.RecipientTextBox.Text = currentMail.Author;
+            messageWindow.SubjectTextBox.Text = "Re: " + currentMail.Topic;
+            const string breakLine = "\n\n\n- - - - - - - - - - - - - - - - - - - - - -";
+            messageWindow.ContentTextBox.Text = breakLine + "\n" + currentMail.Time +
+                "\n" + currentMail.Author + ":" + "\n" + currentMail.Text; 
 
             if (messageWindow.ShowDialog() == true)
             {

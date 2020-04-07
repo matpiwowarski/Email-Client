@@ -11,6 +11,8 @@ namespace E_mail_Client.Model
         public String Text { get; set; }
         public String Author { get; set; }
 
+        public DateTime Time { get; set; }
+
         // hashset because email adresses should be unique
         public HashSet<String> Receivers = new HashSet<String>();
 
@@ -23,6 +25,7 @@ namespace E_mail_Client.Model
             Receivers.Add(receiver);
             Topic = topic;
             Text = content;
+            Time = DateTime.Now;
         }
         // more receivers
         public Mail(String author, HashSet<String> receivers, String topic, String content)
@@ -31,6 +34,16 @@ namespace E_mail_Client.Model
             Receivers = receivers;
             Topic = topic;
             Text = content;
+            Time = DateTime.Now;
+        }
+
+        public Mail(String author, HashSet<String> receivers, String topic, String content, DateTime time)
+        {
+            Author = author;
+            Receivers = receivers;
+            Topic = topic;
+            Text = content;
+            Time = time;
         }
 
         public void AddAttachment(String attachment)
