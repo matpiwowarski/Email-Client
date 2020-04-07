@@ -460,7 +460,6 @@ namespace E_mail_Client
                 messageWindow.TitleLabel.Content = "Message";
                 messageWindow.MailboxComboBox.IsReadOnly = true;
                 messageWindow.RecipientTextBox.IsReadOnly = true;
-                messageWindow.CopyRecipientTextBox.Visibility = Visibility.Collapsed;
                 messageWindow.SubjectTextBox.IsReadOnly = true;
                 messageWindow.ContentTextBox.IsReadOnly = true;
                 messageWindow.AttachmentButton.Visibility = Visibility.Collapsed;

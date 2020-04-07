@@ -35,13 +35,9 @@ namespace E_mail_Client
                 String topic = SubjectTextBox.Text;
                 String content = ContentTextBox.Text;
 
-                String copyReceiverString = CopyRecipientTextBox.Text;
-
                 HashSet<String> receivers = new HashSet<String>();
                 // add all receivers
                 AddAllReceivers(receiverString, receivers);
-                // add all copy receivers
-                AddAllReceivers(copyReceiverString, receivers);
 
                 Mail mail = new Mail(author, receivers, topic, content);
 
