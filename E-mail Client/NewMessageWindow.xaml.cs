@@ -28,7 +28,6 @@ namespace E_mail_Client
 
         private void SendButton_Click(object sender, RoutedEventArgs e)
         {
-            /*
             if(RecipientTextBox.Text.Length > 0 && SubjectTextBox.Text.Length > 0)
             {
                 String author = MailboxComboBox.Text;
@@ -52,19 +51,21 @@ namespace E_mail_Client
 
                 if(_mainWindow != null)
                 {
-                    // adding to inbox
-                    if (receivers.Contains(_mainWindow.Mailbox1.EmailAdress))
-                        _mainWindow.Mailbox1.Inbox.Add(mail);
-                    if (receivers.Contains(_mainWindow.Mailbox2.EmailAdress))
-                        _mainWindow.Mailbox2.Inbox.Add(mail);
-                    // adding to sent
-                    if (_mainWindow.Mailbox1.EmailAdress == author)
+                    // adding into inbox folder
+                    foreach(Mailbox m in _mainWindow.Mailboxes)
                     {
-                        _mainWindow.Mailbox1.Sent.Add(mail);
+                        if (receivers.Contains(m.EmailAdress))
+                            m.Inbox.Add(mail);
                     }
-                    else if (_mainWindow.Mailbox2.EmailAdress == author)
+
+                    // adding into sent folder
+                    foreach (Mailbox m in _mainWindow.Mailboxes)
                     {
-                        _mainWindow.Mailbox2.Sent.Add(mail);
+                        if (m.EmailAdress == author)
+                        {
+                            m.Sent.Add(mail);
+                            break; // there's only 1 author
+                        }
                     }
                 }
 
@@ -74,7 +75,6 @@ namespace E_mail_Client
             {
                 MessageBox.Show("The recipient and the subject should be filled.");
             }
-            */
         }
 
         private void AddAllReceivers(string receiverString, HashSet<string> receiverSet)
