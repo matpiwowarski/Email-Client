@@ -20,8 +20,8 @@ namespace E_mail_Client
     public partial class MainWindow : Window
     {
         public List<Mailbox> Mailboxes;
-        private Mailbox _currentMailbox;
-        private Folder _currentFolder;
+        private Mailbox _currentMailbox = new Mailbox();
+        private Folder _currentFolder = new Folder();
 
         public MainWindow()
         {
@@ -31,6 +31,16 @@ namespace E_mail_Client
             Mailboxes.Add(new Mailbox("mateusz.piwowarski@student.um.si"));
             Mailboxes.Add(new Mailbox("matpiwowarski7@gmail.com"));
             Mailboxes.Add(new Mailbox("test@test.pl"));
+
+            // loading data
+            Mail mail1 = new Mail("author1", "receiver1", "topic1", "content1");
+            Mailboxes[0].Inbox.Add(mail1);
+            Mail mail2 = new Mail("author2", "receiver2", "topic2", "content2");
+            Mailboxes[0].Starred.Add(mail2);
+            Mail mail3 = new Mail("author3", "receiver3", "topic3", "content3");
+            Mailboxes[0].Sent.Add(mail3);
+            Mail mail4 = new Mail("author4", "receiver4", "topic4", "content4");
+            Mailboxes[0].Deleted.Add(mail4);
 
             CreateTreeViewForMailboxList(Mailboxes);
         }
@@ -98,20 +108,46 @@ namespace E_mail_Client
 
         private void Email_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            if(sender is TreeViewItem)
-            {
-                TreeViewItem email = (TreeViewItem)sender;
-                _currentMailbox = Mailboxes.Find(a => a.EmailAdress == email.Header);
-            }
             DisableAllButtons();
         }
 
         private void Folder_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            //if(sender.)
-            //_currentFolder =
+            StackPanel selectedFolder = (StackPanel)EmailTreeView.SelectedItem;
+            TreeViewItem selectedMailbox = (TreeViewItem)selectedFolder.Parent;
+
+            _currentMailbox = Mailboxes.Find(a => a.EmailAdress == selectedMailbox.Header);
+
+            if (sender is StackPanel)
+            {
+                string folderName = ""; // name of folder that we clicked
+
+                StackPanel folder = (StackPanel)sender;
+                if(folder.Children[1] is Label) // [0] is image
+                {
+                    Label label = (Label)folder.Children[1];
+                    folderName = label.Content.ToString(); // we are getting name of the clicked folder
+                }
+
+                if(folderName == "Inbox")
+                {
+                    _currentFolder = _currentMailbox.Inbox;
+                }
+                else if (folderName == "Sent items")
+                {
+                    _currentFolder = _currentMailbox.Sent;
+                }
+                else if (folderName == "Deleted items")
+                {
+                    _currentFolder = _currentMailbox.Deleted;
+                }
+                else if (folderName == "Starred")
+                {
+                    _currentFolder = _currentMailbox.Starred;
+                }     
+            }
             DisableAllButtons();
-            /////////////////LoadMails(_currentFolder);
+            LoadMails(_currentFolder);
         }
 
         private void Mail_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
