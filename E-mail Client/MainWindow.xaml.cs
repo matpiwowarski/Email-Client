@@ -19,71 +19,69 @@ namespace E_mail_Client
 {
     public partial class MainWindow : Window
     {
+        public List<Mailbox> Mailboxes;
         private List<Mail> _currentFolder;
 
-        public Mailbox Mailbox1 = new Mailbox("mateusz.piwowarski@student.um.si");
-        public Mailbox Mailbox2 = new Mailbox("matpiwowarski7@gmail.com");
         public MainWindow()
         {
             InitializeComponent();
 
-            this.Email1.Header = Mailbox1.EmailAdress;
-            this.Email2.Header = Mailbox2.EmailAdress;
+            Mailboxes = new List<Mailbox>();
+            Mailboxes.Add(new Mailbox("mateusz.piwowarski@student.um.si"));
+            Mailboxes.Add(new Mailbox("matpiwowarski7@gmail.com"));
+            Mailboxes.Add(new Mailbox("test@test.pl"));
+            CreateTreeViewItemForMailbox(Mailboxes[0].EmailAdress);
+        }
 
-            // to test "reply all"
-            HashSet<String> moreReceivers = new HashSet<String>();
-            moreReceivers.Add(Mailbox1.EmailAdress); 
-            moreReceivers.Add("receiver1.1");
-            moreReceivers.Add("receiver1.2");
+        private void CreateTreeViewItemForMailbox(string emailAddress)
+        {
+            // create mailbox to xaml
+            TreeViewItem mailbox = new TreeViewItem();
+            mailbox.Header = emailAddress;
+            mailbox.MouseLeftButtonUp += Email_MouseLeftButtonUp;
+            mailbox.FontSize = 15;
+            // create subfolders to xaml
+            StackPanel stackPanel = new StackPanel() { Orientation = Orientation.Horizontal };
+            stackPanel.MouseLeftButtonUp += Inbox1_MouseLeftButtonUp;
+            mailbox.Items.Add(stackPanel);
+            Image img = new Image();
+            img.Source = new BitmapImage(new Uri("Resources/folder.png", UriKind.Relative));
+            img.Width = 20;
+            img.Height = 20;
+            Label label = new Label() { Content = "Inbox" };
+            stackPanel.Children.Add(img);
+            stackPanel.Children.Add(label);
 
-            // mails for 1st mailbox
-            // mail1 is for testing
-            Mail mail1 = new Mail("author1", moreReceivers, "topic1", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fringilla diam sed purus interdum cursus. Fusce commodo felis est, eu cursus velit lobortis nec. Pellentesque dictum tellus ac sapien tincidunt, a ullamcorper nisi aliquam. Fusce vel dolor convallis turpis rhoncus sodales ut et elit. Donec hendrerit fringilla ante, ac lacinia diam consectetur vitae. Maecenas molestie neque sit amet congue bibendum. Aenean vitae porta neque. Sed et elit sit amet nulla aliquet laoreet eget ac metus. Fusce id ullamcorper tellus. Pellentesque placerat, elit a porttitor consectetur, ante risus convallis ipsum, ut accumsan lacus nisi non felis. Integer nec tellus a risus.");
-            mail1.AddAttachment("TestAttachment");
-            // mail1 is for testing
-            Mail mail2 = new Mail("author2", Mailbox1.EmailAdress, "topic2", "content2");
-            Mail mail3 = new Mail("author3", Mailbox1.EmailAdress, "topic3", "content3");
-            Mail mail4 = new Mail("author4", Mailbox1.EmailAdress, "topic4", "content4");
-            Mail mail5 = new Mail("author5", Mailbox1.EmailAdress, "topic5", "content5");
-            Mail mail6 = new Mail("author6", Mailbox1.EmailAdress, "topic6", "content6");
-            Mail mail7 = new Mail("author7", Mailbox1.EmailAdress, "topic7", "content7");
-            Mail mail8 = new Mail("author8", Mailbox1.EmailAdress, "topic8", "content8");
-            Mail mail9 = new Mail("author9", Mailbox1.EmailAdress, "topic9", "content9");
-            Mail mail10 = new Mail("author10", Mailbox1.EmailAdress, "topic10", "content10");
-            Mail mail11 = new Mail("author11", Mailbox1.EmailAdress, "topic11", "content11");
-            Mail mail12 = new Mail("author12", Mailbox1.EmailAdress, "topic12", "content12");
-            Mail mail13 = new Mail("author13", Mailbox1.EmailAdress, "topic13", "content13");
-            Mail mail14 = new Mail("author14", Mailbox1.EmailAdress, "topic14", "content14");
-            Mail mail15 = new Mail("author15", Mailbox1.EmailAdress, "topic15", "content15");
-            Mail mail16 = new Mail("author16", Mailbox1.EmailAdress, "topic16", "content16");
-            // mails for 2nd mailbox
-            Mail mail17 = new Mail("author17", Mailbox2.EmailAdress, "topic17", "content17");
-            Mail mail18 = new Mail("author18", Mailbox2.EmailAdress, "topic18", "content18");
-            Mail mail19 = new Mail("author19", Mailbox2.EmailAdress, "topic19", "content19");
-            Mail mail20 = new Mail("author20", Mailbox2.EmailAdress, "topic20", "content20");
-            Mail mail21 = new Mail("author21", Mailbox2.EmailAdress, "topic21", "content21");
-            Mail mail22 = new Mail("author22", Mailbox2.EmailAdress, "topic22", "content22");
-            Mail mail23 = new Mail("author23", Mailbox2.EmailAdress, "topic23", "content23");
-            Mail mail24 = new Mail("author24", Mailbox2.EmailAdress, "topic24", "content24");
-            Mail mail25 = new Mail("author25", Mailbox2.EmailAdress, "topic25", "content25");
-            Mail mail26 = new Mail("author26", Mailbox2.EmailAdress, "topic26", "content26");
-            Mail mail27 = new Mail("author27", Mailbox2.EmailAdress, "topic27", "content27");
-            Mail mail28 = new Mail("author28", Mailbox2.EmailAdress, "topic28", "content28");
-            Mail mail29 = new Mail("author29", Mailbox2.EmailAdress, "topic29", "content29");
-            Mail mail30 = new Mail("author30", Mailbox2.EmailAdress, "topic30", "content30");
-            Mail mail31 = new Mail("author31", Mailbox2.EmailAdress, "topic31", "content31");
-            Mail mail32 = new Mail("author32", Mailbox2.EmailAdress, "topic32", "content32");
+            // adding ready mailbox into TreeView
+            EmailTreeView.Items.Add(mailbox);
 
-            // load mails for mailbox1
-            AddMailsToList(Mailbox1.Inbox, mail1, mail2, mail3, mail4);
-            AddMailsToList(Mailbox1.Sent, mail5, mail6, mail7, mail8);
-            AddMailsToList(Mailbox1.Deleted, mail9, mail10, mail11, mail12);
-            AddMailsToList(Mailbox1.Starred, mail13, mail14, mail15, mail16);
-            // load mails for mailbox2
-            AddMailsToList(Mailbox2.Inbox, mail17, mail18, mail19, mail20);
-            AddMailsToList(Mailbox2.Sent, mail21, mail22, mail23, mail24);
-            AddMailsToList(Mailbox2.Deleted, mail25, mail26, mail27, mail28);
-            AddMailsToList(Mailbox2.Starred, mail29, mail30, mail31, mail32);
+
+
+                 /*
+                                 < StackPanel Orientation = "Horizontal" MouseLeftButtonUp = "Sent1_MouseLeftButtonUp" >
+                    
+                                        < Image Source = "Resources/folder.png" Width = "20" Height = "20" ></ Image >
+                         
+                                             < Label Content = "Sent items" ></ Label >
+                          
+                                          </ StackPanel >
+                          
+                                          < StackPanel Orientation = "Horizontal" MouseLeftButtonUp = "Deleted1_MouseLeftButtonUp" >
+                             
+                                                 < Image Source = "Resources/deleted.png" Width = "20" Height = "20" ></ Image >
+                                  
+                                                      < Label Content = "Deleted items" ></ Label >
+                                   
+                                                   </ StackPanel >
+                                   
+                                                   < StackPanel Orientation = "Horizontal" MouseLeftButtonUp = "Starred1_MouseLeftButtonUp" >
+                                      
+                                                          < Image Source = "Resources/starred.png" Width = "20" Height = "20" ></ Image >
+                                           
+                                                               < Label Content = "Starred" ></ Label >
+                                            
+                                                            </ StackPanel >
+                                                            */
         }
 
         private void AddMailsToList(List<Mail> list, params Mail[] mails)
@@ -115,56 +113,56 @@ namespace E_mail_Client
 
         private void Inbox1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            _currentFolder = Mailbox1.Inbox;
+            //_currentFolder = Mailbox1.Inbox;
             DisableAllButtons();
             LoadMails(_currentFolder);
         }
 
         private void Sent1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            _currentFolder = Mailbox1.Sent;
+            //_currentFolder = Mailbox1.Sent;
             DisableAllButtons();
             LoadMails(_currentFolder);
         }
 
         private void Starred1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            _currentFolder = Mailbox1.Starred;
+            //_currentFolder = Mailbox1.Starred;
             DisableAllButtons();
             LoadMails(_currentFolder);
         }
 
         private void Deleted1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            _currentFolder = Mailbox1.Deleted;
+            //_currentFolder = Mailbox1.Deleted;
             DisableAllButtons();
             LoadMails(_currentFolder);
         }
 
         private void Inbox2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            _currentFolder = Mailbox2.Inbox;
+            //_currentFolder = Mailbox2.Inbox;
             DisableAllButtons();
             LoadMails(_currentFolder);
         }
 
         private void Sent2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            _currentFolder = Mailbox2.Sent;
+            //_currentFolder = Mailbox2.Sent;
             DisableAllButtons();
             LoadMails(_currentFolder);
         }
 
         private void Starred2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            _currentFolder = Mailbox2.Starred;
+            //_currentFolder = Mailbox2.Starred;
             DisableAllButtons();
             LoadMails(_currentFolder);
         }
 
         private void Deleted2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            _currentFolder = Mailbox2.Deleted;
+            //_currentFolder = Mailbox2.Deleted;
             DisableAllButtons();
             LoadMails(_currentFolder);
         }
@@ -243,6 +241,7 @@ namespace E_mail_Client
         }
         public void DeleteMail(int mailIndex)
         {
+            /*
             if (_currentFolder[mailIndex] != null)
             {
                 if (_currentFolder == Mailbox1.Deleted || _currentFolder == Mailbox2.Deleted)
@@ -281,11 +280,14 @@ namespace E_mail_Client
                     DisableAllButtons();
                     LoadMails(_currentFolder);
                 }
+                
             }
+            */
         }
 
         private void Star_Click(object sender, RoutedEventArgs e)
         {
+            /*
             if (MessagesListView.SelectedItems.Count > 0)
             { 
                 int mailIndex = MessagesListView.SelectedIndex;
@@ -314,6 +316,7 @@ namespace E_mail_Client
                 DisableAllButtons();
                 LoadMails(_currentFolder);
             }
+            */
         }
 
         // 3rd assignment
@@ -322,7 +325,8 @@ namespace E_mail_Client
             NewMessageWindow messageWindow = new NewMessageWindow(this);
 
             // passing email addresses
-            PassEmailAdresses(messageWindow, Mailbox1.EmailAdress, Mailbox2.EmailAdress);
+            
+            ////////////////PassEmailAdresses(messageWindow, Mailbox1.EmailAdress, Mailbox2.EmailAdress);
 
             ShowWindow(messageWindow);
         }
@@ -406,6 +410,7 @@ namespace E_mail_Client
 
         private String GetCurrentMailboxAddress()
         {
+            /*
             if(_currentFolder == Mailbox1.Inbox || _currentFolder == Mailbox1.Sent || _currentFolder == Mailbox1.Starred || _currentFolder == Mailbox1.Deleted)
             {
                 return Mailbox1.EmailAdress;
@@ -414,12 +419,13 @@ namespace E_mail_Client
             {
                 return Mailbox2.EmailAdress;
             }
-
+            */
             return ""; 
         }
 
         private void Mail_DoubleClick(object sender, MouseButtonEventArgs e)
         {
+            /*
             // inbox or sent folders
             if(_currentFolder == Mailbox1.Inbox || _currentFolder == Mailbox2.Inbox || _currentFolder == Mailbox1.Sent || _currentFolder == Mailbox2.Sent)
             {
@@ -448,6 +454,7 @@ namespace E_mail_Client
                 ReadOnlyMode(messageWindow);
                 ShowWindow(messageWindow);
             }
+            */
         }
         private void ChangeNewMessageWindowTitle(string newTitle, NewMessageWindow nmWindow)
         {

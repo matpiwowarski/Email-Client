@@ -84,42 +84,7 @@
             </TextBox>
         </Grid>
         <TreeView x:Name="EmailTreeView" Grid.Column="0" Grid.Row="1" Margin="10,15,10,5" Background="LightGray">
-            <TreeViewItem x:Name="Email1" Header="test@gmail.com" MouseLeftButtonUp="Email_MouseLeftButtonUp" FontSize="15">
-                <StackPanel Orientation="Horizontal" MouseLeftButtonUp="Inbox1_MouseLeftButtonUp">
-                    <Image Source="Resources/folder.png" Width="20" Height="20" ></Image>
-                    <Label Content="Inbox"></Label>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" MouseLeftButtonUp="Sent1_MouseLeftButtonUp">
-                    <Image Source="Resources/folder.png" Width="20" Height="20" ></Image>
-                    <Label Content="Sent items"></Label>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" MouseLeftButtonUp="Deleted1_MouseLeftButtonUp">
-                    <Image Source="Resources/deleted.png" Width="20" Height="20" ></Image>
-                    <Label Content="Deleted items"></Label>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" MouseLeftButtonUp="Starred1_MouseLeftButtonUp">
-                    <Image Source="Resources/starred.png" Width="20" Height="20" ></Image>
-                    <Label Content="Starred"></Label>
-                </StackPanel>
-            </TreeViewItem>
-            <TreeViewItem x:Name="Email2" Header="email@coyg.com" MouseLeftButtonUp="Email_MouseLeftButtonUp" FontSize="15">
-                <StackPanel Orientation="Horizontal" MouseLeftButtonUp="Inbox2_MouseLeftButtonUp">
-                    <Image Source="Resources/folder.png" Width="20" Height="20" ></Image>
-                    <Label Content="Inbox"></Label>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" MouseLeftButtonUp="Sent2_MouseLeftButtonUp">
-                    <Image Source="Resources/folder.png" Width="20" Height="20" ></Image>
-                    <Label Content="Sent items"></Label>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" MouseLeftButtonUp="Deleted2_MouseLeftButtonUp">
-                    <Image Source="Resources/deleted.png" Width="20" Height="20" ></Image>
-                    <Label Content="Deleted items"></Label>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" MouseLeftButtonUp="Starred2_MouseLeftButtonUp">
-                    <Image Source="Resources/starred.png" Width="20" Height="20" ></Image>
-                    <Label Content="Starred"></Label>
-                </StackPanel>
-            </TreeViewItem>
+
         </TreeView>
 
         <ListView x:Name="MessagesListView" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="Auto" Margin="10"  Background="LightGray" FontSize="13">

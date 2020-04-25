@@ -28,6 +28,7 @@ namespace E_mail_Client
 
         private void SendButton_Click(object sender, RoutedEventArgs e)
         {
+            /*
             if(RecipientTextBox.Text.Length > 0 && SubjectTextBox.Text.Length > 0)
             {
                 String author = MailboxComboBox.Text;
@@ -73,6 +74,7 @@ namespace E_mail_Client
             {
                 MessageBox.Show("The recipient and the subject should be filled.");
             }
+            */
         }
 
         private void AddAllReceivers(string receiverString, HashSet<string> receiverSet)
