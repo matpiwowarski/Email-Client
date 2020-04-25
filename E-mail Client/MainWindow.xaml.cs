@@ -1,4 +1,5 @@
 ﻿using E_mail_Client.Model;
+using Microsoft.Win32;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -466,12 +467,41 @@ namespace E_mail_Client
 
         private void Import_Click(object sender, RoutedEventArgs e)
         {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
 
+            openFileDialog.Title = "Import XML file...";
+            var filter = "XML files (*.XML)|*.XML";
+
+            openFileDialog.Filter = filter;
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                    //Get the path of specified file
+                    var filePath = openFileDialog.FileName;
+
+                    //Read the contents of the file into a stream
+                    //var fileStream = openFileDialog.OpenFile();
+            }
+           
         }
 
         private void Export_Click(object sender, RoutedEventArgs e)
         {
+            SaveFileDialog openFileDialog = new SaveFileDialog();
 
+            openFileDialog.Title = "Export XML file...";
+            var filter = "XML files (*.XML)|*.XML";
+
+            openFileDialog.Filter = filter;
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                //Get the path of specified file
+                var filePath = openFileDialog.FileName;
+
+                //Read the contents of the file into a stream
+                //var fileStream = openFileDialog.OpenFile();
+            }
         }
     }
 }
