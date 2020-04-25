@@ -20,7 +20,8 @@ namespace E_mail_Client
     public partial class MainWindow : Window
     {
         public List<Mailbox> Mailboxes;
-        private List<Mail> _currentFolder;
+        private Mailbox _currentMailbox;
+        private Folder _currentFolder;
 
         public MainWindow()
         {
@@ -30,7 +31,16 @@ namespace E_mail_Client
             Mailboxes.Add(new Mailbox("mateusz.piwowarski@student.um.si"));
             Mailboxes.Add(new Mailbox("matpiwowarski7@gmail.com"));
             Mailboxes.Add(new Mailbox("test@test.pl"));
-            CreateTreeViewItemForMailbox(Mailboxes[0].EmailAdress);
+
+            CreateTreeViewForMailboxList(Mailboxes);
+        }
+
+        private void CreateTreeViewForMailboxList(List<Mailbox> mailboxList)
+        {
+            foreach(Mailbox m in mailboxList)
+            {
+                CreateTreeViewItemForMailbox(m.EmailAdress);
+            }
         }
 
         private void CreateTreeViewItemForMailbox(string emailAddress)
@@ -41,49 +51,29 @@ namespace E_mail_Client
             mailbox.MouseLeftButtonUp += Email_MouseLeftButtonUp;
             mailbox.FontSize = 15;
             // create subfolders to xaml
+            CreateSubfolderStackPanelForMailbox("Inbox", "Resources/folder.png", mailbox);
+            CreateSubfolderStackPanelForMailbox("Sent items", "Resources/folder.png", mailbox);
+            CreateSubfolderStackPanelForMailbox("Deleted items", "Resources/deleted.png", mailbox);
+            CreateSubfolderStackPanelForMailbox("Starred", "Resources/starred.png", mailbox);
+
+            // adding ready mailbox into TreeView
+            EmailTreeView.Items.Add(mailbox);                  
+        }
+        private void CreateSubfolderStackPanelForMailbox(string subfolderName, string iconPath, TreeViewItem parentMailbox)
+        {
             StackPanel stackPanel = new StackPanel() { Orientation = Orientation.Horizontal };
-            stackPanel.MouseLeftButtonUp += Inbox1_MouseLeftButtonUp;
-            mailbox.Items.Add(stackPanel);
+            stackPanel.MouseLeftButtonUp += Folder_MouseLeftButtonUp;
             Image img = new Image();
-            img.Source = new BitmapImage(new Uri("Resources/folder.png", UriKind.Relative));
+            img.Source = new BitmapImage(new Uri(iconPath, UriKind.Relative));
             img.Width = 20;
             img.Height = 20;
-            Label label = new Label() { Content = "Inbox" };
+            Label label = new Label() { Content = subfolderName };
             stackPanel.Children.Add(img);
             stackPanel.Children.Add(label);
 
-            // adding ready mailbox into TreeView
-            EmailTreeView.Items.Add(mailbox);
-
-
-
-                 /*
-                                 < StackPanel Orientation = "Horizontal" MouseLeftButtonUp = "Sent1_MouseLeftButtonUp" >
-                    
-                                        < Image Source = "Resources/folder.png" Width = "20" Height = "20" ></ Image >
-                         
-                                             < Label Content = "Sent items" ></ Label >
-                          
-                                          </ StackPanel >
-                          
-                                          < StackPanel Orientation = "Horizontal" MouseLeftButtonUp = "Deleted1_MouseLeftButtonUp" >
-                             
-                                                 < Image Source = "Resources/deleted.png" Width = "20" Height = "20" ></ Image >
-                                  
-                                                      < Label Content = "Deleted items" ></ Label >
-                                   
-                                                   </ StackPanel >
-                                   
-                                                   < StackPanel Orientation = "Horizontal" MouseLeftButtonUp = "Starred1_MouseLeftButtonUp" >
-                                      
-                                                          < Image Source = "Resources/starred.png" Width = "20" Height = "20" ></ Image >
-                                           
-                                                               < Label Content = "Starred" ></ Label >
-                                            
-                                                            </ StackPanel >
-                                                            */
+            // adding ready subfolder stackpanel into mailbox treeviewitem
+            parentMailbox.Items.Add(stackPanel);
         }
-
         private void AddMailsToList(List<Mail> list, params Mail[] mails)
         {
             foreach (Mail m in mails)
@@ -108,63 +98,20 @@ namespace E_mail_Client
 
         private void Email_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            if(sender is TreeViewItem)
+            {
+                TreeViewItem email = (TreeViewItem)sender;
+                _currentMailbox = Mailboxes.Find(a => a.EmailAdress == email.Header);
+            }
             DisableAllButtons();
         }
 
-        private void Inbox1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void Folder_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            //_currentFolder = Mailbox1.Inbox;
+            //if(sender.)
+            //_currentFolder =
             DisableAllButtons();
-            LoadMails(_currentFolder);
-        }
-
-        private void Sent1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            //_currentFolder = Mailbox1.Sent;
-            DisableAllButtons();
-            LoadMails(_currentFolder);
-        }
-
-        private void Starred1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            //_currentFolder = Mailbox1.Starred;
-            DisableAllButtons();
-            LoadMails(_currentFolder);
-        }
-
-        private void Deleted1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            //_currentFolder = Mailbox1.Deleted;
-            DisableAllButtons();
-            LoadMails(_currentFolder);
-        }
-
-        private void Inbox2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            //_currentFolder = Mailbox2.Inbox;
-            DisableAllButtons();
-            LoadMails(_currentFolder);
-        }
-
-        private void Sent2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            //_currentFolder = Mailbox2.Sent;
-            DisableAllButtons();
-            LoadMails(_currentFolder);
-        }
-
-        private void Starred2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            //_currentFolder = Mailbox2.Starred;
-            DisableAllButtons();
-            LoadMails(_currentFolder);
-        }
-
-        private void Deleted2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            //_currentFolder = Mailbox2.Deleted;
-            DisableAllButtons();
-            LoadMails(_currentFolder);
+            /////////////////LoadMails(_currentFolder);
         }
 
         private void Mail_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -212,6 +159,7 @@ namespace E_mail_Client
 
         private void LoadMail(int mailIndex)
         {
+            /*
             AttachmentListBox.Items.Clear();
             AttachmentListBox.Visibility = Visibility.Hidden;
 
@@ -238,6 +186,7 @@ namespace E_mail_Client
                     AttachmentListBox.Items.Add(a);
                 }
             }
+            */
         }
         public void DeleteMail(int mailIndex)
         {
@@ -509,8 +458,10 @@ namespace E_mail_Client
         {
             // find selected mail
             int mailIndex = MessagesListView.SelectedIndex;
-            var currentMail = _currentFolder[mailIndex];
-            return currentMail;
+            //////var currentMail = _currentFolder[mailIndex];
+            ///
+            /// return currentMail;
+            return null;
         }
     }
 }

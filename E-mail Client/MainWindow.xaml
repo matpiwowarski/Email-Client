@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="E-mail Client" Height="600" Width="1000">
     <Grid Background="#FF376DCB">
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -83,9 +84,8 @@
                 Search
             </TextBox>
         </Grid>
-        <TreeView x:Name="EmailTreeView" Grid.Column="0" Grid.Row="1" Margin="10,15,10,5" Background="LightGray">
-
-        </TreeView>
+        <TreeView x:Name="EmailTreeView" ItemsSource="{Binding EmailTree}"
+                Grid.Column="0" Grid.Row="1" Margin="10,15,10,5" Background="LightGray"/>
 
         <ListView x:Name="MessagesListView" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="Auto" Margin="10"  Background="LightGray" FontSize="13">
 

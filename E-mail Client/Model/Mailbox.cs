@@ -8,10 +8,10 @@ namespace E_mail_Client.Model
     {
         public String EmailAdress { get; set; }
 
-        public List<Mail> Inbox = new List<Mail>();
-        public List<Mail> Sent = new List<Mail>();
-        public List<Mail> Deleted = new List<Mail>();
-        public List<Mail> Starred = new List<Mail>();
+        public Folder Inbox = new Folder(FolderType.INBOX);
+        public Folder Sent = new Folder(FolderType.SENT);
+        public Folder Deleted = new Folder(FolderType.DELETED);
+        public Folder Starred = new Folder(FolderType.STARRED);
 
         public Mailbox(String emailAddress)
         {
