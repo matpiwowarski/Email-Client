@@ -34,13 +34,13 @@ namespace E_mail_Client
 
             // loading data
             Mail mail1 = new Mail("author1", "receiver1", "topic1", "content1");
-            Mailboxes[0].Inbox.Add(mail1);
+            Mailboxes[2].Inbox.Add(mail1);
             Mail mail2 = new Mail("author2", "receiver2", "topic2", "content2");
-            Mailboxes[0].Starred.Add(mail2);
+            Mailboxes[2].Starred.Add(mail2);
             Mail mail3 = new Mail("author3", "receiver3", "topic3", "content3");
-            Mailboxes[0].Sent.Add(mail3);
+            Mailboxes[2].Sent.Add(mail3);
             Mail mail4 = new Mail("author4", "receiver4", "topic4", "content4");
-            Mailboxes[0].Deleted.Add(mail4);
+            Mailboxes[2].Deleted.Add(mail4);
 
             CreateTreeViewForMailboxList(Mailboxes);
         }
@@ -195,7 +195,6 @@ namespace E_mail_Client
 
         private void LoadMail(int mailIndex)
         {
-            /*
             AttachmentListBox.Items.Clear();
             AttachmentListBox.Visibility = Visibility.Hidden;
 
@@ -222,14 +221,12 @@ namespace E_mail_Client
                     AttachmentListBox.Items.Add(a);
                 }
             }
-            */
         }
         public void DeleteMail(int mailIndex)
         {
-            /*
             if (_currentFolder[mailIndex] != null)
             {
-                if (_currentFolder == Mailbox1.Deleted || _currentFolder == Mailbox2.Deleted)
+                if (_currentFolder.Type == FolderType.DELETED)
                 {
                     MessageBoxResult result = MessageBox.Show("Do you really wish to delete the message?", "Delete message", MessageBoxButton.YesNo);
                     switch (result)
@@ -250,15 +247,7 @@ namespace E_mail_Client
 
                     Mail mailCopy = new Mail(currentMail.Author, currentMail.Receivers, currentMail.Topic, currentMail.Text, currentMail.Time);
 
-                    if (_currentFolder == Mailbox1.Inbox || _currentFolder == Mailbox1.Sent || _currentFolder == Mailbox1.Starred)
-                    {
-                        // 1st mailbox
-                        Mailbox1.Deleted.Add(mailCopy);
-                    }
-                    else // 2nd mailbox
-                    {
-                        Mailbox2.Deleted.Add(mailCopy);
-                    }
+                    _currentMailbox.Deleted.Add(mailCopy);
 
                     _currentFolder.RemoveAt(mailIndex);
 
@@ -267,12 +256,10 @@ namespace E_mail_Client
                 }
                 
             }
-            */
         }
 
         private void Star_Click(object sender, RoutedEventArgs e)
         {
-            /*
             if (MessagesListView.SelectedItems.Count > 0)
             { 
                 int mailIndex = MessagesListView.SelectedIndex;
@@ -281,27 +268,13 @@ namespace E_mail_Client
 
                 Mail mailCopy = new Mail(currentMail.Author, currentMail.Receivers, currentMail.Topic, currentMail.Text, currentMail.Time);
 
-                if (_currentFolder == Mailbox1.Inbox || _currentFolder == Mailbox1.Sent || _currentFolder == Mailbox1.Deleted)
-                {
-                    // 1st mailbox
-                    Mailbox1.Starred.Add(mailCopy);
-                }
-                else if(_currentFolder == Mailbox2.Inbox || _currentFolder == Mailbox2.Sent || _currentFolder == Mailbox2.Deleted) // 2nd mailbox
-                {
-                    // 2nd mailbox
-                    Mailbox2.Starred.Add(mailCopy);
-                }
-                else
-                {
-                    return;
-                }
+                _currentMailbox.Starred.Add(mailCopy);
 
                 _currentFolder.RemoveAt(mailIndex);
 
                 DisableAllButtons();
                 LoadMails(_currentFolder);
             }
-            */
         }
 
         // 3rd assignment
@@ -311,19 +284,28 @@ namespace E_mail_Client
 
             // passing email addresses
             
-            ////////////////PassEmailAdresses(messageWindow, Mailbox1.EmailAdress, Mailbox2.EmailAdress);
+            PassEmailAdresses(messageWindow, Mailboxes);
 
             ShowWindow(messageWindow);
         }
 
-        private void PassEmailAdresses(NewMessageWindow messageWindow, params string[] emailAddresses)
+        private void PassEmailAdresses(NewMessageWindow messageWindow, List<Mailbox> mailboxes)
         {
-            foreach(string address in emailAddresses)
+            foreach(Mailbox m in mailboxes)
             {
                 ComboBoxItem emailAddress = new ComboBoxItem();
-                emailAddress.Content = address;
+                emailAddress.Content = m.EmailAdress;
                 messageWindow.MailboxComboBox.Items.Add(emailAddress);
             }
+
+            messageWindow.MailboxComboBox.SelectedIndex = 0;
+        }
+
+        private void PassEmailAdress(NewMessageWindow messageWindow, string emailAddress)
+        {
+            ComboBoxItem emailAddressItem = new ComboBoxItem();
+            emailAddressItem.Content = emailAddress;
+            messageWindow.MailboxComboBox.Items.Add(emailAddressItem);
 
             messageWindow.MailboxComboBox.SelectedIndex = 0;
         }
@@ -334,7 +316,7 @@ namespace E_mail_Client
             ChangeNewMessageWindowTitle("Forward", messageWindow);
 
             // passing email address
-            PassEmailAdresses(messageWindow, GetCurrentMailboxAddress());
+            PassEmailAdress(messageWindow, _currentMailbox.EmailAdress);
 
             // find selected mail
             var currentMail = GetCurrentMail();
@@ -370,7 +352,7 @@ namespace E_mail_Client
             // rewrite all the recipients except this email address
             foreach (String r in currentMail.Receivers)
             {
-                if (r != GetCurrentMailboxAddress())
+                if (r != _currentMailbox.EmailAdress)
                 {
                     messageWindow.RecipientTextBox.Text += ";" + r;
                 }
@@ -386,33 +368,17 @@ namespace E_mail_Client
             RewritePreviousMessage(messageWindow, currentMail);
 
             // passing email address
-            PassEmailAdresses(messageWindow, GetCurrentMailboxAddress());
+            PassEmailAdress(messageWindow, _currentMailbox.EmailAdress);
 
             // rewrite author to recipient in message window
             messageWindow.RecipientTextBox.Text = currentMail.Author;
             messageWindow.SubjectTextBox.Text = "Re: " + currentMail.Topic;
         }
 
-        private String GetCurrentMailboxAddress()
-        {
-            /*
-            if(_currentFolder == Mailbox1.Inbox || _currentFolder == Mailbox1.Sent || _currentFolder == Mailbox1.Starred || _currentFolder == Mailbox1.Deleted)
-            {
-                return Mailbox1.EmailAdress;
-            }
-            else if(_currentFolder == Mailbox2.Inbox || _currentFolder == Mailbox2.Sent || _currentFolder == Mailbox2.Starred || _currentFolder == Mailbox2.Deleted)
-            {
-                return Mailbox2.EmailAdress;
-            }
-            */
-            return ""; 
-        }
-
         private void Mail_DoubleClick(object sender, MouseButtonEventArgs e)
         {
-            /*
             // inbox or sent folders
-            if(_currentFolder == Mailbox1.Inbox || _currentFolder == Mailbox2.Inbox || _currentFolder == Mailbox1.Sent || _currentFolder == Mailbox2.Sent)
+            if(_currentFolder.Type == FolderType.INBOX || _currentFolder.Type == FolderType.SENT)
             {
                 NewMessageWindow messageWindow = new NewMessageWindow(this);
                 ChangeNewMessageWindowTitle("Message View", messageWindow);
@@ -439,7 +405,6 @@ namespace E_mail_Client
                 ReadOnlyMode(messageWindow);
                 ShowWindow(messageWindow);
             }
-            */
         }
         private void ChangeNewMessageWindowTitle(string newTitle, NewMessageWindow nmWindow)
         {
@@ -490,14 +455,13 @@ namespace E_mail_Client
                 "\n" + currentMail.Author + ":" + "\n" + currentMail.Text;
         }
 
-        Mail GetCurrentMail()
+        private Mail GetCurrentMail()
         {
             // find selected mail
             int mailIndex = MessagesListView.SelectedIndex;
-            //////var currentMail = _currentFolder[mailIndex];
-            ///
-            /// return currentMail;
-            return null;
+            var currentMail = _currentFolder[mailIndex];
+    
+            return currentMail;
         }
     }
 }
