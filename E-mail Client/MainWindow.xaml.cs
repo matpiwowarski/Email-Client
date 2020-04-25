@@ -463,5 +463,15 @@ namespace E_mail_Client
     
             return currentMail;
         }
+
+        private void Import_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Export_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

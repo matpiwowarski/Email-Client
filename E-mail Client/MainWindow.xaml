@@ -26,20 +26,32 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Menu x:Name="MainMenu" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="LightGray" BorderThickness="2" FontSize="16" Margin="10,10,10,10">
+            <Menu x:Name="MainMenu" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Gray" BorderThickness="1" BorderBrush="Black" FontSize="16" Margin="10,10,10,10">
                 <Menu.ItemsPanel>
                     <ItemsPanelTemplate>
                         <VirtualizingStackPanel Orientation="Horizontal"></VirtualizingStackPanel>
                     </ItemsPanelTemplate>
                 </Menu.ItemsPanel>
 
-                <MenuItem Header="File" Margin="10,0,0,0" Background="LightGray" FontSize="20">
+                <MenuItem Header="File" Margin="10,0,0,0" Background="Gray" FontSize="20">
                     <MenuItem Header="New Message" FontSize="16" Background="LightGray" Click="NewMessage_Click">
                         <MenuItem.Icon>
                             <Image Source="Resources/new.png"></Image>
                         </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem Header="Exit" FontSize="16" Background="LightGray" Click="ExitMenuItem_Click">
+                        <MenuItem.Icon>
+                            <Image Source="Resources/cross.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Data" Margin="10,0,0,0" Background="Gray" FontSize="20">
+                    <MenuItem Header="Import..." FontSize="16" Background="LightGray" Click="Import_Click">
+                        <MenuItem.Icon>
+                            <Image Source="Resources/new.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Export..." FontSize="16" Background="LightGray" Click="Export_Click">
                         <MenuItem.Icon>
                             <Image Source="Resources/cross.png"></Image>
                         </MenuItem.Icon>
