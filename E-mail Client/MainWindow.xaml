@@ -48,12 +48,12 @@
                 <MenuItem Header="Data" Margin="10,0,0,0" Background="Gray" FontSize="20">
                     <MenuItem Header="Import..." FontSize="16" Background="LightGray" Click="Import_Click">
                         <MenuItem.Icon>
-                            <Image Source="Resources/new.png"></Image>
+                            <Image Source="Resources/import.png"></Image>
                         </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem Header="Export..." FontSize="16" Background="LightGray" Click="Export_Click">
                         <MenuItem.Icon>
-                            <Image Source="Resources/cross.png"></Image>
+                            <Image Source="Resources/export.png"></Image>
                         </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
@@ -96,8 +96,7 @@
                 Search
             </TextBox>
         </Grid>
-        <TreeView x:Name="EmailTreeView" ItemsSource="{Binding EmailTree}"
-                Grid.Column="0" Grid.Row="1" Margin="10,15,10,5" Background="LightGray"/>
+        <TreeView x:Name="EmailTreeView" Grid.Column="0" Grid.Row="1" Margin="10,15,10,5" Background="LightGray"/>
 
         <ListView x:Name="MessagesListView" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="Auto" Margin="10"  Background="LightGray" FontSize="13">
 

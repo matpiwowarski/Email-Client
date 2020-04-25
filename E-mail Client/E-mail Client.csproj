@@ -14,8 +14,10 @@
     <None Remove="cross.png" />
     <None Remove="delete.png" />
     <None Remove="deleted.png" />
+    <None Remove="export.png" />
     <None Remove="folder.png" />
     <None Remove="forward.png" />
+    <None Remove="import.png" />
     <None Remove="mail.png" />
     <None Remove="new.png" />
     <None Remove="reply.png" />
@@ -23,9 +25,11 @@
     <None Remove="Resources\cross.png" />
     <None Remove="Resources\delete.png" />
     <None Remove="Resources\deleted.png" />
+    <None Remove="Resources\export.png" />
     <None Remove="Resources\folder.png" />
     <None Remove="Resources\forward.png" />
     <None Remove="Resources\Icons Info.txt" />
+    <None Remove="Resources\import.png" />
     <None Remove="Resources\mail.png" />
     <None Remove="Resources\new.png" />
     <None Remove="Resources\reply.png" />
@@ -41,8 +45,10 @@
     <Resource Include="Resources\attachment.png" />
     <Resource Include="Resources\cross.png" />
     <Resource Include="Resources\deleted.png" />
+    <Resource Include="Resources\export.png" />
     <Resource Include="Resources\folder.png" />
     <Resource Include="Resources\forward.png" />
+    <Resource Include="Resources\import.png" />
     <Resource Include="Resources\new.png" />
     <Resource Include="Resources\reply.png" />
     <Resource Include="Resources\star.png" />
