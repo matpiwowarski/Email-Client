@@ -3,6 +3,7 @@ using Microsoft.Win32;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Serialization;
 
 namespace E_mail_Client
 {
@@ -34,7 +36,12 @@ namespace E_mail_Client
             Mailboxes.Add(new Mailbox("test@test.pl"));
 
             // loading data
-            Mail mail1 = new Mail("author1", "receiver1", "topic1", "content1");
+            HashSet<string> receivers = new HashSet<string>();
+            receivers.Add("test1");
+            receivers.Add("test2");
+            receivers.Add("test3");
+
+            Mail mail1 = new Mail("author1", receivers, "topic1", "content1");
             Mailboxes[2].Inbox.Add(mail1);
             Mail mail2 = new Mail("author2", "receiver2", "topic2", "content2");
             Mailboxes[2].Starred.Add(mail2);
@@ -464,6 +471,28 @@ namespace E_mail_Client
     
             return currentMail;
         }
+        private void Serialize(string filePath)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(Mail));
+
+            using(TextWriter tw = new StreamWriter(filePath))
+            {
+                serializer.Serialize(tw, Mailboxes[2].Inbox[0]);
+            }
+
+        }
+        private void Deserialize(string filePath)
+        {
+            XmlSerializer deserializer = new XmlSerializer(typeof(Mail));
+
+            TextReader reader = new StreamReader(filePath);
+
+            object obj = deserializer.Deserialize(reader);
+
+            Mailboxes[2].Inbox.Add((Mail)obj);
+
+            reader.Close();
+        }
 
         private void Import_Click(object sender, RoutedEventArgs e)
         {
@@ -476,13 +505,9 @@ namespace E_mail_Client
 
             if (openFileDialog.ShowDialog() == true)
             {
-                    //Get the path of specified file
-                    var filePath = openFileDialog.FileName;
-
-                    //Read the contents of the file into a stream
-                    //var fileStream = openFileDialog.OpenFile();
-            }
-           
+                var filePath = openFileDialog.FileName;
+                Deserialize(filePath);
+            }  
         }
 
         private void Export_Click(object sender, RoutedEventArgs e)
@@ -496,11 +521,8 @@ namespace E_mail_Client
 
             if (openFileDialog.ShowDialog() == true)
             {
-                //Get the path of specified file
                 var filePath = openFileDialog.FileName;
-
-                //Read the contents of the file into a stream
-                //var fileStream = openFileDialog.OpenFile();
+                Serialize(filePath);
             }
         }
     }
