@@ -120,5 +120,18 @@ namespace E_mail_Client
             // make attachment list visible
             AttachmentListBox.Visibility = Visibility.Visible;
         }
+
+        // PRESSED ENTER will make new line
+        private void ContentTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Return)
+            {
+                var sb = new StringBuilder();
+                sb.Append(ContentTextBox.Text);
+                sb.AppendLine("");
+                ContentTextBox.Text = sb.ToString();
+                ContentTextBox.CaretIndex = ContentTextBox.Text.Length;
+            }
+        }
     }
 }
