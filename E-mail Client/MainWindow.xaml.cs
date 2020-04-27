@@ -48,7 +48,7 @@ namespace E_mail_Client
             Mail mail3 = new Mail("author3", "receiver3", "topic3", "content3");
             Mailboxes[2].Sent.Add(mail3);
             Mail mail4 = new Mail("author4", "receiver4", "topic4", "content4");
-            Mailboxes[2].Deleted.Add(mail4);
+            Mailboxes[2].Inbox.Add(mail4);
 
             CreateTreeViewForMailboxList(Mailboxes);
         }
@@ -473,23 +473,23 @@ namespace E_mail_Client
         }
         private void Serialize(string filePath)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(Mail));
+            XmlSerializer serializer = new XmlSerializer(typeof(Folder));
 
             using(TextWriter tw = new StreamWriter(filePath))
             {
-                serializer.Serialize(tw, Mailboxes[2].Inbox[0]);
+                serializer.Serialize(tw, Mailboxes[2].Inbox);
             }
 
         }
         private void Deserialize(string filePath)
         {
-            XmlSerializer deserializer = new XmlSerializer(typeof(Mail));
+            XmlSerializer deserializer = new XmlSerializer(typeof(Folder));
 
             TextReader reader = new StreamReader(filePath);
 
             object obj = deserializer.Deserialize(reader);
 
-            Mailboxes[2].Inbox.Add((Mail)obj);
+            Mailboxes[2].Deleted = (Folder)obj;
 
             reader.Close();
         }
