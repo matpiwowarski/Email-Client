@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace E_mail_Client.Model
 {
-    public class Mailbox
+    [Serializable()]
+    public class Mailbox : ISerializable
     {
         public String EmailAdress { get; set; }
 
@@ -19,6 +21,24 @@ namespace E_mail_Client.Model
         public Mailbox(String emailAddress)
         {
             EmailAdress = emailAddress;
+        }
+
+        public Mailbox(SerializationInfo info, StreamingContext context)
+        {
+            EmailAdress = (String)info.GetValue("EmailAddress", typeof(String));
+            Inbox = (Folder)info.GetValue("Inbox", typeof(Folder));
+            Sent = (Folder)info.GetValue("Sent", typeof(Folder));
+            Deleted = (Folder)info.GetValue("Deleted", typeof(Folder));
+            Starred = (Folder)info.GetValue("Starred", typeof(Folder));
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("EmailAddress", EmailAdress);
+            info.AddValue("Inbox", Inbox);
+            info.AddValue("Sent", Sent);
+            info.AddValue("Deleted", Deleted);
+            info.AddValue("Starred", Starred);   
         }
     }
 }

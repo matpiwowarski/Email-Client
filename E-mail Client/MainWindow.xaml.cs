@@ -31,31 +31,12 @@ namespace E_mail_Client
             InitializeComponent();
 
             Mailboxes = new List<Mailbox>();
-            Mailboxes.Add(new Mailbox("mateusz.piwowarski@student.um.si"));
-            Mailboxes.Add(new Mailbox("matpiwowarski7@gmail.com"));
-            Mailboxes.Add(new Mailbox("test@test.pl"));
-
-            // loading data
-            HashSet<string> receivers = new HashSet<string>();
-            receivers.Add("test1");
-            receivers.Add("test2");
-            receivers.Add("test3");
-
-            Mail mail1 = new Mail("author1", receivers, "topic1", "content1");
-            Mailboxes[2].Inbox.Add(mail1);
-            Mail mail2 = new Mail("author2", "receiver2", "topic2", "content2");
-            Mailboxes[2].Starred.Add(mail2);
-            Mail mail3 = new Mail("author3", "receiver3", "topic3", "content3");
-            Mailboxes[2].Sent.Add(mail3);
-            Mail mail4 = new Mail("author4", "receiver4", "topic4", "content4");
-            Mailboxes[2].Inbox.Add(mail4);
-
-            CreateTreeViewForMailboxList(Mailboxes);
         }
 
         private void CreateTreeViewForMailboxList(List<Mailbox> mailboxList)
         {
-            foreach(Mailbox m in mailboxList)
+            EmailTreeView.Items.Clear();
+            foreach (Mailbox m in mailboxList)
             {
                 CreateTreeViewItemForMailbox(m.EmailAdress);
             }
@@ -473,25 +454,20 @@ namespace E_mail_Client
         }
         private void Serialize(string filePath)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(Folder));
-
-            using(TextWriter tw = new StreamWriter(filePath))
+            using(Stream fs = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None))
             {
-                serializer.Serialize(tw, Mailboxes[2].Inbox);
+                XmlSerializer serializer = new XmlSerializer(typeof(List<Mailbox>));
+                serializer.Serialize(fs, Mailboxes);
             }
-
         }
         private void Deserialize(string filePath)
         {
-            XmlSerializer deserializer = new XmlSerializer(typeof(Folder));
+            XmlSerializer deserializer = new XmlSerializer(typeof(List<Mailbox>));
 
-            TextReader reader = new StreamReader(filePath);
-
-            object obj = deserializer.Deserialize(reader);
-
-            Mailboxes[2].Deleted = (Folder)obj;
-
-            reader.Close();
+            using (FileStream fs = File.OpenRead(filePath))
+            {
+                Mailboxes = (List<Mailbox>)deserializer.Deserialize(fs);
+            }
         }
 
         private void Import_Click(object sender, RoutedEventArgs e)
@@ -507,7 +483,9 @@ namespace E_mail_Client
             {
                 var filePath = openFileDialog.FileName;
                 Deserialize(filePath);
-            }  
+            }
+
+            CreateTreeViewForMailboxList(Mailboxes);
         }
 
         private void Export_Click(object sender, RoutedEventArgs e)

@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<ArrayOfMailbox xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Mailbox>
+    <Inbox>
+      <Mail>
+        <Receivers>
+          <string>mateusz.piwowarski@student.um.si</string>
+        </Receivers>
+        <Attachments>
+          <string>iconfinder_file_edit_66764.png</string>
+        </Attachments>
+        <Topic>TEST</Topic>
+        <Text>Test
+Test
+Test
+</Text>
+        <Author>matpiwowarski7@gmail.com</Author>
+        <Time>2020-04-27T06:30:10.6635166-07:00</Time>
+      </Mail>
+    </Inbox>
+    <Sent />
+    <Deleted />
+    <Starred />
+    <EmailAdress>mateusz.piwowarski@student.um.si</EmailAdress>
+  </Mailbox>
+  <Mailbox>
+    <Inbox />
+    <Sent>
+      <Mail>
+        <Receivers>
+          <string>mateusz.piwowarski@student.um.si</string>
+        </Receivers>
+        <Attachments>
+          <string>iconfinder_file_edit_66764.png</string>
+        </Attachments>
+        <Topic>TEST</Topic>
+        <Text>Test
+Test
+Test
+</Text>
+        <Author>matpiwowarski7@gmail.com</Author>
+        <Time>2020-04-27T06:30:10.6635166-07:00</Time>
+      </Mail>
+    </Sent>
+    <Deleted />
+    <Starred />
+    <EmailAdress>matpiwowarski7@gmail.com</EmailAdress>
+  </Mailbox>
+  <Mailbox>
+    <Inbox>
+      <Mail>
+        <Receivers>
+          <string>test1</string>
+          <string>test2</string>
+          <string>test3</string>
+        </Receivers>
+        <Attachments />
+        <Topic>topic1</Topic>
+        <Text>content1</Text>
+        <Author>author1</Author>
+        <Time>2020-04-27T06:19:01.3114411-07:00</Time>
+      </Mail>
+      <Mail>
+        <Receivers>
+          <string>receiver4</string>
+        </Receivers>
+        <Attachments />
+        <Topic>topic4</Topic>
+        <Text>content4</Text>
+        <Author>author4</Author>
+        <Time>2020-04-27T06:19:01.3197534-07:00</Time>
+      </Mail>
+    </Inbox>
+    <Sent>
+      <Mail>
+        <Receivers>
+          <string>receiver3</string>
+        </Receivers>
+        <Attachments />
+        <Topic>topic3</Topic>
+        <Text>content3</Text>
+        <Author>author3</Author>
+        <Time>2020-04-27T06:19:01.3197522-07:00</Time>
+      </Mail>
+    </Sent>
+    <Deleted />
+    <Starred>
+      <Mail>
+        <Receivers>
+          <string>receiver2</string>
+        </Receivers>
+        <Attachments />
+        <Topic>topic2</Topic>
+        <Text>content2</Text>
+        <Author>author2</Author>
+        <Time>2020-04-27T06:19:01.3197427-07:00</Time>
+      </Mail>
+    </Starred>
+    <EmailAdress>test@test.pl</EmailAdress>
+  </Mailbox>
+</ArrayOfMailbox>
