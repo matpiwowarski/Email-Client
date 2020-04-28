@@ -30,6 +30,28 @@ Test
         <Author>mateusz.piwowarski@student.um.si</Author>
         <Time>2020-04-27T06:45:06.5343019-07:00</Time>
       </Mail>
+      <Mail>
+        <Receivers>
+          <string>longlonglonglonglonglonglongRecipient</string>
+        </Receivers>
+        <Attachments />
+        <Topic>Longlonglonglonglonglonglonglonglongtopic</Topic>
+        <Text>Hi longlonglonglonglonglonglongRecipient! 
+
+:)</Text>
+        <Author>mateusz.piwowarski@student.um.si</Author>
+        <Time>2020-04-28T07:24:20.5609774-07:00</Time>
+      </Mail>
+      <Mail>
+        <Receivers>
+          <string>aaaaaaaaa</string>
+        </Receivers>
+        <Attachments />
+        <Topic>aaaaaaaaaaaa</Topic>
+        <Text>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</Text>
+        <Author>mateusz.piwowarski@student.um.si</Author>
+        <Time>2020-04-28T07:31:23.6069006-07:00</Time>
+      </Mail>
     </Sent>
     <Deleted />
     <Starred />

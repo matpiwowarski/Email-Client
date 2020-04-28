@@ -31,6 +31,12 @@ namespace E_mail_Client
             InitializeComponent();
 
             Mailboxes = new List<Mailbox>();
+
+            // to not import data every program run
+            ///
+            Deserialize("C:\\Users\\matpi\\Desktop\\E-mail-Client\\E-mail Client\\Data\\data.xml");
+            CreateTreeViewForMailboxList(Mailboxes);
+            ///
         }
 
         private void CreateTreeViewForMailboxList(List<Mailbox> mailboxList)

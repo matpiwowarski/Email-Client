@@ -103,17 +103,17 @@
                 <DataTemplate>
                     <Grid Name="MailListViewItem">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="115"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
                         </Grid.RowDefinitions>
 
-                        <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold"  Text="{Binding Topic}"/>
-                        <TextBlock Grid.Column="1" Grid.Row="0" FontSize="8" Foreground="Blue" Text="{Binding Time}"/>
-                        <TextBlock Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Foreground="Gray" Text="{Binding Text}"/>
+                        <TextBlock Text="{Binding Time}" Grid.Row="0" Grid.Column="1" FontSize="10" Foreground="Blue" HorizontalAlignment="Right"/>
+                        <TextBlock Text="{Binding Topic}" Grid.Row="0" Grid.Column="0" FontSize="14" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding Text}" Grid.Row="1" Grid.ColumnSpan="2" Foreground="Gray"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
