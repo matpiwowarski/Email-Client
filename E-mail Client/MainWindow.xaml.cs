@@ -145,12 +145,6 @@ namespace E_mail_Client
             LoadMails(_currentFolder);
         }
 
-        private void Mail_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            EnableAllButtons();
-            LoadMail(MessagesListView.SelectedIndex);
-        }
-
         private void DisableAllButtons()
         {
             DeleteButton.IsEnabled = false;
@@ -364,6 +358,12 @@ namespace E_mail_Client
             // rewrite author to recipient in message window
             messageWindow.RecipientTextBox.Text = currentMail.Author;
             messageWindow.SubjectTextBox.Text = "Re: " + currentMail.Topic;
+        }
+
+        private void Mail_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            EnableAllButtons();
+            LoadMail(MessagesListView.SelectedIndex);
         }
 
         private void Mail_DoubleClick(object sender, MouseButtonEventArgs e)
