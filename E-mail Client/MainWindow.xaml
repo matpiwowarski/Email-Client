@@ -99,8 +99,25 @@
         <TreeView x:Name="EmailTreeView" Grid.Column="0" Grid.Row="1" Margin="10,15,10,5" Background="LightGray"/>
 
         <ListView x:Name="MessagesListView" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="Auto" Margin="10"  Background="LightGray" FontSize="13">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Name="MailListViewItem">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
 
-            </ListView>
+                        <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold"  Text="{Binding Topic}"/>
+                        <TextBlock Grid.Column="1" Grid.Row="0" FontSize="8" Foreground="Blue" Text="{Binding Time}"/>
+                        <TextBlock Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Foreground="Gray" Text="{Binding Text}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
         <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Background="LightGray"  HorizontalAlignment="Stretch" Margin="10,15,15,15" Height="auto">
             <Label x:Name="ReceiverLabel" HorizontalAlignment="Left" Margin="10,0,10,0" FontSize="14" VerticalAlignment="Top"></Label>

@@ -18,13 +18,37 @@ Test
         <Time>2020-04-27T06:30:10.6635166-07:00</Time>
       </Mail>
     </Inbox>
-    <Sent />
+    <Sent>
+      <Mail>
+        <Receivers>
+          <string>matpiwowarski7@gmail.com</string>
+          <string>test@test.pl</string>
+        </Receivers>
+        <Attachments />
+        <Topic>Two Recipients</Topic>
+        <Text>Hello guys!</Text>
+        <Author>mateusz.piwowarski@student.um.si</Author>
+        <Time>2020-04-27T06:45:06.5343019-07:00</Time>
+      </Mail>
+    </Sent>
     <Deleted />
     <Starred />
     <EmailAdress>mateusz.piwowarski@student.um.si</EmailAdress>
   </Mailbox>
   <Mailbox>
-    <Inbox />
+    <Inbox>
+      <Mail>
+        <Receivers>
+          <string>matpiwowarski7@gmail.com</string>
+          <string>test@test.pl</string>
+        </Receivers>
+        <Attachments />
+        <Topic>Two Recipients</Topic>
+        <Text>Hello guys!</Text>
+        <Author>mateusz.piwowarski@student.um.si</Author>
+        <Time>2020-04-27T06:45:06.5343019-07:00</Time>
+      </Mail>
+    </Inbox>
     <Sent>
       <Mail>
         <Receivers>
@@ -69,6 +93,17 @@ Test
         <Text>content4</Text>
         <Author>author4</Author>
         <Time>2020-04-27T06:19:01.3197534-07:00</Time>
+      </Mail>
+      <Mail>
+        <Receivers>
+          <string>matpiwowarski7@gmail.com</string>
+          <string>test@test.pl</string>
+        </Receivers>
+        <Attachments />
+        <Topic>Two Recipients</Topic>
+        <Text>Hello guys!</Text>
+        <Author>mateusz.piwowarski@student.um.si</Author>
+        <Time>2020-04-27T06:45:06.5343019-07:00</Time>
       </Mail>
     </Inbox>
     <Sent>

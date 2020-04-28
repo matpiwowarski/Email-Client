@@ -163,21 +163,17 @@ namespace E_mail_Client
             ReplyButton.IsEnabled = true;
 
         }
+
+
+
         private void LoadMails(List<Mail> mails)
         {
-            this.MessagesListView.Items.Clear();
+            // display message in MainWindow on click
+            //mailItem.MouseLeftButtonUp += ;
+            // display message in NewMessageWindow on double click
+            //mailItem.MouseDoubleClick += Mail_DoubleClick;
 
-            foreach (Mail m in mails)
-            {
-                ListViewItem mailItem = new ListViewItem();
-                mailItem.Content = m.Topic + " by " + m.Author;
-                // display message in MainWindow on click
-                mailItem.MouseLeftButtonUp += Mail_MouseLeftButtonUp;
-                // display message in NewMessageWindow on double click
-                mailItem.MouseDoubleClick += Mail_DoubleClick;
-
-                MessagesListView.Items.Add(mailItem);
-            }
+            MessagesListView.ItemsSource = mails;
 
             ClearAllDisplayedInfo();
         }
