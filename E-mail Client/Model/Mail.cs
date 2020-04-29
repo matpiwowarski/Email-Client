@@ -12,7 +12,7 @@ namespace E_mail_Client.Model
         public String Topic { get; set; }
         public String Text { get; set; }
         public String Author { get; set; }
-        public bool Read { get; set; }
+        public bool Read { get; set; } = false;
         public DateTime Time { get; set; }
 
         // hashset because email adresses should be unique
