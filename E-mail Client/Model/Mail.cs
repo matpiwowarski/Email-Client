@@ -12,7 +12,7 @@ namespace E_mail_Client.Model
         public String Topic { get; set; }
         public String Text { get; set; }
         public String Author { get; set; }
-
+        public bool Read { get; set; }
         public DateTime Time { get; set; }
 
         // hashset because email adresses should be unique
@@ -31,6 +31,7 @@ namespace E_mail_Client.Model
             Text = (String)info.GetValue("Text", typeof(String));
             Author = (String)info.GetValue("Author", typeof(String));
             Time = (DateTime)info.GetValue("Time", typeof(DateTime));
+            Read = (bool)info.GetValue("Read", typeof(bool));
             Receivers = (HashSet<String>)info.GetValue("Receivers", typeof(HashSet<String>));
             Attachments = (List<String>)info.GetValue("Attachments", typeof(List<String>));
         }
@@ -76,6 +77,7 @@ namespace E_mail_Client.Model
             info.AddValue("Time", Time);
             info.AddValue("Receivers", Receivers);
             info.AddValue("Attachments", Attachments);
+            info.AddValue("Read", Read);
         }
     }
 }
