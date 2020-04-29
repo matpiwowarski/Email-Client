@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -285,8 +286,9 @@ namespace E_mail_Client
             // rewrite content to message window
             messageWindow.SubjectTextBox.Text = "Fwd: " + currentMail.Topic;
             // rewrite previous message
-            messageWindow.ContentTextBox.Text = "\n" + currentMail.Time +
+            string message = "\n" + currentMail.Time +
                 "\n" + currentMail.Author + ":" + "\n" + currentMail.Text;
+            messageWindow.TextEditor.SetText(message);
 
             ShowWindow(messageWindow);
         }
@@ -357,7 +359,7 @@ namespace E_mail_Client
                     messageWindow.RecipientTextBox.Text += receiver + ";";
                 }
                 messageWindow.SubjectTextBox.Text = currentMail.Topic;
-                messageWindow.ContentTextBox.Text = currentMail.Time + "\n\n" + currentMail.Text;
+                messageWindow.TextEditor.SetText(currentMail.Time + "\n\n" + currentMail.Text);
                 if (currentMail.Attachments.Count > 0)
                 {
                     messageWindow.AttachmentListBox.Visibility = Visibility.Visible;
@@ -383,14 +385,14 @@ namespace E_mail_Client
             messageWindow.MailboxComboBox.IsReadOnly = true;
             messageWindow.RecipientTextBox.IsReadOnly = true;
             messageWindow.SubjectTextBox.IsReadOnly = true;
-            messageWindow.ContentTextBox.IsReadOnly = true;
+            messageWindow.TextEditor.IsReadOnly = true;
             messageWindow.AttachmentButton.Visibility = Visibility.Collapsed;
             messageWindow.SendButton.Visibility = Visibility.Collapsed;
 
             // make textboxes background look non editable
             messageWindow.RecipientTextBox.Background = Brushes.LightGray;
             messageWindow.SubjectTextBox.Background = Brushes.LightGray;
-            messageWindow.ContentTextBox.Background = Brushes.LightGray;
+            messageWindow.TextEditor.TextBox.Background = Brushes.LightGray;
         }
         private void ShowWindow(Window window)
         {
@@ -413,8 +415,8 @@ namespace E_mail_Client
         {
             // rewrite previous message
             const string breakLine = "\n\n\n- - - - - - - - - - - - - - - - - - - - - -";
-            messageWindow.ContentTextBox.Text = breakLine + "\n" + currentMail.Time +
-                "\n" + currentMail.Author + ":" + "\n" + currentMail.Text;
+            messageWindow.TextEditor.SetText(breakLine + "\n" + currentMail.Time +
+                "\n" + currentMail.Author + ":" + "\n" + currentMail.Text);
         }
         private Mail GetCurrentMail()
         {

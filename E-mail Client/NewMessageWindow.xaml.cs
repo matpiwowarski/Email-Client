@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace E_mail_Client
 {
-    /// <summary>
-    /// Interaction logic for NewMessageWindow.xaml
-    /// </summary>
     public partial class NewMessageWindow : Window
     {
         private MainWindow _mainWindow;
@@ -34,7 +31,7 @@ namespace E_mail_Client
                 String author = MailboxComboBox.Text;
                 String receiverString = RecipientTextBox.Text;
                 String topic = SubjectTextBox.Text;
-                String content = ContentTextBox.Text;
+                String content = TextEditor.GetText();
 
                 ObservableCollection<String> receivers = new ObservableCollection<String>();
                 // add all receivers
@@ -130,19 +127,6 @@ namespace E_mail_Client
             }
             // make attachment list visible
             AttachmentListBox.Visibility = Visibility.Visible;
-        }
-
-        // PRESSED ENTER will make new line
-        private void ContentTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if(e.Key == Key.Return)
-            {
-                var sb = new StringBuilder();
-                sb.Append(ContentTextBox.Text);
-                sb.AppendLine("");
-                ContentTextBox.Text = sb.ToString();
-                ContentTextBox.CaretIndex = ContentTextBox.Text.Length;
-            }
         }
     }
 }

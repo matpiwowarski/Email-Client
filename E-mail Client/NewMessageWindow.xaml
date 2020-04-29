@@ -39,9 +39,7 @@
             <TextBox x:Name="SubjectTextBox" Margin="0,3,10,3" HorizontalAlignment="Stretch">
             </TextBox>
         </DockPanel>
-        <TextBox x:Name="ContentTextBox" Grid.Row="3" Grid.ColumnSpan="2" Margin="10,5,10,10" TextWrapping="Wrap" Padding="10" KeyDown="ContentTextBox_KeyDown">
-            
-        </TextBox>
+        <local:TextEditorUserControl x:Name="TextEditor" Grid.Row="3" Grid.ColumnSpan="2" Margin="10,5,10,10" Padding="10"/>
 
         <ListBox x:Name="AttachmentListBox" Grid.Row="4" Margin="10,5,0,10" Visibility="Hidden">
             
