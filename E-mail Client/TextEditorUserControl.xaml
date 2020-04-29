@@ -13,7 +13,11 @@
         </Grid.RowDefinitions>
 
         <RichTextBox x:Name="TextBox" Grid.Row="1">
-                
+            <RichTextBox.Resources>
+                <Style TargetType="{x:Type Paragraph}">
+                    <Setter Property="Margin" Value="0"/>
+                </Style>
+            </RichTextBox.Resources>
         </RichTextBox>
     </Grid>
 </UserControl>

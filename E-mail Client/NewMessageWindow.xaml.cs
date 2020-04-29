@@ -84,7 +84,6 @@ namespace E_mail_Client
                 MessageBox.Show("The recipient and the subject should be filled.");
             }
         }
-
         private void AddAllReceivers(string receiverString, ObservableCollection<string> receiverSet)
         {
             if (receiverString.Length > 0)
@@ -104,7 +103,6 @@ namespace E_mail_Client
                 }
             }
         }
-
         private void AttachmentButton_Click(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
