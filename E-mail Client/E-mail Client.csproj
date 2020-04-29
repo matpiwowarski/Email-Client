@@ -11,6 +11,8 @@
 
   <ItemGroup>
     <None Remove="attachment.png" />
+    <None Remove="bold.png" />
+    <None Remove="clear.png" />
     <None Remove="cross.png" />
     <None Remove="delete.png" />
     <None Remove="deleted.png" />
@@ -18,10 +20,13 @@
     <None Remove="folder.png" />
     <None Remove="forward.png" />
     <None Remove="import.png" />
+    <None Remove="italic.png" />
     <None Remove="mail.png" />
     <None Remove="new.png" />
     <None Remove="reply.png" />
     <None Remove="Resources\attachment.png" />
+    <None Remove="Resources\bold.png" />
+    <None Remove="Resources\clear.png" />
     <None Remove="Resources\cross.png" />
     <None Remove="Resources\delete.png" />
     <None Remove="Resources\deleted.png" />
@@ -30,30 +35,37 @@
     <None Remove="Resources\forward.png" />
     <None Remove="Resources\Icons Info.txt" />
     <None Remove="Resources\import.png" />
+    <None Remove="Resources\italic.png" />
     <None Remove="Resources\mail.png" />
     <None Remove="Resources\new.png" />
     <None Remove="Resources\reply.png" />
     <None Remove="Resources\star.png" />
     <None Remove="Resources\starred.png" />
     <None Remove="Resources\toall.png" />
+    <None Remove="Resources\underline.png" />
     <None Remove="star.png" />
     <None Remove="starred.png" />
     <None Remove="toall.png" />
+    <None Remove="underline.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Resources\attachment.png" />
+    <Resource Include="Resources\bold.png" />
+    <Resource Include="Resources\clear.png" />
     <Resource Include="Resources\cross.png" />
     <Resource Include="Resources\deleted.png" />
     <Resource Include="Resources\export.png" />
     <Resource Include="Resources\folder.png" />
     <Resource Include="Resources\forward.png" />
     <Resource Include="Resources\import.png" />
+    <Resource Include="Resources\italic.png" />
     <Resource Include="Resources\new.png" />
     <Resource Include="Resources\reply.png" />
     <Resource Include="Resources\star.png" />
     <Resource Include="Resources\starred.png" />
     <Resource Include="Resources\toall.png" />
+    <Resource Include="Resources\underline.png" />
   </ItemGroup>
 
 </Project>

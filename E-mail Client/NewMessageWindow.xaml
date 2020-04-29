@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:E_mail_Client"
         mc:Ignorable="d"
-        Title="New Message" Height="650" Width="600">
+        Title="New Message" Height="650" Width="750">
     <Grid Background="LightGray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
