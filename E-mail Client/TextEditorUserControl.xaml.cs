@@ -144,9 +144,16 @@ namespace E_mail_Client
 
         private void ColorPicker_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
         {
-
+            if (ContentBox != null)
+            {
+                if (ColorPicker.SelectedColor.HasValue)
+                {
+                    var bc = new BrushConverter();
+                    var color = ColorPicker.SelectedColor.ToString();
+                    ContentBox.Selection.ApplyPropertyValue(RichTextBox.ForegroundProperty, (Brush)bc.ConvertFrom(color));
+                }
+            }
         }
-
         private void ClearAllFormatting_Click(object sender, RoutedEventArgs e)
         {
             ContentBox.Selection.ClearAllProperties();
