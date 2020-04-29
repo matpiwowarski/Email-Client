@@ -392,7 +392,7 @@ namespace E_mail_Client
             // make textboxes background look non editable
             messageWindow.RecipientTextBox.Background = Brushes.LightGray;
             messageWindow.SubjectTextBox.Background = Brushes.LightGray;
-            messageWindow.TextEditor.TextBox.Background = Brushes.LightGray;
+            messageWindow.TextEditor.ContentBox.Background = Brushes.LightGray;
         }
         private void ShowWindow(Window window)
         {

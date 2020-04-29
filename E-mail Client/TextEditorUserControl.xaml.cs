@@ -19,7 +19,7 @@ namespace E_mail_Client
         {
             set
             {
-                TextBox.IsReadOnly = value;
+                ContentBox.IsReadOnly = value;
                 if(value == true)
                 {
                     ExpanderControl.Visibility = Visibility.Collapsed;
@@ -70,12 +70,73 @@ namespace E_mail_Client
 
         public void SetText(string text)
         {
-            TextBox.Document.Blocks.Clear();
-            TextBox.Document.Blocks.Add(new Paragraph(new Run(text)));
+            ContentBox.Document.Blocks.Clear();
+            ContentBox.Document.Blocks.Add(new Paragraph(new Run(text)));
         }
         public string GetText()
         {
-            return new TextRange(TextBox.Document.ContentStart, TextBox.Document.ContentEnd).Text;
+            return new TextRange(ContentBox.Document.ContentStart, ContentBox.Document.ContentEnd).Text;
+        }
+
+        private void Bold_Click(object sender, RoutedEventArgs e)
+        {
+            var currentProperty = ContentBox.Selection.GetPropertyValue(RichTextBox.FontWeightProperty);
+            if (currentProperty.Equals(FontWeights.Bold)) // we have already bold text
+            {
+                ContentBox.Selection.ApplyPropertyValue(RichTextBox.FontWeightProperty, FontWeights.Normal);
+            }
+            else // bold text
+            {
+                ContentBox.Selection.ApplyPropertyValue(RichTextBox.FontWeightProperty, FontWeights.Bold);
+            }
+        }
+
+        private void Italic_Click(object sender, RoutedEventArgs e)
+        {
+            var currentProperty = ContentBox.Selection.GetPropertyValue(RichTextBox.FontStyleProperty);
+
+            if(currentProperty.Equals(FontStyles.Italic)) // we have already italic text
+            {
+                ContentBox.Selection.ApplyPropertyValue(RichTextBox.FontStyleProperty, FontStyles.Normal);
+            }
+            else // italic text
+            {
+                ContentBox.Selection.ApplyPropertyValue(RichTextBox.FontStyleProperty, FontStyles.Italic);
+            }
+        }
+
+        private void Underline_Click(object sender, RoutedEventArgs e)
+        {
+            var currentProperty = ContentBox.Selection.GetPropertyValue(Run.TextDecorationsProperty);
+
+            if(currentProperty.Equals(TextDecorations.Underline)) // we have already underline text
+            {
+                ContentBox.Selection.ApplyPropertyValue(Run.TextDecorationsProperty, null);
+            }
+            else //underline text
+            {
+                ContentBox.Selection.ApplyPropertyValue(Run.TextDecorationsProperty, TextDecorations.Underline);
+            }
+        }
+
+        private void FontFamily_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void FontSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ColorPicker_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
+        {
+
+        }
+
+        private void ClearAllFormatting_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

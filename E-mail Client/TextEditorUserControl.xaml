@@ -17,21 +17,21 @@
 
         <Expander x:Name="ExpanderControl" Background="DarkGray" IsExpanded="True">
             <StackPanel Orientation="Horizontal">
-                <Button x:Name="Bold" Height="25" Width="25" Margin="20,0,0,0">
+                <Button x:Name="Bold" Height="25" Width="25" Margin="20,0,0,0" Click="Bold_Click">
                     <Image Source="Resources/bold.png"></Image>
                 </Button>
-                <Button x:Name="Itelic" Height="25" Width="25" Margin="5,0,0,0">
+                <Button x:Name="Italic" Height="25" Width="25" Margin="5,0,0,0" Click="Italic_Click">
                     <Image Source="Resources/italic.png"></Image>
                 </Button>
-                <Button x:Name="Underline" Height="25" Width="25" Margin="5,0,5,0">
+                <Button x:Name="Underline" Height="25" Width="25" Margin="5,0,5,0" Click="Underline_Click">
                     <Image Source="Resources/underline.png"></Image>
                 </Button>
-                <ComboBox x:Name="FontFamily" Width="150" Height="25"></ComboBox>
-                <ComboBox x:Name="FontSize" Width="50" Height="25"></ComboBox>
+                <ComboBox x:Name="FontFamily" Width="150" Height="25" SelectionChanged="FontFamily_SelectionChanged"></ComboBox>
+                <ComboBox x:Name="FontSize" Width="50" Height="25" SelectionChanged="FontSize_SelectionChanged"></ComboBox>
 
-                <xctk1:ColorPicker x:Name="ColorPicker" Height="25" Width="50" Margin="5,0,0,0" SelectedColor="Black"></xctk1:ColorPicker>
+                <xctk1:ColorPicker x:Name="ColorPicker" Height="25" Width="50" Margin="5,0,0,0" SelectedColor="Black" SelectedColorChanged="ColorPicker_SelectedColorChanged"></xctk1:ColorPicker>
                 
-                <Button x:Name="ClearAllFormatting" Height="30" Width="150" Margin="20,5,5,5" HorizontalAlignment="Right">
+                <Button x:Name="ClearAllFormatting" Height="30" Width="150" Margin="20,5,5,5" HorizontalAlignment="Right" Click="ClearAllFormatting_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Resources/clear.png"></Image>
                         <Label>Clear all formatting</Label>
@@ -40,7 +40,7 @@
             </StackPanel>
         </Expander>
 
-        <RichTextBox x:Name="TextBox" Grid.Row="1" Padding="10">
+        <RichTextBox x:Name="ContentBox" Grid.Row="1" Padding="10">
             <RichTextBox.Resources>
                 <Style TargetType="{x:Type Paragraph}">
                     <Setter Property="Margin" Value="0"/>
