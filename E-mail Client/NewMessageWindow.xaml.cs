@@ -1,6 +1,7 @@
 ﻿using E_mail_Client.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -35,7 +36,7 @@ namespace E_mail_Client
                 String topic = SubjectTextBox.Text;
                 String content = ContentTextBox.Text;
 
-                HashSet<String> receivers = new HashSet<String>();
+                ObservableCollection<String> receivers = new ObservableCollection<String>();
                 // add all receivers
                 AddAllReceivers(receiverString, receivers);
 
@@ -77,7 +78,7 @@ namespace E_mail_Client
             }
         }
 
-        private void AddAllReceivers(string receiverString, HashSet<string> receiverSet)
+        private void AddAllReceivers(string receiverString, ObservableCollection<string> receiverSet)
         {
             if (receiverString.Length > 0)
             {

@@ -3,6 +3,7 @@ using Microsoft.Win32;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,7 @@ namespace E_mail_Client
 {
     public partial class MainWindow : Window
     {
-        public List<Mailbox> Mailboxes;
+        public ObservableCollection<Mailbox> Mailboxes;
         private Mailbox _currentMailbox = new Mailbox();
         private Folder _currentFolder = new Folder();
 
@@ -30,7 +31,7 @@ namespace E_mail_Client
         {
             InitializeComponent();
 
-            Mailboxes = new List<Mailbox>();
+            Mailboxes = new ObservableCollection<Mailbox>();
 
             // to not import data every program run
             ///
@@ -39,7 +40,7 @@ namespace E_mail_Client
             ///
         }
 
-        private void CreateTreeViewForMailboxList(List<Mailbox> mailboxList)
+        private void CreateTreeViewForMailboxList(ObservableCollection<Mailbox> mailboxList)
         {
             EmailTreeView.Items.Clear();
             foreach (Mailbox m in mailboxList)
@@ -79,7 +80,7 @@ namespace E_mail_Client
             // adding ready subfolder stackpanel into mailbox treeviewitem
             parentMailbox.Items.Add(stackPanel);
         }
-        private void AddMailsToList(List<Mail> list, params Mail[] mails)
+        private void AddMailsToList(ObservableCollection<Mail> list, params Mail[] mails)
         {
             foreach (Mail m in mails)
             {
@@ -105,13 +106,24 @@ namespace E_mail_Client
         {
             DisableAllButtons();
         }
+        private Mailbox FindCurrentMailbox(string emailAddress)
+        {
+            foreach(Mailbox m in Mailboxes)
+            {
+                if(m.EmailAdress == emailAddress)
+                {
+                    return m;
+                }
+            }
+            return null;
+        }
 
         private void Folder_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             StackPanel selectedFolder = (StackPanel)EmailTreeView.SelectedItem;
             TreeViewItem selectedMailbox = (TreeViewItem)selectedFolder.Parent;
 
-            _currentMailbox = Mailboxes.Find(a => a.EmailAdress == selectedMailbox.Header);
+            _currentMailbox = FindCurrentMailbox(selectedMailbox.Header.ToString());
 
             if (sender is StackPanel)
             {
@@ -164,7 +176,7 @@ namespace E_mail_Client
 
         }
 
-        private void LoadMails(List<Mail> mails)
+        private void LoadMails(ObservableCollection<Mail> mails)
         {
             MessagesListView.ItemsSource = mails;
 
@@ -270,7 +282,7 @@ namespace E_mail_Client
             ShowWindow(messageWindow);
         }
 
-        private void PassEmailAdresses(NewMessageWindow messageWindow, List<Mailbox> mailboxes)
+        private void PassEmailAdresses(NewMessageWindow messageWindow, ObservableCollection<Mailbox> mailboxes)
         {
             foreach(Mailbox m in mailboxes)
             {
@@ -456,17 +468,17 @@ namespace E_mail_Client
         {
             using(Stream fs = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None))
             {
-                XmlSerializer serializer = new XmlSerializer(typeof(List<Mailbox>));
+                XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<Mailbox>));
                 serializer.Serialize(fs, Mailboxes);
             }
         }
         private void Deserialize(string filePath)
         {
-            XmlSerializer deserializer = new XmlSerializer(typeof(List<Mailbox>));
+            XmlSerializer deserializer = new XmlSerializer(typeof(ObservableCollection<Mailbox>));
 
             using (FileStream fs = File.OpenRead(filePath))
             {
-                Mailboxes = (List<Mailbox>)deserializer.Deserialize(fs);
+                Mailboxes = (ObservableCollection<Mailbox>)deserializer.Deserialize(fs);
             }
         }
 

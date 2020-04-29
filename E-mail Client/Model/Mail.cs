@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Windows.Controls;
@@ -7,18 +9,20 @@ using System.Windows.Controls;
 namespace E_mail_Client.Model
 {
     [Serializable()]
-    public class Mail : ISerializable
+    public class Mail : ISerializable, INotifyPropertyChanged
     {
         public String Topic { get; set; }
         public String Text { get; set; }
         public String Author { get; set; }
-        public bool Read { get; set; } = true;
+        public bool Read { get; set; } = false;
         public DateTime Time { get; set; }
 
         // hashset because email adresses should be unique
-        public HashSet<String> Receivers = new HashSet<String>();
+        public ObservableCollection<String> Receivers = new ObservableCollection<String>();
 
-        public List<String> Attachments = new List<String>();
+        public ObservableCollection<String> Attachments = new ObservableCollection<String>();
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public Mail()
         {
@@ -32,8 +36,8 @@ namespace E_mail_Client.Model
             Author = (String)info.GetValue("Author", typeof(String));
             Time = (DateTime)info.GetValue("Time", typeof(DateTime));
             Read = (bool)info.GetValue("Read", typeof(bool));
-            Receivers = (HashSet<String>)info.GetValue("Receivers", typeof(HashSet<String>));
-            Attachments = (List<String>)info.GetValue("Attachments", typeof(List<String>));
+            Receivers = (ObservableCollection<String>)info.GetValue("Receivers", typeof(ObservableCollection<String>));
+            Attachments = (ObservableCollection<String>)info.GetValue("Attachments", typeof(ObservableCollection<String>));
         }
 
         // one receiver
@@ -46,7 +50,7 @@ namespace E_mail_Client.Model
             Time = DateTime.Now;
         }
         // more receivers
-        public Mail(String author, HashSet<String> receivers, String topic, String content)
+        public Mail(String author, ObservableCollection<String> receivers, String topic, String content)
         {
             Author = author;
             Receivers = receivers;
@@ -55,7 +59,7 @@ namespace E_mail_Client.Model
             Time = DateTime.Now;
         }
 
-        public Mail(String author, HashSet<String> receivers, String topic, String content, DateTime time)
+        public Mail(String author, ObservableCollection<String> receivers, String topic, String content, DateTime time)
         {
             Author = author;
             Receivers = receivers;
