@@ -35,11 +35,11 @@ Test
       <Mail>
         <Topic>Longlonglonglonglonglonglonglonglongtopic</Topic>
         <Text>Hi longlonglonglonglonglonglongRecipient! 
-
+testing the longest version of DateTime
 :)</Text>
         <Author>mateusz.piwowarski@student.um.si</Author>
         <Read>true</Read>
-        <Time>2020-04-28T07:24:20.5609774-07:00</Time>
+        <Time>1111-11-11T00:13:21.5623365-07:00</Time>
         <Receivers>
           <string>longlonglonglonglonglonglongRecipient</string>
         </Receivers>
