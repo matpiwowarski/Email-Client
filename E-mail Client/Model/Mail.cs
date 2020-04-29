@@ -11,18 +11,86 @@ namespace E_mail_Client.Model
     [Serializable()]
     public class Mail : ISerializable, INotifyPropertyChanged
     {
-        public String Topic { get; set; }
-        public String Text { get; set; }
-        public String Author { get; set; }
-        public bool Read { get; set; } = false;
-        public DateTime Time { get; set; }
+        // private
+        private String _topic;
+        private String _text;
+        private String _author;
+        private bool _read;
+        private DateTime _time;
+        private ObservableCollection<String> _receivers = new ObservableCollection<String>();
+        private ObservableCollection<String> _attachments = new ObservableCollection<String>();
 
-        // hashset because email adresses should be unique
-        public ObservableCollection<String> Receivers = new ObservableCollection<String>();
-
-        public ObservableCollection<String> Attachments = new ObservableCollection<String>();
+        // public
+        public String Topic 
+        {
+            get => _topic;
+            set
+            {
+                _topic = value;
+                OnPropertyChanged(new PropertyChangedEventArgs("Title"));
+            }
+        }
+        public string Text
+        {
+            get => _text;
+            set
+            {
+                _text = value;
+                OnPropertyChanged(new PropertyChangedEventArgs("Text"));
+            }
+        }
+        public string Author
+        {
+            get => _author;
+            set
+            {
+                _author = value;
+                OnPropertyChanged(new PropertyChangedEventArgs("Author"));
+            }
+        }
+        public bool Read
+        {
+            get => _read;
+            set
+            {
+                _read = value;
+                OnPropertyChanged(new PropertyChangedEventArgs("Read"));
+            }
+        }
+        public DateTime Time
+        {
+            get => _time;
+            set
+            {
+                _time = value;
+                OnPropertyChanged(new PropertyChangedEventArgs("Time"));
+            }
+        }
+        public ObservableCollection<string> Receivers
+        {
+            get => _receivers;
+            set
+            {
+                _receivers = value;
+                OnPropertyChanged(new PropertyChangedEventArgs("Receivers"));
+            }
+        }
+        public ObservableCollection<string> Attachments
+        {
+            get => _attachments;
+            set
+            {
+                _attachments = value;
+                OnPropertyChanged(new PropertyChangedEventArgs("Attachments"));
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(PropertyChangedEventArgs e)
+        {
+            PropertyChanged?.Invoke(this, e);
+        }
 
         public Mail()
         {
