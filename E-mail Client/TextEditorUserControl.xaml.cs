@@ -124,7 +124,7 @@ namespace E_mail_Client
 
                 foreach (FontFamily font in Fonts.SystemFontFamilies)
                 {
-                    if (font.ToString() == FontFamily.Text.ToString())
+                    if (font.ToString() == GetComboBoxItemValue((ComboBoxItem)FontFamily.SelectedItem))
                     {
                         ContentBox.Selection.ApplyPropertyValue(RichTextBox.FontFamilyProperty, font);
                         break;
