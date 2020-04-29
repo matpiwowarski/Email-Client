@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <ArrayOfMailbox xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Mailbox>
+    <EmailAddress>mateusz.piwowarski@student.um.si</EmailAddress>
     <Inbox>
       <Mail>
         <Topic>TEST</Topic>
@@ -21,38 +22,15 @@ Test
     </Inbox>
     <Sent>
       <Mail>
-        <Topic>Two Recipients</Topic>
-        <Text>Hello guys!</Text>
-        <Author>mateusz.piwowarski@student.um.si</Author>
-        <Read>true</Read>
-        <Time>2020-04-27T06:45:06.5343019-07:00</Time>
-        <Receivers>
-          <string>matpiwowarski7@gmail.com</string>
-          <string>test@test.pl</string>
-        </Receivers>
-        <Attachments />
-      </Mail>
-      <Mail>
         <Topic>Longlonglonglonglonglonglonglonglongtopic</Topic>
         <Text>Hi longlonglonglonglonglonglongRecipient! 
 testing the longest version of DateTime
 :)</Text>
         <Author>mateusz.piwowarski@student.um.si</Author>
         <Read>true</Read>
-        <Time>1111-11-11T00:13:21.5623365-07:00</Time>
+        <Time>1111-11-10T23:13:21.5623365-08:00</Time>
         <Receivers>
           <string>longlonglonglonglonglonglongRecipient</string>
-        </Receivers>
-        <Attachments />
-      </Mail>
-      <Mail>
-        <Topic>aaaaaaaaaaaa</Topic>
-        <Text>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</Text>
-        <Author>mateusz.piwowarski@student.um.si</Author>
-        <Read>true</Read>
-        <Time>2020-04-28T07:31:23.6069006-07:00</Time>
-        <Receivers>
-          <string>aaaaaaaaa</string>
         </Receivers>
         <Attachments />
       </Mail>
@@ -69,12 +47,48 @@ test@test.pl -&gt; READ = false</Text>
         </Receivers>
         <Attachments />
       </Mail>
+      <Mail>
+        <Topic>5</Topic>
+        <Text>5</Text>
+        <Author>mateusz.piwowarski@student.um.si</Author>
+        <Read>true</Read>
+        <Time>2020-04-29T01:24:49.0507368-07:00</Time>
+        <Receivers>
+          <string>5</string>
+        </Receivers>
+        <Attachments />
+      </Mail>
     </Sent>
-    <Deleted />
-    <Starred />
-    <EmailAdress>mateusz.piwowarski@student.um.si</EmailAdress>
+    <Deleted>
+      <Mail>
+        <Topic>aaaaaaaaaaaa</Topic>
+        <Text>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</Text>
+        <Author>mateusz.piwowarski@student.um.si</Author>
+        <Read>true</Read>
+        <Time>2020-04-28T07:31:23.6069006-07:00</Time>
+        <Receivers>
+          <string>aaaaaaaaa</string>
+        </Receivers>
+        <Attachments />
+      </Mail>
+    </Deleted>
+    <Starred>
+      <Mail>
+        <Topic>Two Recipients</Topic>
+        <Text>Hello guys!</Text>
+        <Author>mateusz.piwowarski@student.um.si</Author>
+        <Read>true</Read>
+        <Time>2020-04-27T06:45:06.5343019-07:00</Time>
+        <Receivers>
+          <string>matpiwowarski7@gmail.com</string>
+          <string>test@test.pl</string>
+        </Receivers>
+        <Attachments />
+      </Mail>
+    </Starred>
   </Mailbox>
   <Mailbox>
+    <EmailAddress>matpiwowarski7@gmail.com</EmailAddress>
     <Inbox>
       <Mail>
         <Topic>Two Recipients</Topic>
@@ -143,9 +157,9 @@ Test
     </Sent>
     <Deleted />
     <Starred />
-    <EmailAdress>matpiwowarski7@gmail.com</EmailAdress>
   </Mailbox>
   <Mailbox>
+    <EmailAddress>test@test.pl</EmailAddress>
     <Inbox>
       <Mail>
         <Topic>topic1</Topic>
@@ -246,6 +260,5 @@ test@test.pl -&gt; READ = false</Text>
         <Attachments />
       </Mail>
     </Starred>
-    <EmailAdress>test@test.pl</EmailAdress>
   </Mailbox>
 </ArrayOfMailbox>

@@ -1,22 +1,13 @@
 ﻿using E_mail_Client.Model;
 using Microsoft.Win32;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Xml.Serialization;
 
 namespace E_mail_Client
@@ -26,7 +17,6 @@ namespace E_mail_Client
         public ObservableCollection<Mailbox> Mailboxes;
         private Mailbox _currentMailbox = new Mailbox();
         private Folder _currentFolder = new Folder();
-
         public MainWindow()
         {
             InitializeComponent();
@@ -39,16 +29,14 @@ namespace E_mail_Client
             CreateTreeViewForMailboxList(Mailboxes);
             ///
         }
-
         private void CreateTreeViewForMailboxList(ObservableCollection<Mailbox> mailboxList)
         {
             EmailTreeView.Items.Clear();
             foreach (Mailbox m in mailboxList)
             {
-                CreateTreeViewItemForMailbox(m.EmailAdress);
+                CreateTreeViewItemForMailbox(m.EmailAddress);
             }
         }
-
         private void CreateTreeViewItemForMailbox(string emailAddress)
         {
             // create mailbox to xaml
@@ -80,19 +68,10 @@ namespace E_mail_Client
             // adding ready subfolder stackpanel into mailbox treeviewitem
             parentMailbox.Items.Add(stackPanel);
         }
-        private void AddMailsToList(ObservableCollection<Mail> list, params Mail[] mails)
-        {
-            foreach (Mail m in mails)
-            {
-                list.Add(m);
-            }
-        }
-
         private void ExitMenuItem_Click(object sender, RoutedEventArgs e)
         {
             System.Windows.Application.Current.Shutdown();
         }
-
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
             if (MessagesListView.SelectedItems.Count > 0)
@@ -101,7 +80,6 @@ namespace E_mail_Client
                 DeleteMail(MessagesListView.SelectedIndex);
             }
         }
-
         private void Email_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             DisableAllButtons();
@@ -110,14 +88,13 @@ namespace E_mail_Client
         {
             foreach(Mailbox m in Mailboxes)
             {
-                if(m.EmailAdress == emailAddress)
+                if(m.EmailAddress == emailAddress)
                 {
                     return m;
                 }
             }
             return null;
         }
-
         private void Folder_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             StackPanel selectedFolder = (StackPanel)EmailTreeView.SelectedItem;
@@ -156,7 +133,6 @@ namespace E_mail_Client
             DisableAllButtons();
             LoadMails(_currentFolder);
         }
-
         private void DisableAllButtons()
         {
             DeleteButton.IsEnabled = false;
@@ -175,14 +151,12 @@ namespace E_mail_Client
             ReplyButton.IsEnabled = true;
 
         }
-
         private void LoadMails(ObservableCollection<Mail> mails)
         {
             MessagesListView.ItemsSource = mails;
 
             ClearAllDisplayedInfo();
         }
-
         private void LoadMail(int mailIndex)
         {
             AttachmentListBox.Items.Clear();
@@ -250,7 +224,6 @@ namespace E_mail_Client
                 
             }
         }
-
         private void Star_Click(object sender, RoutedEventArgs e)
         {
             if (MessagesListView.SelectedItems.Count > 0)
@@ -269,8 +242,6 @@ namespace E_mail_Client
                 LoadMails(_currentFolder);
             }
         }
-
-        // 3rd assignment
         private void NewMessage_Click(object sender, RoutedEventArgs e)
         {
             NewMessageWindow messageWindow = new NewMessageWindow(this);
@@ -281,19 +252,17 @@ namespace E_mail_Client
 
             ShowWindow(messageWindow);
         }
-
         private void PassEmailAdresses(NewMessageWindow messageWindow, ObservableCollection<Mailbox> mailboxes)
         {
             foreach(Mailbox m in mailboxes)
             {
                 ComboBoxItem emailAddress = new ComboBoxItem();
-                emailAddress.Content = m.EmailAdress;
+                emailAddress.Content = m.EmailAddress;
                 messageWindow.MailboxComboBox.Items.Add(emailAddress);
             }
 
             messageWindow.MailboxComboBox.SelectedIndex = 0;
         }
-
         private void PassEmailAdress(NewMessageWindow messageWindow, string emailAddress)
         {
             ComboBoxItem emailAddressItem = new ComboBoxItem();
@@ -302,14 +271,13 @@ namespace E_mail_Client
 
             messageWindow.MailboxComboBox.SelectedIndex = 0;
         }
-
         private void ForwardButton_Click(object sender, RoutedEventArgs e)
         {
             NewMessageWindow messageWindow = new NewMessageWindow(this);
             ChangeNewMessageWindowTitle("Forward", messageWindow);
 
             // passing email address
-            PassEmailAdress(messageWindow, _currentMailbox.EmailAdress);
+            PassEmailAdress(messageWindow, _currentMailbox.EmailAddress);
 
             // find selected mail
             var currentMail = GetCurrentMail();
@@ -322,7 +290,6 @@ namespace E_mail_Client
 
             ShowWindow(messageWindow);
         }
-
         private void ReplyButton_Click(object sender, RoutedEventArgs e)
         {
             NewMessageWindow messageWindow = new NewMessageWindow(this);
@@ -345,7 +312,7 @@ namespace E_mail_Client
             // rewrite all the recipients except this email address
             foreach (String r in currentMail.Receivers)
             {
-                if (r != _currentMailbox.EmailAdress)
+                if (r != _currentMailbox.EmailAddress)
                 {
                     messageWindow.RecipientTextBox.Text += ";" + r;
                 }
@@ -353,7 +320,6 @@ namespace E_mail_Client
 
             ShowWindow(messageWindow);
         }
-
         private void Reply(NewMessageWindow messageWindow, Mail currentMail)
         {
             ChangeNewMessageWindowTitle("Reply", messageWindow);
@@ -361,19 +327,17 @@ namespace E_mail_Client
             RewritePreviousMessage(messageWindow, currentMail);
 
             // passing email address
-            PassEmailAdress(messageWindow, _currentMailbox.EmailAdress);
+            PassEmailAdress(messageWindow, _currentMailbox.EmailAddress);
 
             // rewrite author to recipient in message window
             messageWindow.RecipientTextBox.Text = currentMail.Author;
             messageWindow.SubjectTextBox.Text = "Re: " + currentMail.Topic;
         }
-
         private void Mail_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             EnableAllButtons();
             LoadMail(MessagesListView.SelectedIndex);
         }
-
         private void Mail_DoubleClick(object sender, MouseButtonEventArgs e)
         {
             // inbox or sent folders
@@ -412,7 +376,6 @@ namespace E_mail_Client
             nmWindow.Title = newTitle;
             nmWindow.TitleLabel.Content = newTitle;
         }
-
         private void ReadOnlyMode(NewMessageWindow messageWindow)
         {
             // block/hide components in messageWindow (READONLY)
@@ -429,7 +392,6 @@ namespace E_mail_Client
             messageWindow.SubjectTextBox.Background = Brushes.LightGray;
             messageWindow.ContentTextBox.Background = Brushes.LightGray;
         }
-
         private void ShowWindow(Window window)
         {
             if (window.ShowDialog() == true)
@@ -447,7 +409,6 @@ namespace E_mail_Client
             AttachmentListBox.Items.Clear();
             AttachmentListBox.Visibility = Visibility.Hidden;
         }
-
         private void RewritePreviousMessage(NewMessageWindow messageWindow, Mail currentMail)
         {
             // rewrite previous message
@@ -455,7 +416,6 @@ namespace E_mail_Client
             messageWindow.ContentTextBox.Text = breakLine + "\n" + currentMail.Time +
                 "\n" + currentMail.Author + ":" + "\n" + currentMail.Text;
         }
-
         private Mail GetCurrentMail()
         {
             // find selected mail
@@ -481,7 +441,6 @@ namespace E_mail_Client
                 Mailboxes = (ObservableCollection<Mailbox>)deserializer.Deserialize(fs);
             }
         }
-
         private void Import_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -499,7 +458,6 @@ namespace E_mail_Client
 
             CreateTreeViewForMailboxList(Mailboxes);
         }
-
         private void Export_Click(object sender, RoutedEventArgs e)
         {
             SaveFileDialog openFileDialog = new SaveFileDialog();

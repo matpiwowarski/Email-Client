@@ -45,7 +45,7 @@ namespace E_mail_Client
                     // adding into inbox folder
                     foreach(Mailbox m in _mainWindow.Mailboxes)
                     {
-                        if (receivers.Contains(m.EmailAdress))
+                        if (receivers.Contains(m.EmailAddress))
                         {
                             Mail mail = new Mail(topic, content, author, DateTime.Now, false, receivers);
 
@@ -63,7 +63,7 @@ namespace E_mail_Client
                     // adding into sent folder
                     foreach (Mailbox m in _mainWindow.Mailboxes)
                     {
-                        if (m.EmailAdress == author)
+                        if (m.EmailAddress == author)
                         {
                             Mail mail = new Mail(topic, content, author, DateTime.Now, true, receivers);
 
