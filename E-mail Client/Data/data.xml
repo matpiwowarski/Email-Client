@@ -3,54 +3,58 @@
   <Mailbox>
     <Inbox>
       <Mail>
-        <Receivers>
-          <string>mateusz.piwowarski@student.um.si</string>
-        </Receivers>
-        <Attachments>
-          <string>iconfinder_file_edit_66764.png</string>
-        </Attachments>
         <Topic>TEST</Topic>
         <Text>Test
 Test
 Test
 </Text>
         <Author>matpiwowarski7@gmail.com</Author>
+        <Read>false</Read>
         <Time>2020-04-27T06:30:10.6635166-07:00</Time>
+        <Receivers>
+          <string>mateusz.piwowarski@student.um.si</string>
+        </Receivers>
+        <Attachments>
+          <string>iconfinder_file_edit_66764.png</string>
+        </Attachments>
       </Mail>
     </Inbox>
     <Sent>
       <Mail>
+        <Topic>Two Recipients</Topic>
+        <Text>Hello guys!</Text>
+        <Author>mateusz.piwowarski@student.um.si</Author>
+        <Read>false</Read>
+        <Time>2020-04-27T06:45:06.5343019-07:00</Time>
         <Receivers>
           <string>matpiwowarski7@gmail.com</string>
           <string>test@test.pl</string>
         </Receivers>
         <Attachments />
-        <Topic>Two Recipients</Topic>
-        <Text>Hello guys!</Text>
-        <Author>mateusz.piwowarski@student.um.si</Author>
-        <Time>2020-04-27T06:45:06.5343019-07:00</Time>
       </Mail>
       <Mail>
-        <Receivers>
-          <string>longlonglonglonglonglonglongRecipient</string>
-        </Receivers>
-        <Attachments />
         <Topic>Longlonglonglonglonglonglonglonglongtopic</Topic>
         <Text>Hi longlonglonglonglonglonglongRecipient! 
 
 :)</Text>
         <Author>mateusz.piwowarski@student.um.si</Author>
+        <Read>true</Read>
         <Time>2020-04-28T07:24:20.5609774-07:00</Time>
+        <Receivers>
+          <string>longlonglonglonglonglonglongRecipient</string>
+        </Receivers>
+        <Attachments />
       </Mail>
       <Mail>
+        <Topic>aaaaaaaaaaaa</Topic>
+        <Text>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</Text>
+        <Author>mateusz.piwowarski@student.um.si</Author>
+        <Read>false</Read>
+        <Time>2020-04-28T07:31:23.6069006-07:00</Time>
         <Receivers>
           <string>aaaaaaaaa</string>
         </Receivers>
         <Attachments />
-        <Topic>aaaaaaaaaaaa</Topic>
-        <Text>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</Text>
-        <Author>mateusz.piwowarski@student.um.si</Author>
-        <Time>2020-04-28T07:31:23.6069006-07:00</Time>
       </Mail>
     </Sent>
     <Deleted />
@@ -60,32 +64,34 @@ Test
   <Mailbox>
     <Inbox>
       <Mail>
+        <Topic>Two Recipients</Topic>
+        <Text>Hello guys!</Text>
+        <Author>mateusz.piwowarski@student.um.si</Author>
+        <Read>false</Read>
+        <Time>2020-04-27T06:45:06.5343019-07:00</Time>
         <Receivers>
           <string>matpiwowarski7@gmail.com</string>
           <string>test@test.pl</string>
         </Receivers>
         <Attachments />
-        <Topic>Two Recipients</Topic>
-        <Text>Hello guys!</Text>
-        <Author>mateusz.piwowarski@student.um.si</Author>
-        <Time>2020-04-27T06:45:06.5343019-07:00</Time>
       </Mail>
     </Inbox>
     <Sent>
       <Mail>
-        <Receivers>
-          <string>mateusz.piwowarski@student.um.si</string>
-        </Receivers>
-        <Attachments>
-          <string>iconfinder_file_edit_66764.png</string>
-        </Attachments>
         <Topic>TEST</Topic>
         <Text>Test
 Test
 Test
 </Text>
         <Author>matpiwowarski7@gmail.com</Author>
+        <Read>false</Read>
         <Time>2020-04-27T06:30:10.6635166-07:00</Time>
+        <Receivers>
+          <string>mateusz.piwowarski@student.um.si</string>
+        </Receivers>
+        <Attachments>
+          <string>iconfinder_file_edit_66764.png</string>
+        </Attachments>
       </Mail>
     </Sent>
     <Deleted />
@@ -95,62 +101,67 @@ Test
   <Mailbox>
     <Inbox>
       <Mail>
+        <Topic>topic1</Topic>
+        <Text>content1</Text>
+        <Author>author1</Author>
+        <Read>false</Read>
+        <Time>2020-04-27T06:19:01.3114411-07:00</Time>
         <Receivers>
           <string>test1</string>
           <string>test2</string>
           <string>test3</string>
         </Receivers>
         <Attachments />
-        <Topic>topic1</Topic>
-        <Text>content1</Text>
-        <Author>author1</Author>
-        <Time>2020-04-27T06:19:01.3114411-07:00</Time>
       </Mail>
       <Mail>
+        <Topic>topic4</Topic>
+        <Text>content4</Text>
+        <Author>author4</Author>
+        <Read>false</Read>
+        <Time>2020-04-27T06:19:01.3197534-07:00</Time>
         <Receivers>
           <string>receiver4</string>
         </Receivers>
         <Attachments />
-        <Topic>topic4</Topic>
-        <Text>content4</Text>
-        <Author>author4</Author>
-        <Time>2020-04-27T06:19:01.3197534-07:00</Time>
       </Mail>
       <Mail>
+        <Topic>Two Recipients</Topic>
+        <Text>Hello guys!</Text>
+        <Author>mateusz.piwowarski@student.um.si</Author>
+        <Read>false</Read>
+        <Time>2020-04-27T06:45:06.5343019-07:00</Time>
         <Receivers>
           <string>matpiwowarski7@gmail.com</string>
           <string>test@test.pl</string>
         </Receivers>
         <Attachments />
-        <Topic>Two Recipients</Topic>
-        <Text>Hello guys!</Text>
-        <Author>mateusz.piwowarski@student.um.si</Author>
-        <Time>2020-04-27T06:45:06.5343019-07:00</Time>
       </Mail>
     </Inbox>
     <Sent>
       <Mail>
+        <Topic>topic3</Topic>
+        <Text>content3</Text>
+        <Author>author3</Author>
+        <Read>false</Read>
+        <Time>2020-04-27T06:19:01.3197522-07:00</Time>
         <Receivers>
           <string>receiver3</string>
         </Receivers>
         <Attachments />
-        <Topic>topic3</Topic>
-        <Text>content3</Text>
-        <Author>author3</Author>
-        <Time>2020-04-27T06:19:01.3197522-07:00</Time>
       </Mail>
     </Sent>
     <Deleted />
     <Starred>
       <Mail>
+        <Topic>topic2</Topic>
+        <Text>content2</Text>
+        <Author>author2</Author>
+        <Read>false</Read>
+        <Time>2020-04-27T06:19:01.3197427-07:00</Time>
         <Receivers>
           <string>receiver2</string>
         </Receivers>
         <Attachments />
-        <Topic>topic2</Topic>
-        <Text>content2</Text>
-        <Author>author2</Author>
-        <Time>2020-04-27T06:19:01.3197427-07:00</Time>
       </Mail>
     </Starred>
     <EmailAdress>test@test.pl</EmailAdress>
