@@ -51,8 +51,6 @@ namespace E_mail_Client
             FontSize.Items.Add(36);
             FontSize.Items.Add(48);
             FontSize.Items.Add(72);
-
-            FontSize.SelectedIndex = 4; // 12 is deafault value
         }
 
         private void LoadFontFamilyComboBox()
@@ -64,7 +62,6 @@ namespace E_mail_Client
                 item.FontFamily = font;
                 // adding
                 FontFamily.Items.Add(item);
-                FontFamily.SelectedIndex = 0;
             }
         }
 
@@ -121,14 +118,28 @@ namespace E_mail_Client
 
         private void FontFamily_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string fontName = FontFamily.SelectedValue.ToString();
-            FontFamily font = new FontFamily(fontName);
-            ContentBox.Selection.ApplyPropertyValue(RichTextBox.FontFamilyProperty, font);
+            if(FontFamily.IsDropDownOpen)
+            {
+                FontFamily.IsDropDownOpen = false;
+
+                foreach (FontFamily font in Fonts.SystemFontFamilies)
+                {
+                    if (font.ToString() == FontFamily.Text.ToString())
+                    {
+                        ContentBox.Selection.ApplyPropertyValue(RichTextBox.FontFamilyProperty, font);
+                        break;
+                    }
+                }
+            }
         }
 
         private void FontSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ContentBox.Selection.ApplyPropertyValue(RichTextBox.FontSizeProperty, double.Parse(FontSize.SelectedValue.ToString()));
+            if(FontSize.IsDropDownOpen)
+            {
+                FontSize.IsDropDownOpen = false;
+                ContentBox.Selection.ApplyPropertyValue(RichTextBox.FontSizeProperty, double.Parse(FontSize.SelectedValue.ToString()));
+            }
         }
 
         private void ColorPicker_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
@@ -143,8 +154,36 @@ namespace E_mail_Client
 
         private void ContentBox_SelectionChanged(object sender, RoutedEventArgs e)
         {
-            var currentFontSizeString = ContentBox.Selection.GetPropertyValue(FontSizeProperty).ToString();
-            FontSize.SelectedValue = int.Parse(currentFontSizeString);
+            // uploading comboboxes every change of selected index
+            try
+            {
+                // font size
+                var currentFontSizeString = ContentBox.Selection.GetPropertyValue(FontSizeProperty).ToString();
+                FontSize.SelectedValue = int.Parse(currentFontSizeString);
+                // font family
+                var currentFontString = ContentBox.Selection.GetPropertyValue(FontFamilyProperty).ToString();
+                FontFamily.SelectedValue = GetFontItemByName(currentFontString);
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+        private ComboBoxItem GetFontItemByName(string currentFontString)
+        {
+            foreach(ComboBoxItem i in FontFamily.Items)
+            {
+                string str = GetComboBoxItemValue(i);
+                if (str == currentFontString)
+                    return i;
+            }
+            return null;
+        }
+
+        private string GetComboBoxItemValue(ComboBoxItem item)
+        {
+            string value = item.ToString().Replace("System.Windows.Controls.ComboBoxItem: ", "");
+            return value;
         }
     }
 }
