@@ -164,15 +164,8 @@ namespace E_mail_Client
 
         }
 
-
-
         private void LoadMails(List<Mail> mails)
         {
-            // display message in MainWindow on click
-            //mailItem.MouseLeftButtonUp += ;
-            // display message in NewMessageWindow on double click
-            //mailItem.MouseDoubleClick += Mail_DoubleClick;
-
             MessagesListView.ItemsSource = mails;
 
             ClearAllDisplayedInfo();
@@ -182,6 +175,9 @@ namespace E_mail_Client
         {
             AttachmentListBox.Items.Clear();
             AttachmentListBox.Visibility = Visibility.Hidden;
+
+            // read mail
+            _currentFolder[mailIndex].Read = true;
 
             MessageTextBlock.Text = _currentFolder[mailIndex].Text;
             AuthorLabel.Content = "By: " + _currentFolder[mailIndex].Author;
@@ -376,6 +372,8 @@ namespace E_mail_Client
 
                 // load selected mail
                 var currentMail = GetCurrentMail();
+                // Read mail
+                currentMail.Read = true;
                 messageWindow.MailboxComboBox.Items.Add(currentMail.Author);
                 messageWindow.MailboxComboBox.SelectedIndex = 0;
                 foreach (string receiver in currentMail.Receivers)

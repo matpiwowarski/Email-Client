@@ -118,7 +118,7 @@
                         </Grid.RowDefinitions>
 
                         <TextBlock Text="{Binding Time}" Grid.Row="0" Grid.Column="1" FontSize="10" Foreground="Blue" HorizontalAlignment="Right"/>
-                        <TextBlock x:Name="MailTopic" Text="{Binding Topic}" Grid.Row="0" Grid.Column="0" FontSize="14" FontWeight="Bold"/>
+                        <TextBlock Name="MailTopic" Text="{Binding Topic}" Grid.Row="0" Grid.Column="0" FontSize="14" FontWeight="Bold"/>
                         <TextBlock Text="{Binding Text}" Grid.Row="1" Grid.ColumnSpan="2" Foreground="Gray"/>
                     </Grid>
                     <DataTemplate.Triggers>
