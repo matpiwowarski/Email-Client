@@ -25,6 +25,20 @@ namespace E_mail_Client
         public TextEditorUserControl()
         {
             InitializeComponent();
+            LoadFonts();
+        }
+
+        private void LoadFonts()
+        {
+            foreach(FontFamily font in Fonts.SystemFontFamilies)
+            {
+                ComboBoxItem item = new ComboBoxItem();
+                item.Content = font.ToString();
+                item.FontFamily = font;
+                // adding
+                FontFamily.Items.Add(item);
+                FontFamily.SelectedIndex = 0;
+            }
         }
 
         public void SetText(string text)
