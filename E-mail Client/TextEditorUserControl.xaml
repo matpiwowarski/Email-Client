@@ -16,22 +16,22 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" Background="DarkGray">
+        <Grid Name="ExpanderGrid"  Grid.Column="0" Background="DarkGray">
             <Expander x:Name="ExpanderControl" HorizontalAlignment="Center" VerticalAlignment="Center"></Expander>
         </Grid>
-        <StackPanel Grid.Row="0" Grid.Column="1" Background="DarkGray" Orientation="Horizontal">
-            <Button x:Name="Bold" Height="30" Width="30" Margin="5">
+        <StackPanel Name="EditorStackPanel" Grid.Row="0" Grid.Column="1" Background="DarkGray" Orientation="Horizontal">
+            <Button x:Name="Bold" Height="25" Width="25" Margin="20,0,0,0">
                 <Image Source="Resources/bold.png"></Image>
             </Button>
-            <Button x:Name="Itelic" Height="30" Width="30" Margin="5">
+            <Button x:Name="Itelic" Height="25" Width="25" Margin="5,0,0,0">
                 <Image Source="Resources/italic.png"></Image>
             </Button>
-            <Button x:Name="Underline" Height="30" Width="30" Margin="5">
+            <Button x:Name="Underline" Height="25" Width="25" Margin="5,0,5,0">
                 <Image Source="Resources/underline.png"></Image>
             </Button>
-            <ComboBox x:Name="FontSize" Width="80" Height="25" Margin="5"></ComboBox>
-            <ComboBox x:Name="FontFamily" Width="200" Height="25" Margin="5"></ComboBox>
-            <Button x:Name="ClearAllFormatting" Height="30" Width="150" Margin="5" HorizontalAlignment="Right">
+            <ComboBox x:Name="FontFamily" Width="150" Height="25"></ComboBox>
+            <ComboBox x:Name="FontSize" Width="50" Height="25"></ComboBox>
+            <Button x:Name="ClearAllFormatting" Height="30" Width="150" Margin="20,5,5,5" HorizontalAlignment="Right">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="Resources/clear.png"></Image>
                     <Label>Clear all formatting</Label>

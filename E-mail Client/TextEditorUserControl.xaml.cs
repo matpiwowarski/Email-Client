@@ -20,15 +20,43 @@ namespace E_mail_Client
             set
             {
                 TextBox.IsReadOnly = value;
+                if(value == true)
+                {
+                    ExpanderGrid.Visibility = Visibility.Collapsed;
+                    EditorStackPanel.Visibility = Visibility.Collapsed;
+                }
             }
         }
         public TextEditorUserControl()
         {
             InitializeComponent();
-            LoadFonts();
+            LoadFontFamilyComboBox();
+            LoadFontSizeComboBox();
         }
 
-        private void LoadFonts()
+        private void LoadFontSizeComboBox()
+        {
+            FontSize.Items.Add(8);
+            FontSize.Items.Add(9);
+            FontSize.Items.Add(10);
+            FontSize.Items.Add(11);
+            FontSize.Items.Add(12);
+            FontSize.Items.Add(14);
+            FontSize.Items.Add(16);
+            FontSize.Items.Add(18);
+            FontSize.Items.Add(20);
+            FontSize.Items.Add(22);
+            FontSize.Items.Add(24);
+            FontSize.Items.Add(26);
+            FontSize.Items.Add(28);
+            FontSize.Items.Add(36);
+            FontSize.Items.Add(48);
+            FontSize.Items.Add(72);
+
+            FontSize.SelectedIndex = 0;
+        }
+
+        private void LoadFontFamilyComboBox()
         {
             foreach(FontFamily font in Fonts.SystemFontFamilies)
             {
