@@ -24,7 +24,7 @@ Test
         <Topic>Two Recipients</Topic>
         <Text>Hello guys!</Text>
         <Author>mateusz.piwowarski@student.um.si</Author>
-        <Read>false</Read>
+        <Read>true</Read>
         <Time>2020-04-27T06:45:06.5343019-07:00</Time>
         <Receivers>
           <string>matpiwowarski7@gmail.com</string>
@@ -49,10 +49,23 @@ Test
         <Topic>aaaaaaaaaaaa</Topic>
         <Text>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</Text>
         <Author>mateusz.piwowarski@student.um.si</Author>
-        <Read>false</Read>
+        <Read>true</Read>
         <Time>2020-04-28T07:31:23.6069006-07:00</Time>
         <Receivers>
           <string>aaaaaaaaa</string>
+        </Receivers>
+        <Attachments />
+      </Mail>
+      <Mail>
+        <Topic>Check content</Topic>
+        <Text>matpiwowarski7@gmail.com -&gt; READ = true
+test@test.pl -&gt; READ = false</Text>
+        <Author>mateusz.piwowarski@student.um.si</Author>
+        <Read>true</Read>
+        <Time>2020-04-29T00:13:21.5623365-07:00</Time>
+        <Receivers>
+          <string>matpiwowarski7@gmail.com</string>
+          <string>test@test.pl</string>
         </Receivers>
         <Attachments />
       </Mail>
@@ -75,6 +88,19 @@ Test
         </Receivers>
         <Attachments />
       </Mail>
+      <Mail>
+        <Topic>Check content</Topic>
+        <Text>matpiwowarski7@gmail.com -&gt; READ = true
+test@test.pl -&gt; READ = false</Text>
+        <Author>mateusz.piwowarski@student.um.si</Author>
+        <Read>true</Read>
+        <Time>2020-04-29T00:13:21.5618054-07:00</Time>
+        <Receivers>
+          <string>matpiwowarski7@gmail.com</string>
+          <string>test@test.pl</string>
+        </Receivers>
+        <Attachments />
+      </Mail>
     </Inbox>
     <Sent>
       <Mail>
@@ -84,7 +110,7 @@ Test
 Test
 </Text>
         <Author>matpiwowarski7@gmail.com</Author>
-        <Read>false</Read>
+        <Read>true</Read>
         <Time>2020-04-27T06:30:10.6635166-07:00</Time>
         <Receivers>
           <string>mateusz.piwowarski@student.um.si</string>
@@ -107,7 +133,7 @@ Test
 
 :(</Text>
         <Author>matpiwowarski7@gmail.com</Author>
-        <Read>false</Read>
+        <Read>true</Read>
         <Time>2020-04-28T23:58:41.158195-07:00</Time>
         <Receivers>
           <string>test@test.pl</string>
@@ -167,13 +193,26 @@ Test
         </Receivers>
         <Attachments />
       </Mail>
+      <Mail>
+        <Topic>Check content</Topic>
+        <Text>matpiwowarski7@gmail.com -&gt; READ = true
+test@test.pl -&gt; READ = false</Text>
+        <Author>mateusz.piwowarski@student.um.si</Author>
+        <Read>false</Read>
+        <Time>2020-04-29T00:13:21.5623292-07:00</Time>
+        <Receivers>
+          <string>matpiwowarski7@gmail.com</string>
+          <string>test@test.pl</string>
+        </Receivers>
+        <Attachments />
+      </Mail>
     </Inbox>
     <Sent>
       <Mail>
         <Topic>topic3</Topic>
         <Text>content3</Text>
         <Author>author3</Author>
-        <Read>false</Read>
+        <Read>true</Read>
         <Time>2020-04-27T06:19:01.3197522-07:00</Time>
         <Receivers>
           <string>receiver3</string>

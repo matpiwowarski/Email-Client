@@ -40,23 +40,24 @@ namespace E_mail_Client
                 // add all receivers
                 AddAllReceivers(receiverString, receivers);
 
-                Mail mail = new Mail(topic, content, author, DateTime.Now, false, receivers);
-
-                if(AttachmentListBox.Items.Count > 0)
-                {
-                    foreach (String item in AttachmentListBox.Items)
-                    {
-                        mail.AddAttachment(item);
-                    }
-                }
-
                 if(_mainWindow != null)
                 {
                     // adding into inbox folder
                     foreach(Mailbox m in _mainWindow.Mailboxes)
                     {
                         if (receivers.Contains(m.EmailAdress))
+                        {
+                            Mail mail = new Mail(topic, content, author, DateTime.Now, false, receivers);
+
+                            if (AttachmentListBox.Items.Count > 0)
+                            {
+                                foreach (String item in AttachmentListBox.Items)
+                                {
+                                    mail.AddAttachment(item);
+                                }
+                            }
                             m.Inbox.Add(mail);
+                        }
                     }
 
                     // adding into sent folder
@@ -64,6 +65,15 @@ namespace E_mail_Client
                     {
                         if (m.EmailAdress == author)
                         {
+                            Mail mail = new Mail(topic, content, author, DateTime.Now, true, receivers);
+
+                            if (AttachmentListBox.Items.Count > 0)
+                            {
+                                foreach (String item in AttachmentListBox.Items)
+                                {
+                                    mail.AddAttachment(item);
+                                }
+                            }
                             m.Sent.Add(mail);
                             break; // there's only 1 author
                         }
