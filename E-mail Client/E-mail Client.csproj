@@ -50,6 +50,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="3.8.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Resources\attachment.png" />
     <Resource Include="Resources\bold.png" />
     <Resource Include="Resources\clear.png" />

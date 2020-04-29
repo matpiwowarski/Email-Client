@@ -52,7 +52,7 @@ namespace E_mail_Client
             FontSize.Items.Add(48);
             FontSize.Items.Add(72);
 
-            FontSize.SelectedIndex = 0;
+            FontSize.SelectedIndex = 3; // 11 is deafault value
         }
 
         private void LoadFontFamilyComboBox()
