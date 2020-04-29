@@ -93,6 +93,27 @@ Test
           <string>iconfinder_file_edit_66764.png</string>
         </Attachments>
       </Mail>
+      <Mail>
+        <Topic>DO NOT OPEN IT</Topic>
+        <Text>
+
+
+
+
+
+
+
+
+
+:(</Text>
+        <Author>matpiwowarski7@gmail.com</Author>
+        <Read>false</Read>
+        <Time>2020-04-28T23:58:41.158195-07:00</Time>
+        <Receivers>
+          <string>test@test.pl</string>
+        </Receivers>
+        <Attachments />
+      </Mail>
     </Sent>
     <Deleted />
     <Starred />
@@ -114,17 +135,6 @@ Test
         <Attachments />
       </Mail>
       <Mail>
-        <Topic>topic4</Topic>
-        <Text>content4</Text>
-        <Author>author4</Author>
-        <Read>false</Read>
-        <Time>2020-04-27T06:19:01.3197534-07:00</Time>
-        <Receivers>
-          <string>receiver4</string>
-        </Receivers>
-        <Attachments />
-      </Mail>
-      <Mail>
         <Topic>Two Recipients</Topic>
         <Text>Hello guys!</Text>
         <Author>mateusz.piwowarski@student.um.si</Author>
@@ -132,6 +142,27 @@ Test
         <Time>2020-04-27T06:45:06.5343019-07:00</Time>
         <Receivers>
           <string>matpiwowarski7@gmail.com</string>
+          <string>test@test.pl</string>
+        </Receivers>
+        <Attachments />
+      </Mail>
+      <Mail>
+        <Topic>DO NOT OPEN IT</Topic>
+        <Text>
+
+
+
+
+
+
+
+
+
+:(</Text>
+        <Author>matpiwowarski7@gmail.com</Author>
+        <Read>false</Read>
+        <Time>2020-04-28T23:58:41.158195-07:00</Time>
+        <Receivers>
           <string>test@test.pl</string>
         </Receivers>
         <Attachments />
@@ -150,7 +181,19 @@ Test
         <Attachments />
       </Mail>
     </Sent>
-    <Deleted />
+    <Deleted>
+      <Mail>
+        <Topic>topic4</Topic>
+        <Text>content4</Text>
+        <Author>author4</Author>
+        <Read>true</Read>
+        <Time>2020-04-27T06:19:01.3197534-07:00</Time>
+        <Receivers>
+          <string>receiver4</string>
+        </Receivers>
+        <Attachments />
+      </Mail>
+    </Deleted>
     <Starred>
       <Mail>
         <Topic>topic2</Topic>

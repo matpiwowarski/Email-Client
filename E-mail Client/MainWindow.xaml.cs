@@ -238,7 +238,7 @@ namespace E_mail_Client
                 {
                     var currentMail = GetCurrentMail();
 
-                    Mail mailCopy = new Mail(currentMail.Author, currentMail.Receivers, currentMail.Topic, currentMail.Text, currentMail.Time);
+                    Mail mailCopy = new Mail(currentMail);
 
                     _currentMailbox.Deleted.Add(mailCopy);
 
@@ -259,7 +259,7 @@ namespace E_mail_Client
 
                 var currentMail = GetCurrentMail();
 
-                Mail mailCopy = new Mail(currentMail.Author, currentMail.Receivers, currentMail.Topic, currentMail.Text, currentMail.Time);
+                Mail mailCopy = new Mail(currentMail);
 
                 _currentMailbox.Starred.Add(mailCopy);
 

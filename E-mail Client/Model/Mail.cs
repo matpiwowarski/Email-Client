@@ -15,8 +15,8 @@ namespace E_mail_Client.Model
         private String _topic;
         private String _text;
         private String _author;
-        private bool _read;
-        private DateTime _time;
+        private bool _read = false;
+        private DateTime _time = DateTime.Now;
         private ObservableCollection<String> _receivers = new ObservableCollection<String>();
         private ObservableCollection<String> _attachments = new ObservableCollection<String>();
 
@@ -91,51 +91,39 @@ namespace E_mail_Client.Model
         {
             PropertyChanged?.Invoke(this, e);
         }
-
         public Mail()
         {
 
         }
-
         public Mail(SerializationInfo info, StreamingContext context)
         {
-            Topic = (String)info.GetValue("Topic", typeof(String));
-            Text = (String)info.GetValue("Text", typeof(String));
-            Author = (String)info.GetValue("Author", typeof(String));
-            Time = (DateTime)info.GetValue("Time", typeof(DateTime));
-            Read = (bool)info.GetValue("Read", typeof(bool));
-            Receivers = (ObservableCollection<String>)info.GetValue("Receivers", typeof(ObservableCollection<String>));
-            Attachments = (ObservableCollection<String>)info.GetValue("Attachments", typeof(ObservableCollection<String>));
+            _topic = (String)info.GetValue("Topic", typeof(String));
+            _text = (String)info.GetValue("Text", typeof(String));
+            _author = (String)info.GetValue("Author", typeof(String));
+            _time = (DateTime)info.GetValue("Time", typeof(DateTime));
+            _read = (bool)info.GetValue("Read", typeof(bool));
+            _receivers = (ObservableCollection<String>)info.GetValue("Receivers", typeof(ObservableCollection<String>));
+            _attachments = (ObservableCollection<String>)info.GetValue("Attachments", typeof(ObservableCollection<String>));
         }
-
-        // one receiver
-        public Mail(String author, String receiver, String topic, String content)
+        public Mail(Mail m)
         {
-            Author = author;
-            Receivers.Add(receiver);
-            Topic = topic;
-            Text = content;
-            Time = DateTime.Now;
+            _topic = m.Topic;
+            _text = m.Text;
+            _author = m.Author;
+            _time = m.Time;
+            _read = m.Read;
+            _receivers = m.Receivers;
+            _attachments = m.Attachments;
         }
-        // more receivers
-        public Mail(String author, ObservableCollection<String> receivers, String topic, String content)
+        public Mail(String topic, String text, String author, DateTime time, bool read, ObservableCollection<String> receivers)
         {
-            Author = author;
-            Receivers = receivers;
-            Topic = topic;
-            Text = content;
-            Time = DateTime.Now;
+            _topic = topic;
+            _text = text;
+            _author = author;
+            _time = time;
+            _read = read;
+            _receivers = receivers;
         }
-
-        public Mail(String author, ObservableCollection<String> receivers, String topic, String content, DateTime time)
-        {
-            Author = author;
-            Receivers = receivers;
-            Topic = topic;
-            Text = content;
-            Time = time;
-        }
-
         public void AddAttachment(String attachment)
         {
             this.Attachments.Add(attachment);

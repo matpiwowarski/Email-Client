@@ -40,7 +40,7 @@ namespace E_mail_Client
                 // add all receivers
                 AddAllReceivers(receiverString, receivers);
 
-                Mail mail = new Mail(author, receivers, topic, content);
+                Mail mail = new Mail(topic, content, author, DateTime.Now, false, receivers);
 
                 if(AttachmentListBox.Items.Count > 0)
                 {
