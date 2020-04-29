@@ -52,7 +52,7 @@ namespace E_mail_Client
             FontSize.Items.Add(48);
             FontSize.Items.Add(72);
 
-            FontSize.SelectedIndex = 3; // 11 is deafault value
+            FontSize.SelectedIndex = 4; // 12 is deafault value
         }
 
         private void LoadFontFamilyComboBox()
@@ -121,12 +121,14 @@ namespace E_mail_Client
 
         private void FontFamily_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            string fontName = FontFamily.SelectedValue.ToString();
+            FontFamily font = new FontFamily(fontName);
+            ContentBox.Selection.ApplyPropertyValue(RichTextBox.FontFamilyProperty, font);
         }
 
         private void FontSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            ContentBox.Selection.ApplyPropertyValue(RichTextBox.FontSizeProperty, double.Parse(FontSize.SelectedValue.ToString()));
         }
 
         private void ColorPicker_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
@@ -136,7 +138,13 @@ namespace E_mail_Client
 
         private void ClearAllFormatting_Click(object sender, RoutedEventArgs e)
         {
+            ContentBox.Selection.ClearAllProperties();
+        }
 
+        private void ContentBox_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            var currentFontSizeString = ContentBox.Selection.GetPropertyValue(FontSizeProperty).ToString();
+            FontSize.SelectedValue = int.Parse(currentFontSizeString);
         }
     }
 }

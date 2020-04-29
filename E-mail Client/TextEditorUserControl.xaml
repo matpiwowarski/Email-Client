@@ -40,7 +40,7 @@
             </StackPanel>
         </Expander>
 
-        <RichTextBox x:Name="ContentBox" Grid.Row="1" Padding="10">
+        <RichTextBox x:Name="ContentBox" Grid.Row="1" Padding="10" SelectionChanged="ContentBox_SelectionChanged" FontSize="12">
             <RichTextBox.Resources>
                 <Style TargetType="{x:Type Paragraph}">
                     <Setter Property="Margin" Value="0"/>
