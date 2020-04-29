@@ -22,8 +22,7 @@ namespace E_mail_Client
                 TextBox.IsReadOnly = value;
                 if(value == true)
                 {
-                    ExpanderGrid.Visibility = Visibility.Collapsed;
-                    EditorStackPanel.Visibility = Visibility.Collapsed;
+                    ExpanderControl.Visibility = Visibility.Collapsed;
                 }
             }
         }

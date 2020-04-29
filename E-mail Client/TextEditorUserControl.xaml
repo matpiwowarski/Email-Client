@@ -8,38 +8,36 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Name="ExpanderGrid"  Grid.Column="0" Background="DarkGray">
-            <Expander x:Name="ExpanderControl" HorizontalAlignment="Center" VerticalAlignment="Center"></Expander>
-        </Grid>
-        <StackPanel Name="EditorStackPanel" Grid.Row="0" Grid.Column="1" Background="DarkGray" Orientation="Horizontal">
-            <Button x:Name="Bold" Height="25" Width="25" Margin="20,0,0,0">
-                <Image Source="Resources/bold.png"></Image>
-            </Button>
-            <Button x:Name="Itelic" Height="25" Width="25" Margin="5,0,0,0">
-                <Image Source="Resources/italic.png"></Image>
-            </Button>
-            <Button x:Name="Underline" Height="25" Width="25" Margin="5,0,5,0">
-                <Image Source="Resources/underline.png"></Image>
-            </Button>
-            <ComboBox x:Name="FontFamily" Width="150" Height="25"></ComboBox>
-            <ComboBox x:Name="FontSize" Width="50" Height="25"></ComboBox>
-            <Button x:Name="ClearAllFormatting" Height="30" Width="150" Margin="20,5,5,5" HorizontalAlignment="Right">
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="Resources/clear.png"></Image>
-                    <Label>Clear all formatting</Label>
-                </StackPanel>
-            </Button>
-        </StackPanel>
+        <Expander x:Name="ExpanderControl" Background="DarkGray" IsExpanded="True">
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="Bold" Height="25" Width="25" Margin="20,0,0,0">
+                    <Image Source="Resources/bold.png"></Image>
+                </Button>
+                <Button x:Name="Itelic" Height="25" Width="25" Margin="5,0,0,0">
+                    <Image Source="Resources/italic.png"></Image>
+                </Button>
+                <Button x:Name="Underline" Height="25" Width="25" Margin="5,0,5,0">
+                    <Image Source="Resources/underline.png"></Image>
+                </Button>
+                <ComboBox x:Name="FontFamily" Width="150" Height="25"></ComboBox>
+                <ComboBox x:Name="FontSize" Width="50" Height="25"></ComboBox>
+                <Button x:Name="ClearAllFormatting" Height="30" Width="150" Margin="20,5,5,5" HorizontalAlignment="Right">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Resources/clear.png"></Image>
+                        <Label>Clear all formatting</Label>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Expander>
 
-        <RichTextBox x:Name="TextBox" Grid.Row="1" Grid.ColumnSpan="2" Padding="10">
+        <RichTextBox x:Name="TextBox" Grid.Row="1" Padding="10">
             <RichTextBox.Resources>
                 <Style TargetType="{x:Type Paragraph}">
                     <Setter Property="Margin" Value="0"/>
