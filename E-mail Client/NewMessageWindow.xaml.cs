@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -31,7 +32,16 @@ namespace E_mail_Client
                 String author = MailboxComboBox.Text;
                 String receiverString = RecipientTextBox.Text;
                 String topic = SubjectTextBox.Text;
-                String content = TextEditor.GetText();
+                String content = String.Empty;
+                // formatted content 
+                TextRange tr = new TextRange(TextEditor.ContentBox.Document.ContentStart,
+                    TextEditor.ContentBox.Document.ContentEnd);
+
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    tr.Save(ms, DataFormats.Xaml);
+                    content = Encoding.ASCII.GetString(ms.ToArray());
+                }
 
                 ObservableCollection<String> receivers = new ObservableCollection<String>();
                 // add all receivers

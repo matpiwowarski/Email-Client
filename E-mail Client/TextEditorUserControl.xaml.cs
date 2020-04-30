@@ -64,17 +64,6 @@ namespace E_mail_Client
                 FontFamily.Items.Add(item);
             }
         }
-
-        public void SetText(string text)
-        {
-            ContentBox.Document.Blocks.Clear();
-            ContentBox.Document.Blocks.Add(new Paragraph(new Run(text)));
-        }
-        public string GetText()
-        {
-            return new TextRange(ContentBox.Document.ContentStart, ContentBox.Document.ContentEnd).Text;
-        }
-
         private void Bold_Click(object sender, RoutedEventArgs e)
         {
             var currentProperty = ContentBox.Selection.GetPropertyValue(RichTextBox.FontWeightProperty);

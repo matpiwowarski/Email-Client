@@ -3,6 +3,7 @@ using Microsoft.Win32;
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -288,7 +289,8 @@ namespace E_mail_Client
             // rewrite previous message
             string message = "\n" + currentMail.Time +
                 "\n" + currentMail.Author + ":" + "\n" + currentMail.Text;
-            messageWindow.TextEditor.SetText(message);
+
+            messageWindow.TextEditor.ContentBox.Document.Blocks.Add(new Paragraph(new Run(message)));
 
             ShowWindow(messageWindow);
         }
@@ -359,7 +361,22 @@ namespace E_mail_Client
                     messageWindow.RecipientTextBox.Text += receiver + ";";
                 }
                 messageWindow.SubjectTextBox.Text = currentMail.Topic;
-                messageWindow.TextEditor.SetText(currentMail.Time + "\n\n" + currentMail.Text);
+           
+                // loading formatted text from string
+                string xmlString = currentMail.Text;
+                byte[] byteArray = Encoding.ASCII.GetBytes(xmlString);
+                using (MemoryStream ms = new MemoryStream(byteArray))
+                {
+                    TextRange tr = new TextRange(messageWindow.TextEditor.ContentBox.Document.ContentStart,
+                        messageWindow.TextEditor.ContentBox.Document.ContentEnd);
+                    tr.Load(ms, DataFormats.Xaml);
+                }
+
+                // display mail time
+                const string breakLine = "\n\n- - - - - - - - - - - - - - - - - - - - - -\n";
+                string message = breakLine + currentMail.Time;
+                messageWindow.TextEditor.ContentBox.Document.Blocks.Add(new Paragraph(new Run(message)));
+
                 if (currentMail.Attachments.Count > 0)
                 {
                     messageWindow.AttachmentListBox.Visibility = Visibility.Visible;
@@ -415,8 +432,9 @@ namespace E_mail_Client
         {
             // rewrite previous message
             const string breakLine = "\n\n\n- - - - - - - - - - - - - - - - - - - - - -";
-            messageWindow.TextEditor.SetText(breakLine + "\n" + currentMail.Time +
-                "\n" + currentMail.Author + ":" + "\n" + currentMail.Text);
+            string message = breakLine + "\n" + currentMail.Time +
+                "\n" + currentMail.Author + ":" + "\n" + currentMail.Text;
+            messageWindow.TextEditor.ContentBox.Document.Blocks.Add(new Paragraph(new Run(message)));
         }
         private Mail GetCurrentMail()
         {
