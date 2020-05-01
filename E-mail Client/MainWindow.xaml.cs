@@ -27,7 +27,7 @@ namespace E_mail_Client
 
             // to not import data every program run
             ///
-            Deserialize("C:\\Users\\matpi\\Desktop\\E-mail-Client\\E-mail Client\\Data\\data.xml");
+            Deserialize("C:\\Users\\matpi\\Desktop\\E-mail-Client\\E-mail Client\\Data\\test.xml");
             CreateTreeViewForMailboxList(Mailboxes);
             ///
         }
@@ -284,14 +284,16 @@ namespace E_mail_Client
             // find selected mail
             var currentMail = GetCurrentMail();
 
-            // rewrite content to message window
+            LoadFormattedText(currentMail, messageWindow);
+
             messageWindow.SubjectTextBox.Text = "Fwd: " + currentMail.Topic;
             // rewrite previous message
-            string message = "\n" + currentMail.Time +
-                "\n" + currentMail.Author + ":" + "\n" + currentMail.Text;
+            const string breakLine = "\n- - - - - - - - - - - - - - - - - - - - - -\n";
+            string message = breakLine + currentMail.Time +
+                "\n" + currentMail.Author + ":";
 
-            messageWindow.TextEditor.ContentBox.Document.Blocks.Add(new Paragraph(new Run(message)));
-
+            AddStringAtBeginning(message, messageWindow);
+            
             ShowWindow(messageWindow);
         }
         private void ReplyButton_Click(object sender, RoutedEventArgs e)
@@ -361,21 +363,15 @@ namespace E_mail_Client
                     messageWindow.RecipientTextBox.Text += receiver + ";";
                 }
                 messageWindow.SubjectTextBox.Text = currentMail.Topic;
-           
+
                 // loading formatted text from string
-                string xmlString = currentMail.Text;
-                byte[] byteArray = Encoding.ASCII.GetBytes(xmlString);
-                using (MemoryStream ms = new MemoryStream(byteArray))
-                {
-                    TextRange tr = new TextRange(messageWindow.TextEditor.ContentBox.Document.ContentStart,
-                        messageWindow.TextEditor.ContentBox.Document.ContentEnd);
-                    tr.Load(ms, DataFormats.Xaml);
-                }
+                LoadFormattedText(currentMail, messageWindow);
 
                 // display mail time
-                const string breakLine = "\n\n- - - - - - - - - - - - - - - - - - - - - -\n";
-                string message = breakLine + currentMail.Time;
-                messageWindow.TextEditor.ContentBox.Document.Blocks.Add(new Paragraph(new Run(message)));
+                const string breakLine = "\n- - - - - - - - - - - - - - - - - - - - - -";
+                string message = currentMail.Time + breakLine;
+
+                AddStringAtBeginning(message, messageWindow);
 
                 if (currentMail.Attachments.Count > 0)
                 {
@@ -431,10 +427,12 @@ namespace E_mail_Client
         private void RewritePreviousMessage(NewMessageWindow messageWindow, Mail currentMail)
         {
             // rewrite previous message
-            const string breakLine = "\n\n\n- - - - - - - - - - - - - - - - - - - - - -";
-            string message = breakLine + "\n" + currentMail.Time +
-                "\n" + currentMail.Author + ":" + "\n" + currentMail.Text;
-            messageWindow.TextEditor.ContentBox.Document.Blocks.Add(new Paragraph(new Run(message)));
+            const string breakLine = "\n- - - - - - - - - - - - - - - - - - - - - -\n";
+            string message = breakLine + currentMail.Time +
+                "\n" + currentMail.Author + ":";
+
+            LoadFormattedText(currentMail, messageWindow);
+            AddStringAtBeginning(message, messageWindow);
         }
         private Mail GetCurrentMail()
         {
@@ -491,6 +489,26 @@ namespace E_mail_Client
             {
                 var filePath = openFileDialog.FileName;
                 Serialize(filePath);
+            }
+        }
+
+        public static void AddStringAtBeginning(string text, NewMessageWindow newMessageWindow)
+        {
+            Paragraph p = new Paragraph(new Run(text));
+
+            newMessageWindow.TextEditor.ContentBox.Document.Blocks.InsertBefore(
+                newMessageWindow.TextEditor.ContentBox.Document.Blocks.FirstBlock, p);
+        }
+        public static void LoadFormattedText(Mail m, NewMessageWindow newMessageWindow)
+        {
+            // loading formatted text from string
+            string xmlString = m.Text;
+            byte[] byteArray = Encoding.ASCII.GetBytes(xmlString);
+            using (MemoryStream ms = new MemoryStream(byteArray))
+            {
+                TextRange tr = new TextRange(newMessageWindow.TextEditor.ContentBox.Document.ContentStart,
+                    newMessageWindow.TextEditor.ContentBox.Document.ContentEnd);
+                tr.Load(ms, DataFormats.Xaml);
             }
         }
     }
