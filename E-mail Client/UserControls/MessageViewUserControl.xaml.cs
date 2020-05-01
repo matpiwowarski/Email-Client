@@ -13,9 +13,6 @@ using System.Windows.Shapes;
 
 namespace E_mail_Client
 {
-    /// <summary>
-    /// Interaction logic for MessageViewUserControl.xaml
-    /// </summary>
     public partial class MessageViewUserControl : UserControl
     {
         public MessageViewUserControl()

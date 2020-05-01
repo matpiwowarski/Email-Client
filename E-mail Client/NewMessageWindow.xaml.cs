@@ -29,10 +29,12 @@ namespace E_mail_Client
         {
             if(MailInfo.RecipientTextBox.Text.Length > 0 && MailInfo.SubjectTextBox.Text.Length > 0)
             {
-                String author = MailInfo.MailboxComboBox.Text;
-                String receiverString = MailInfo.RecipientTextBox.Text;
-                String topic = MailInfo.SubjectTextBox.Text;
+                String author = String.Empty;
+                String receiverString = String.Empty;
+                String topic = String.Empty;
                 String content = String.Empty;
+
+                MailInfo.GetMailInformation(ref author, ref receiverString, ref topic);
                 // formatted content 
                 TextRange tr = new TextRange(TextEditor.ContentBox.Document.ContentStart,
                     TextEditor.ContentBox.Document.ContentEnd);
