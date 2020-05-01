@@ -260,18 +260,18 @@ namespace E_mail_Client
             {
                 ComboBoxItem emailAddress = new ComboBoxItem();
                 emailAddress.Content = m.EmailAddress;
-                messageWindow.MailboxComboBox.Items.Add(emailAddress);
-            }
+                messageWindow.MailInfo.MailboxComboBox.Items.Add(emailAddress);
 
-            messageWindow.MailboxComboBox.SelectedIndex = 0;
+                messageWindow.MailInfo.MailboxComboBox.SelectedIndex = 0;
+            }
         }
         private void PassEmailAdress(NewMessageWindow messageWindow, string emailAddress)
         {
             ComboBoxItem emailAddressItem = new ComboBoxItem();
             emailAddressItem.Content = emailAddress;
-            messageWindow.MailboxComboBox.Items.Add(emailAddressItem);
+            messageWindow.MailInfo.MailboxComboBox.Items.Add(emailAddressItem);
 
-            messageWindow.MailboxComboBox.SelectedIndex = 0;
+            messageWindow.MailInfo.MailboxComboBox.SelectedIndex = 0;
         }
         private void ForwardButton_Click(object sender, RoutedEventArgs e)
         {
@@ -286,7 +286,7 @@ namespace E_mail_Client
 
             LoadFormattedText(currentMail, messageWindow);
 
-            messageWindow.SubjectTextBox.Text = "Fwd: " + currentMail.Topic;
+            messageWindow.MailInfo.SubjectTextBox.Text = "Fwd: " + currentMail.Topic;
             // rewrite previous message
             const string breakLine = "\n- - - - - - - - - - - - - - - - - - - - - -\n";
             string message = breakLine + currentMail.Time +
@@ -304,7 +304,7 @@ namespace E_mail_Client
 
             Reply(messageWindow, currentMail);
 
-            messageWindow.RecipientTextBox.Text = currentMail.Author;
+            messageWindow.MailInfo.RecipientTextBox.Text = currentMail.Author;
 
             ShowWindow(messageWindow);
         }
@@ -320,7 +320,7 @@ namespace E_mail_Client
             {
                 if (r != _currentMailbox.EmailAddress)
                 {
-                    messageWindow.RecipientTextBox.Text += ";" + r;
+                    messageWindow.MailInfo.RecipientTextBox.Text += ";" + r;
                 }
             }
 
@@ -336,8 +336,8 @@ namespace E_mail_Client
             PassEmailAdress(messageWindow, _currentMailbox.EmailAddress);
 
             // rewrite author to recipient in message window
-            messageWindow.RecipientTextBox.Text = currentMail.Author;
-            messageWindow.SubjectTextBox.Text = "Re: " + currentMail.Topic;
+            messageWindow.MailInfo.RecipientTextBox.Text = currentMail.Author;
+            messageWindow.MailInfo.SubjectTextBox.Text = "Re: " + currentMail.Topic;
         }
         private void Mail_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
@@ -356,13 +356,13 @@ namespace E_mail_Client
                 var currentMail = GetCurrentMail();
                 // Read mail
                 currentMail.Read = true;
-                messageWindow.MailboxComboBox.Items.Add(currentMail.Author);
-                messageWindow.MailboxComboBox.SelectedIndex = 0;
+                messageWindow.MailInfo.MailboxComboBox.Items.Add(currentMail.Author);
+                messageWindow.MailInfo.MailboxComboBox.SelectedIndex = 0;
                 foreach (string receiver in currentMail.Receivers)
                 {
-                    messageWindow.RecipientTextBox.Text += receiver + ";";
+                    messageWindow.MailInfo.RecipientTextBox.Text += receiver + ";";
                 }
-                messageWindow.SubjectTextBox.Text = currentMail.Topic;
+                messageWindow.MailInfo.SubjectTextBox.Text = currentMail.Topic;
 
                 // loading formatted text from string
                 LoadFormattedText(currentMail, messageWindow);
@@ -395,16 +395,16 @@ namespace E_mail_Client
         {
             // block/hide components in messageWindow (READONLY)
 
-            messageWindow.MailboxComboBox.IsReadOnly = true;
-            messageWindow.RecipientTextBox.IsReadOnly = true;
-            messageWindow.SubjectTextBox.IsReadOnly = true;
+            messageWindow.MailInfo.MailboxComboBox.IsReadOnly = true;
+            messageWindow.MailInfo.RecipientTextBox.IsReadOnly = true;
+            messageWindow.MailInfo.SubjectTextBox.IsReadOnly = true;
             messageWindow.TextEditor.IsReadOnly = true;
             messageWindow.AttachmentButton.Visibility = Visibility.Collapsed;
             messageWindow.SendButton.Visibility = Visibility.Collapsed;
 
             // make textboxes background look non editable
-            messageWindow.RecipientTextBox.Background = Brushes.LightGray;
-            messageWindow.SubjectTextBox.Background = Brushes.LightGray;
+            messageWindow.MailInfo.RecipientTextBox.Background = Brushes.LightGray;
+            messageWindow.MailInfo.SubjectTextBox.Background = Brushes.LightGray;
             messageWindow.TextEditor.ContentBox.Background = Brushes.LightGray;
         }
         private void ShowWindow(Window window)

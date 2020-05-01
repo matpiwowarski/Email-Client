@@ -51,6 +51,8 @@ namespace E_mail_Client
             FontSize.Items.Add(36);
             FontSize.Items.Add(48);
             FontSize.Items.Add(72);
+
+            FontSize.SelectedIndex = 4; // value 12 is deafult 
         }
 
         private void LoadFontFamilyComboBox()
@@ -63,6 +65,8 @@ namespace E_mail_Client
                 // adding
                 FontFamily.Items.Add(item);
             }
+
+            FontFamily.SelectedValue = GetFontItemByName("Segoe UI");
         }
         private void Bold_Click(object sender, RoutedEventArgs e)
         {

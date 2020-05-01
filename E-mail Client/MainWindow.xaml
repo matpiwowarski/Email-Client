@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk1="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:E_mail_Client"
         mc:Ignorable="d"
         Title="E-mail Client" Height="600" Width="1000">
@@ -92,9 +93,8 @@
                 </Button>
             </ToolBar>
 
-            <TextBox x:Name="SearchTextBox" Grid.Column="2" HorizontalAlignment="Stretch" Margin="5,15,15,15" TextBlock.FontStyle="Normal">
-                Search
-            </TextBox>
+            <xctk1:WatermarkTextBox x:Name="SearchTextBox" Watermark="Search" Grid.Column="2" Margin="5,12,15,12" HorizontalAlignment="Stretch"></xctk1:WatermarkTextBox>
+
         </Grid>
         <TreeView x:Name="EmailTreeView" Grid.Column="0" Grid.Row="1" Margin="10,15,5,5" Background="LightGray"/>
 

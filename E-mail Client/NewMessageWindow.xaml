@@ -9,40 +9,22 @@
     <Grid Background="LightGray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="250"></ColumnDefinition>
+            <ColumnDefinition Width="300"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="120"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="70"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Label x:Name="TitleLabel" Grid.Column="1" Grid.RowSpan="3" Foreground="#FF376DCB" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold">New Message</Label>
+        <Label x:Name="TitleLabel" Grid.Column="1" Grid.Row ="0"  Foreground="#FF376DCB" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold">New Message</Label>
 
-        <DockPanel Grid.Row="0" Margin="10,10,10,5">
-            <Label Margin="46,0,0,0">By:</Label>
-            <ComboBox x:Name="MailboxComboBox" HorizontalAlignment="Stretch">
-            </ComboBox>
-        </DockPanel>
+        <local:MailInfoUserControl x:Name="MailInfo" Grid.Column="0" Grid.Row="0" Margin="20,10,5,0"/>
 
-        <DockPanel Grid.Row="1">
-            <Label FontSize="12" Margin="20,0,0,0">Recipient:</Label>
-            <TextBox x:Name="RecipientTextBox" Margin="0,3,10,3" HorizontalAlignment="Stretch">
-            </TextBox>
-        </DockPanel>
+        <local:TextEditorUserControl x:Name="TextEditor" Grid.Row="1" Grid.ColumnSpan="2" Margin="10,5,10,10" Padding="10"/>
 
-        <DockPanel Grid.Row="2">
-            <Label FontSize="12" Margin="29,0,0,0">Subject:</Label>
-            <TextBox x:Name="SubjectTextBox" Margin="0,3,10,3" HorizontalAlignment="Stretch">
-            </TextBox>
-        </DockPanel>
-        
-        <local:TextEditorUserControl x:Name="TextEditor" Grid.Row="3" Grid.ColumnSpan="2" Margin="10,5,10,10" Padding="10"/>
-
-        <ListBox x:Name="AttachmentListBox" Grid.Row="4" Margin="10,5,0,10" Visibility="Hidden">
+        <ListBox x:Name="AttachmentListBox" Grid.Row="2" Grid.Column="0" Margin="10,5,0,10" Visibility="Hidden">
             
         </ListBox>
         

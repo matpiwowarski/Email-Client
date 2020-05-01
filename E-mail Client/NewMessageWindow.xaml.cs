@@ -27,11 +27,11 @@ namespace E_mail_Client
 
         private void SendButton_Click(object sender, RoutedEventArgs e)
         {
-            if(RecipientTextBox.Text.Length > 0 && SubjectTextBox.Text.Length > 0)
+            if(MailInfo.RecipientTextBox.Text.Length > 0 && MailInfo.SubjectTextBox.Text.Length > 0)
             {
-                String author = MailboxComboBox.Text;
-                String receiverString = RecipientTextBox.Text;
-                String topic = SubjectTextBox.Text;
+                String author = MailInfo.MailboxComboBox.Text;
+                String receiverString = MailInfo.RecipientTextBox.Text;
+                String topic = MailInfo.SubjectTextBox.Text;
                 String content = String.Empty;
                 // formatted content 
                 TextRange tr = new TextRange(TextEditor.ContentBox.Document.ContentStart,

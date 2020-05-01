@@ -3,10 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:E_mail_Client"
+             xmlns:local="clr-namespace:E_mail_Client" 
+             xmlns:xctk1="http://schemas.xceed.com/wpf/xaml/toolkit"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             d:DesignHeight="100" d:DesignWidth="300">
+    
+    <Grid Background="LightGray">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <xctk1:WatermarkComboBox x:Name="MailboxComboBox" Watermark="Author" Grid.Row="0" Margin="4"></xctk1:WatermarkComboBox>
+        <xctk1:WatermarkTextBox x:Name="RecipientTextBox" Watermark="Recipient" Grid.Row="1" Margin="4"></xctk1:WatermarkTextBox>
+        <xctk1:WatermarkTextBox x:Name="SubjectTextBox" Watermark="Subject" Grid.Row="2" Margin="4"></xctk1:WatermarkTextBox>
     </Grid>
+    
 </UserControl>
