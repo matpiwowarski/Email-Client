@@ -347,7 +347,7 @@ namespace E_mail_Client
         private void Mail_DoubleClick(object sender, MouseButtonEventArgs e)
         {
             // inbox or sent folders
-            if(_currentFolder.Type == FolderType.INBOX || _currentFolder.Type == FolderType.SENT)
+            if(_currentFolder.Type == FolderType.INBOX || _currentFolder.Type == FolderType.SENT || _currentFolder.Type == FolderType.STARRED)
             {
                 NewMessageWindow messageWindow = new NewMessageWindow(this);
                 ChangeNewMessageWindowTitle("Message View", messageWindow);
