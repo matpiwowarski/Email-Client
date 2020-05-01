@@ -130,8 +130,7 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"   HorizontalAlignment="Stretch" Margin="10,15,15,15" Height="auto">
-        </StackPanel>
+        <local:MessageViewUserControl x:Name="MessageView" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Margin="10,15,15,15" Height="auto" HorizontalAlignment="Stretch"/>
 
     </Grid>
 </Window>

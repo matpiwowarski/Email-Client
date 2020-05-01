@@ -161,16 +161,16 @@ namespace E_mail_Client
         }
         private void LoadMail(int mailIndex)
         {
-            AttachmentListBox.Items.Clear();
-            AttachmentListBox.Visibility = Visibility.Hidden;
+            MessageView.AttachmentListBox.Items.Clear();
+            MessageView.AttachmentListBox.Visibility = Visibility.Collapsed;
 
             // read mail
             _currentFolder[mailIndex].Read = true;
 
-            MessageTextBlock.Text = _currentFolder[mailIndex].Text;
-            AuthorLabel.Content = "By: " + _currentFolder[mailIndex].Author;
-            TopicLabel.Content = "Subject: " + _currentFolder[mailIndex].Topic;
-            TimeLabel.Content = _currentFolder[mailIndex].Time;
+            LoadFormattedText(_currentFolder[mailIndex]);
+            MessageView.AuthorLabel.Content = "By: " + _currentFolder[mailIndex].Author;
+            MessageView.TopicLabel.Content = "Subject: " + _currentFolder[mailIndex].Topic;
+            MessageView.TimeLabel.Content = _currentFolder[mailIndex].Time;
 
             // loading receivers
             String Receivers = "";
@@ -180,14 +180,14 @@ namespace E_mail_Client
                 Receivers += "; ";
             }
 
-            ReceiverLabel.Content = "To: " + Receivers;
+            MessageView.ReceiverLabel.Content = "To: " + Receivers;
             // loading attachments
             if (_currentFolder[mailIndex].Attachments.Count > 0)
             {
-                AttachmentListBox.Visibility = Visibility.Visible;
+                MessageView.AttachmentListBox.Visibility = Visibility.Visible;
                 foreach (String a in _currentFolder[mailIndex].Attachments)
                 {
-                    AttachmentListBox.Items.Add(a);
+                    MessageView.AttachmentListBox.Items.Add(a);
                 }
             }
         }
@@ -416,13 +416,17 @@ namespace E_mail_Client
         }
         private void ClearAllDisplayedInfo()
         {
-            MessageTextBlock.Text = "";
-            AuthorLabel.Content = "";
-            TopicLabel.Content = "";
-            ReceiverLabel.Content = "";
-            TimeLabel.Content = "";
-            AttachmentListBox.Items.Clear();
-            AttachmentListBox.Visibility = Visibility.Hidden;
+            // clear content
+            TextRange txt = new TextRange(MessageView.ContentBox.Document.ContentStart,
+                MessageView.ContentBox.Document.ContentEnd);
+            txt.Text = "";
+            // clear the rest
+            MessageView.AuthorLabel.Content = "";
+            MessageView.TopicLabel.Content = "";
+            MessageView.ReceiverLabel.Content = "";
+            MessageView.TimeLabel.Content = "";
+            MessageView.AttachmentListBox.Items.Clear();
+            MessageView.AttachmentListBox.Visibility = Visibility.Collapsed;
         }
         private void RewritePreviousMessage(NewMessageWindow messageWindow, Mail currentMail)
         {
@@ -508,6 +512,18 @@ namespace E_mail_Client
             {
                 TextRange tr = new TextRange(newMessageWindow.TextEditor.ContentBox.Document.ContentStart,
                     newMessageWindow.TextEditor.ContentBox.Document.ContentEnd);
+                tr.Load(ms, DataFormats.Xaml);
+            }
+        }
+        private void LoadFormattedText(Mail m)
+        {
+            // loading formatted text from string
+            string xmlString = m.Text;
+            byte[] byteArray = Encoding.ASCII.GetBytes(xmlString);
+            using (MemoryStream ms = new MemoryStream(byteArray))
+            {
+                TextRange tr = new TextRange(MessageView.ContentBox.Document.ContentStart,
+                    MessageView.ContentBox.Document.ContentEnd);
                 tr.Load(ms, DataFormats.Xaml);
             }
         }

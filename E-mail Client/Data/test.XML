@@ -15,6 +15,46 @@
         </Receivers>
         <Attachments />
       </Mail>
+      <Mail>
+        <Topic>Just Text</Topic>
+        <Text>&lt;Section xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xml:space="preserve" TextAlignment="Left" LineHeight="Auto" IsHyphenationEnabled="False" xml:lang="en-us" FlowDirection="LeftToRight" NumberSubstitution.CultureSource="User" NumberSubstitution.Substitution="AsCulture" FontFamily="Segoe UI" FontStyle="Normal" FontWeight="Normal" FontStretch="Normal" FontSize="12" Foreground="#FF000000" Typography.StandardLigatures="True" Typography.ContextualLigatures="True" Typography.DiscretionaryLigatures="False" Typography.HistoricalLigatures="False" Typography.AnnotationAlternates="0" Typography.ContextualAlternates="True" Typography.HistoricalForms="False" Typography.Kerning="True" Typography.CapitalSpacing="False" Typography.CaseSensitiveForms="False" Typography.StylisticSet1="False" Typography.StylisticSet2="False" Typography.StylisticSet3="False" Typography.StylisticSet4="False" Typography.StylisticSet5="False" Typography.StylisticSet6="False" Typography.StylisticSet7="False" Typography.StylisticSet8="False" Typography.StylisticSet9="False" Typography.StylisticSet10="False" Typography.StylisticSet11="False" Typography.StylisticSet12="False" Typography.StylisticSet13="False" Typography.StylisticSet14="False" Typography.StylisticSet15="False" Typography.StylisticSet16="False" Typography.StylisticSet17="False" Typography.StylisticSet18="False" Typography.StylisticSet19="False" Typography.StylisticSet20="False" Typography.Fraction="Normal" Typography.SlashedZero="False" Typography.MathematicalGreek="False" Typography.EastAsianExpertForms="False" Typography.Variants="Normal" Typography.Capitals="Normal" Typography.NumeralStyle="Normal" Typography.NumeralAlignment="Normal" Typography.EastAsianWidths="Normal" Typography.EastAsianLanguage="Normal" Typography.StandardSwashes="0" Typography.ContextualSwashes="0" Typography.StylisticAlternates="0"&gt;&lt;Paragraph&gt;&lt;Run&gt;just text&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/Section&gt;</Text>
+        <Author>test@test.pl</Author>
+        <Read>false</Read>
+        <Time>2020-05-01T14:09:14.6212764-07:00</Time>
+        <Receivers>
+          <string>mateusz.piwowarski@student.um.si</string>
+        </Receivers>
+        <Attachments />
+      </Mail>
+      <Mail>
+        <Topic>attachment</Topic>
+        <Text>&lt;Section xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xml:space="preserve" TextAlignment="Left" LineHeight="Auto" IsHyphenationEnabled="False" xml:lang="en-us" FlowDirection="LeftToRight" NumberSubstitution.CultureSource="User" NumberSubstitution.Substitution="AsCulture" FontFamily="Segoe UI" FontStyle="Normal" FontWeight="Normal" FontStretch="Normal" FontSize="12" Foreground="#FF000000" Typography.StandardLigatures="True" Typography.ContextualLigatures="True" Typography.DiscretionaryLigatures="False" Typography.HistoricalLigatures="False" Typography.AnnotationAlternates="0" Typography.ContextualAlternates="True" Typography.HistoricalForms="False" Typography.Kerning="True" Typography.CapitalSpacing="False" Typography.CaseSensitiveForms="False" Typography.StylisticSet1="False" Typography.StylisticSet2="False" Typography.StylisticSet3="False" Typography.StylisticSet4="False" Typography.StylisticSet5="False" Typography.StylisticSet6="False" Typography.StylisticSet7="False" Typography.StylisticSet8="False" Typography.StylisticSet9="False" Typography.StylisticSet10="False" Typography.StylisticSet11="False" Typography.StylisticSet12="False" Typography.StylisticSet13="False" Typography.StylisticSet14="False" Typography.StylisticSet15="False" Typography.StylisticSet16="False" Typography.StylisticSet17="False" Typography.StylisticSet18="False" Typography.StylisticSet19="False" Typography.StylisticSet20="False" Typography.Fraction="Normal" Typography.SlashedZero="False" Typography.MathematicalGreek="False" Typography.EastAsianExpertForms="False" Typography.Variants="Normal" Typography.Capitals="Normal" Typography.NumeralStyle="Normal" Typography.NumeralAlignment="Normal" Typography.EastAsianWidths="Normal" Typography.EastAsianLanguage="Normal" Typography.StandardSwashes="0" Typography.ContextualSwashes="0" Typography.StylisticAlternates="0"&gt;&lt;Paragraph&gt;&lt;Run FontStyle="Italic" FontWeight="Bold" Foreground="#FFA9A9A9"&gt;See attachment&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/Section&gt;</Text>
+        <Author>matpiwowarski7@gmail.com</Author>
+        <Read>false</Read>
+        <Time>2020-05-01T14:10:32.2799065-07:00</Time>
+        <Receivers>
+          <string>mateusz.piwowarski@student.um.si</string>
+        </Receivers>
+        <Attachments>
+          <string>test.XML</string>
+        </Attachments>
+      </Mail>
+      <Mail>
+        <Topic>Re: trolololololo</Topic>
+        <Text>&lt;Section xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xml:space="preserve" TextAlignment="Left" LineHeight="Auto" IsHyphenationEnabled="False" xml:lang="en-us" FlowDirection="LeftToRight" NumberSubstitution.CultureSource="User" NumberSubstitution.Substitution="AsCulture" FontFamily="Segoe UI" FontStyle="Normal" FontWeight="Normal" FontStretch="Normal" FontSize="12" Foreground="#FF000000" Typography.StandardLigatures="True" Typography.ContextualLigatures="True" Typography.DiscretionaryLigatures="False" Typography.HistoricalLigatures="False" Typography.AnnotationAlternates="0" Typography.ContextualAlternates="True" Typography.HistoricalForms="False" Typography.Kerning="True" Typography.CapitalSpacing="False" Typography.CaseSensitiveForms="False" Typography.StylisticSet1="False" Typography.StylisticSet2="False" Typography.StylisticSet3="False" Typography.StylisticSet4="False" Typography.StylisticSet5="False" Typography.StylisticSet6="False" Typography.StylisticSet7="False" Typography.StylisticSet8="False" Typography.StylisticSet9="False" Typography.StylisticSet10="False" Typography.StylisticSet11="False" Typography.StylisticSet12="False" Typography.StylisticSet13="False" Typography.StylisticSet14="False" Typography.StylisticSet15="False" Typography.StylisticSet16="False" Typography.StylisticSet17="False" Typography.StylisticSet18="False" Typography.StylisticSet19="False" Typography.StylisticSet20="False" Typography.Fraction="Normal" Typography.SlashedZero="False" Typography.MathematicalGreek="False" Typography.EastAsianExpertForms="False" Typography.Variants="Normal" Typography.Capitals="Normal" Typography.NumeralStyle="Normal" Typography.NumeralAlignment="Normal" Typography.EastAsianWidths="Normal" Typography.EastAsianLanguage="Normal" Typography.StandardSwashes="0" Typography.ContextualSwashes="0" Typography.StylisticAlternates="0"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Impact" FontSize="20" Foreground="#FFFF4500"&gt;HI EVERYONE&lt;/Run&gt;&lt;Run&gt;
+- - - - - - - - - - - - - - - - - - - - - -
+5/1/2020 1:14:17 PM
+test@test.pl:&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Comic Sans MS" FontSize="72" Foreground="#FFB0E0E6"&gt;TROLOL&lt;/Run&gt;&lt;Run FontFamily="Comic Sans MS" FontStyle="Italic" FontWeight="Bold" FontSize="48" Foreground="#FFFFFF00" TextDecorations="Underline"&gt;O&lt;/Run&gt;&lt;Run FontFamily="Comic Sans MS" FontStyle="Italic" FontWeight="Bold" FontSize="48" Foreground="#FFFF00FF" TextDecorations="Underline"&gt;LOL&lt;/Run&gt;&lt;Run FontFamily="Comic Sans MS" FontStyle="Italic" FontWeight="Bold" FontSize="48" Foreground="#FFFFFF00" TextDecorations="Underline"&gt;OLOLOLOLOL&lt;/Run&gt;&lt;Run&gt;olololololol&lt;/Run&gt;&lt;Run FontFamily="NSimSun" FontWeight="Bold" FontSize="18"&gt;olololololololololo&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/Section&gt;</Text>
+        <Author>test@test.pl</Author>
+        <Read>false</Read>
+        <Time>2020-05-01T14:13:40.1375988-07:00</Time>
+        <Receivers>
+          <string>test@test.pl</string>
+          <string>mateusz.piwowarski@student.um.si</string>
+          <string>matpiwowarski7@gmail.com</string>
+        </Receivers>
+        <Attachments />
+      </Mail>
     </Inbox>
     <Sent>
       <Mail>
@@ -30,7 +70,19 @@
       </Mail>
     </Sent>
     <Deleted />
-    <Starred />
+    <Starred>
+      <Mail>
+        <Topic>123</Topic>
+        <Text>&lt;Section xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xml:space="preserve" TextAlignment="Left" LineHeight="Auto" IsHyphenationEnabled="False" xml:lang="en-us" FlowDirection="LeftToRight" NumberSubstitution.CultureSource="User" NumberSubstitution.Substitution="AsCulture" FontFamily="Segoe UI" FontStyle="Normal" FontWeight="Normal" FontStretch="Normal" FontSize="12" Foreground="#FF000000" Typography.StandardLigatures="True" Typography.ContextualLigatures="True" Typography.DiscretionaryLigatures="False" Typography.HistoricalLigatures="False" Typography.AnnotationAlternates="0" Typography.ContextualAlternates="True" Typography.HistoricalForms="False" Typography.Kerning="True" Typography.CapitalSpacing="False" Typography.CaseSensitiveForms="False" Typography.StylisticSet1="False" Typography.StylisticSet2="False" Typography.StylisticSet3="False" Typography.StylisticSet4="False" Typography.StylisticSet5="False" Typography.StylisticSet6="False" Typography.StylisticSet7="False" Typography.StylisticSet8="False" Typography.StylisticSet9="False" Typography.StylisticSet10="False" Typography.StylisticSet11="False" Typography.StylisticSet12="False" Typography.StylisticSet13="False" Typography.StylisticSet14="False" Typography.StylisticSet15="False" Typography.StylisticSet16="False" Typography.StylisticSet17="False" Typography.StylisticSet18="False" Typography.StylisticSet19="False" Typography.StylisticSet20="False" Typography.Fraction="Normal" Typography.SlashedZero="False" Typography.MathematicalGreek="False" Typography.EastAsianExpertForms="False" Typography.Variants="Normal" Typography.Capitals="Normal" Typography.NumeralStyle="Normal" Typography.NumeralAlignment="Normal" Typography.EastAsianWidths="Normal" Typography.EastAsianLanguage="Normal" Typography.StandardSwashes="0" Typography.ContextualSwashes="0" Typography.StylisticAlternates="0"&gt;&lt;Paragraph&gt;&lt;Run FontWeight="Bold" FontSize="72" Foreground="#FFFF0000"&gt;1&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontWeight="Bold" FontSize="48" Foreground="#FF0000FF"&gt;2&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontWeight="Bold" FontSize="36" Foreground="#FFFFFF00"&gt;3&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/Section&gt;</Text>
+        <Author>mateusz.piwowarski@student.um.si</Author>
+        <Read>true</Read>
+        <Time>2020-05-01T14:08:35.1689121-07:00</Time>
+        <Receivers>
+          <string>test@test.pl</string>
+        </Receivers>
+        <Attachments />
+      </Mail>
+    </Starred>
   </Mailbox>
   <Mailbox>
     <EmailAddress>matpiwowarski7@gmail.com</EmailAddress>
@@ -47,8 +99,38 @@
         </Receivers>
         <Attachments />
       </Mail>
+      <Mail>
+        <Topic>Re: trolololololo</Topic>
+        <Text>&lt;Section xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xml:space="preserve" TextAlignment="Left" LineHeight="Auto" IsHyphenationEnabled="False" xml:lang="en-us" FlowDirection="LeftToRight" NumberSubstitution.CultureSource="User" NumberSubstitution.Substitution="AsCulture" FontFamily="Segoe UI" FontStyle="Normal" FontWeight="Normal" FontStretch="Normal" FontSize="12" Foreground="#FF000000" Typography.StandardLigatures="True" Typography.ContextualLigatures="True" Typography.DiscretionaryLigatures="False" Typography.HistoricalLigatures="False" Typography.AnnotationAlternates="0" Typography.ContextualAlternates="True" Typography.HistoricalForms="False" Typography.Kerning="True" Typography.CapitalSpacing="False" Typography.CaseSensitiveForms="False" Typography.StylisticSet1="False" Typography.StylisticSet2="False" Typography.StylisticSet3="False" Typography.StylisticSet4="False" Typography.StylisticSet5="False" Typography.StylisticSet6="False" Typography.StylisticSet7="False" Typography.StylisticSet8="False" Typography.StylisticSet9="False" Typography.StylisticSet10="False" Typography.StylisticSet11="False" Typography.StylisticSet12="False" Typography.StylisticSet13="False" Typography.StylisticSet14="False" Typography.StylisticSet15="False" Typography.StylisticSet16="False" Typography.StylisticSet17="False" Typography.StylisticSet18="False" Typography.StylisticSet19="False" Typography.StylisticSet20="False" Typography.Fraction="Normal" Typography.SlashedZero="False" Typography.MathematicalGreek="False" Typography.EastAsianExpertForms="False" Typography.Variants="Normal" Typography.Capitals="Normal" Typography.NumeralStyle="Normal" Typography.NumeralAlignment="Normal" Typography.EastAsianWidths="Normal" Typography.EastAsianLanguage="Normal" Typography.StandardSwashes="0" Typography.ContextualSwashes="0" Typography.StylisticAlternates="0"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Impact" FontSize="20" Foreground="#FFFF4500"&gt;HI EVERYONE&lt;/Run&gt;&lt;Run&gt;
+- - - - - - - - - - - - - - - - - - - - - -
+5/1/2020 1:14:17 PM
+test@test.pl:&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Comic Sans MS" FontSize="72" Foreground="#FFB0E0E6"&gt;TROLOL&lt;/Run&gt;&lt;Run FontFamily="Comic Sans MS" FontStyle="Italic" FontWeight="Bold" FontSize="48" Foreground="#FFFFFF00" TextDecorations="Underline"&gt;O&lt;/Run&gt;&lt;Run FontFamily="Comic Sans MS" FontStyle="Italic" FontWeight="Bold" FontSize="48" Foreground="#FFFF00FF" TextDecorations="Underline"&gt;LOL&lt;/Run&gt;&lt;Run FontFamily="Comic Sans MS" FontStyle="Italic" FontWeight="Bold" FontSize="48" Foreground="#FFFFFF00" TextDecorations="Underline"&gt;OLOLOLOLOL&lt;/Run&gt;&lt;Run&gt;olololololol&lt;/Run&gt;&lt;Run FontFamily="NSimSun" FontWeight="Bold" FontSize="18"&gt;olololololololololo&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/Section&gt;</Text>
+        <Author>test@test.pl</Author>
+        <Read>false</Read>
+        <Time>2020-05-01T14:13:40.1376407-07:00</Time>
+        <Receivers>
+          <string>test@test.pl</string>
+          <string>mateusz.piwowarski@student.um.si</string>
+          <string>matpiwowarski7@gmail.com</string>
+        </Receivers>
+        <Attachments />
+      </Mail>
     </Inbox>
-    <Sent />
+    <Sent>
+      <Mail>
+        <Topic>attachment</Topic>
+        <Text>&lt;Section xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xml:space="preserve" TextAlignment="Left" LineHeight="Auto" IsHyphenationEnabled="False" xml:lang="en-us" FlowDirection="LeftToRight" NumberSubstitution.CultureSource="User" NumberSubstitution.Substitution="AsCulture" FontFamily="Segoe UI" FontStyle="Normal" FontWeight="Normal" FontStretch="Normal" FontSize="12" Foreground="#FF000000" Typography.StandardLigatures="True" Typography.ContextualLigatures="True" Typography.DiscretionaryLigatures="False" Typography.HistoricalLigatures="False" Typography.AnnotationAlternates="0" Typography.ContextualAlternates="True" Typography.HistoricalForms="False" Typography.Kerning="True" Typography.CapitalSpacing="False" Typography.CaseSensitiveForms="False" Typography.StylisticSet1="False" Typography.StylisticSet2="False" Typography.StylisticSet3="False" Typography.StylisticSet4="False" Typography.StylisticSet5="False" Typography.StylisticSet6="False" Typography.StylisticSet7="False" Typography.StylisticSet8="False" Typography.StylisticSet9="False" Typography.StylisticSet10="False" Typography.StylisticSet11="False" Typography.StylisticSet12="False" Typography.StylisticSet13="False" Typography.StylisticSet14="False" Typography.StylisticSet15="False" Typography.StylisticSet16="False" Typography.StylisticSet17="False" Typography.StylisticSet18="False" Typography.StylisticSet19="False" Typography.StylisticSet20="False" Typography.Fraction="Normal" Typography.SlashedZero="False" Typography.MathematicalGreek="False" Typography.EastAsianExpertForms="False" Typography.Variants="Normal" Typography.Capitals="Normal" Typography.NumeralStyle="Normal" Typography.NumeralAlignment="Normal" Typography.EastAsianWidths="Normal" Typography.EastAsianLanguage="Normal" Typography.StandardSwashes="0" Typography.ContextualSwashes="0" Typography.StylisticAlternates="0"&gt;&lt;Paragraph&gt;&lt;Run FontStyle="Italic" FontWeight="Bold" Foreground="#FFA9A9A9"&gt;See attachment&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/Section&gt;</Text>
+        <Author>matpiwowarski7@gmail.com</Author>
+        <Read>true</Read>
+        <Time>2020-05-01T14:10:32.2802992-07:00</Time>
+        <Receivers>
+          <string>mateusz.piwowarski@student.um.si</string>
+        </Receivers>
+        <Attachments>
+          <string>test.XML</string>
+        </Attachments>
+      </Mail>
+    </Sent>
     <Deleted>
       <Mail>
         <Topic>First formatted text</Topic>
@@ -66,7 +148,35 @@
   </Mailbox>
   <Mailbox>
     <EmailAddress>test@test.pl</EmailAddress>
-    <Inbox />
+    <Inbox>
+      <Mail>
+        <Topic>123</Topic>
+        <Text>&lt;Section xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xml:space="preserve" TextAlignment="Left" LineHeight="Auto" IsHyphenationEnabled="False" xml:lang="en-us" FlowDirection="LeftToRight" NumberSubstitution.CultureSource="User" NumberSubstitution.Substitution="AsCulture" FontFamily="Segoe UI" FontStyle="Normal" FontWeight="Normal" FontStretch="Normal" FontSize="12" Foreground="#FF000000" Typography.StandardLigatures="True" Typography.ContextualLigatures="True" Typography.DiscretionaryLigatures="False" Typography.HistoricalLigatures="False" Typography.AnnotationAlternates="0" Typography.ContextualAlternates="True" Typography.HistoricalForms="False" Typography.Kerning="True" Typography.CapitalSpacing="False" Typography.CaseSensitiveForms="False" Typography.StylisticSet1="False" Typography.StylisticSet2="False" Typography.StylisticSet3="False" Typography.StylisticSet4="False" Typography.StylisticSet5="False" Typography.StylisticSet6="False" Typography.StylisticSet7="False" Typography.StylisticSet8="False" Typography.StylisticSet9="False" Typography.StylisticSet10="False" Typography.StylisticSet11="False" Typography.StylisticSet12="False" Typography.StylisticSet13="False" Typography.StylisticSet14="False" Typography.StylisticSet15="False" Typography.StylisticSet16="False" Typography.StylisticSet17="False" Typography.StylisticSet18="False" Typography.StylisticSet19="False" Typography.StylisticSet20="False" Typography.Fraction="Normal" Typography.SlashedZero="False" Typography.MathematicalGreek="False" Typography.EastAsianExpertForms="False" Typography.Variants="Normal" Typography.Capitals="Normal" Typography.NumeralStyle="Normal" Typography.NumeralAlignment="Normal" Typography.EastAsianWidths="Normal" Typography.EastAsianLanguage="Normal" Typography.StandardSwashes="0" Typography.ContextualSwashes="0" Typography.StylisticAlternates="0"&gt;&lt;Paragraph&gt;&lt;Run FontWeight="Bold" FontSize="72" Foreground="#FFFF0000"&gt;1&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontWeight="Bold" FontSize="48" Foreground="#FF0000FF"&gt;2&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontWeight="Bold" FontSize="36" Foreground="#FFFFFF00"&gt;3&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/Section&gt;</Text>
+        <Author>mateusz.piwowarski@student.um.si</Author>
+        <Read>false</Read>
+        <Time>2020-05-01T14:08:35.168509-07:00</Time>
+        <Receivers>
+          <string>test@test.pl</string>
+        </Receivers>
+        <Attachments />
+      </Mail>
+      <Mail>
+        <Topic>Re: trolololololo</Topic>
+        <Text>&lt;Section xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xml:space="preserve" TextAlignment="Left" LineHeight="Auto" IsHyphenationEnabled="False" xml:lang="en-us" FlowDirection="LeftToRight" NumberSubstitution.CultureSource="User" NumberSubstitution.Substitution="AsCulture" FontFamily="Segoe UI" FontStyle="Normal" FontWeight="Normal" FontStretch="Normal" FontSize="12" Foreground="#FF000000" Typography.StandardLigatures="True" Typography.ContextualLigatures="True" Typography.DiscretionaryLigatures="False" Typography.HistoricalLigatures="False" Typography.AnnotationAlternates="0" Typography.ContextualAlternates="True" Typography.HistoricalForms="False" Typography.Kerning="True" Typography.CapitalSpacing="False" Typography.CaseSensitiveForms="False" Typography.StylisticSet1="False" Typography.StylisticSet2="False" Typography.StylisticSet3="False" Typography.StylisticSet4="False" Typography.StylisticSet5="False" Typography.StylisticSet6="False" Typography.StylisticSet7="False" Typography.StylisticSet8="False" Typography.StylisticSet9="False" Typography.StylisticSet10="False" Typography.StylisticSet11="False" Typography.StylisticSet12="False" Typography.StylisticSet13="False" Typography.StylisticSet14="False" Typography.StylisticSet15="False" Typography.StylisticSet16="False" Typography.StylisticSet17="False" Typography.StylisticSet18="False" Typography.StylisticSet19="False" Typography.StylisticSet20="False" Typography.Fraction="Normal" Typography.SlashedZero="False" Typography.MathematicalGreek="False" Typography.EastAsianExpertForms="False" Typography.Variants="Normal" Typography.Capitals="Normal" Typography.NumeralStyle="Normal" Typography.NumeralAlignment="Normal" Typography.EastAsianWidths="Normal" Typography.EastAsianLanguage="Normal" Typography.StandardSwashes="0" Typography.ContextualSwashes="0" Typography.StylisticAlternates="0"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Impact" FontSize="20" Foreground="#FFFF4500"&gt;HI EVERYONE&lt;/Run&gt;&lt;Run&gt;
+- - - - - - - - - - - - - - - - - - - - - -
+5/1/2020 1:14:17 PM
+test@test.pl:&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Comic Sans MS" FontSize="72" Foreground="#FFB0E0E6"&gt;TROLOL&lt;/Run&gt;&lt;Run FontFamily="Comic Sans MS" FontStyle="Italic" FontWeight="Bold" FontSize="48" Foreground="#FFFFFF00" TextDecorations="Underline"&gt;O&lt;/Run&gt;&lt;Run FontFamily="Comic Sans MS" FontStyle="Italic" FontWeight="Bold" FontSize="48" Foreground="#FFFF00FF" TextDecorations="Underline"&gt;LOL&lt;/Run&gt;&lt;Run FontFamily="Comic Sans MS" FontStyle="Italic" FontWeight="Bold" FontSize="48" Foreground="#FFFFFF00" TextDecorations="Underline"&gt;OLOLOLOLOL&lt;/Run&gt;&lt;Run&gt;olololololol&lt;/Run&gt;&lt;Run FontFamily="NSimSun" FontWeight="Bold" FontSize="18"&gt;olololololololololo&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/Section&gt;</Text>
+        <Author>test@test.pl</Author>
+        <Read>false</Read>
+        <Time>2020-05-01T14:13:40.1376455-07:00</Time>
+        <Receivers>
+          <string>test@test.pl</string>
+          <string>mateusz.piwowarski@student.um.si</string>
+          <string>matpiwowarski7@gmail.com</string>
+        </Receivers>
+        <Attachments />
+      </Mail>
+    </Inbox>
     <Sent>
       <Mail>
         <Topic>trolololololo</Topic>
@@ -75,6 +185,33 @@
         <Read>true</Read>
         <Time>2020-05-01T13:14:17.3635546-07:00</Time>
         <Receivers>
+          <string>mateusz.piwowarski@student.um.si</string>
+          <string>matpiwowarski7@gmail.com</string>
+        </Receivers>
+        <Attachments />
+      </Mail>
+      <Mail>
+        <Topic>Just Text</Topic>
+        <Text>&lt;Section xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xml:space="preserve" TextAlignment="Left" LineHeight="Auto" IsHyphenationEnabled="False" xml:lang="en-us" FlowDirection="LeftToRight" NumberSubstitution.CultureSource="User" NumberSubstitution.Substitution="AsCulture" FontFamily="Segoe UI" FontStyle="Normal" FontWeight="Normal" FontStretch="Normal" FontSize="12" Foreground="#FF000000" Typography.StandardLigatures="True" Typography.ContextualLigatures="True" Typography.DiscretionaryLigatures="False" Typography.HistoricalLigatures="False" Typography.AnnotationAlternates="0" Typography.ContextualAlternates="True" Typography.HistoricalForms="False" Typography.Kerning="True" Typography.CapitalSpacing="False" Typography.CaseSensitiveForms="False" Typography.StylisticSet1="False" Typography.StylisticSet2="False" Typography.StylisticSet3="False" Typography.StylisticSet4="False" Typography.StylisticSet5="False" Typography.StylisticSet6="False" Typography.StylisticSet7="False" Typography.StylisticSet8="False" Typography.StylisticSet9="False" Typography.StylisticSet10="False" Typography.StylisticSet11="False" Typography.StylisticSet12="False" Typography.StylisticSet13="False" Typography.StylisticSet14="False" Typography.StylisticSet15="False" Typography.StylisticSet16="False" Typography.StylisticSet17="False" Typography.StylisticSet18="False" Typography.StylisticSet19="False" Typography.StylisticSet20="False" Typography.Fraction="Normal" Typography.SlashedZero="False" Typography.MathematicalGreek="False" Typography.EastAsianExpertForms="False" Typography.Variants="Normal" Typography.Capitals="Normal" Typography.NumeralStyle="Normal" Typography.NumeralAlignment="Normal" Typography.EastAsianWidths="Normal" Typography.EastAsianLanguage="Normal" Typography.StandardSwashes="0" Typography.ContextualSwashes="0" Typography.StylisticAlternates="0"&gt;&lt;Paragraph&gt;&lt;Run&gt;just text&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/Section&gt;</Text>
+        <Author>test@test.pl</Author>
+        <Read>true</Read>
+        <Time>2020-05-01T14:09:14.6214789-07:00</Time>
+        <Receivers>
+          <string>mateusz.piwowarski@student.um.si</string>
+        </Receivers>
+        <Attachments />
+      </Mail>
+      <Mail>
+        <Topic>Re: trolololololo</Topic>
+        <Text>&lt;Section xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xml:space="preserve" TextAlignment="Left" LineHeight="Auto" IsHyphenationEnabled="False" xml:lang="en-us" FlowDirection="LeftToRight" NumberSubstitution.CultureSource="User" NumberSubstitution.Substitution="AsCulture" FontFamily="Segoe UI" FontStyle="Normal" FontWeight="Normal" FontStretch="Normal" FontSize="12" Foreground="#FF000000" Typography.StandardLigatures="True" Typography.ContextualLigatures="True" Typography.DiscretionaryLigatures="False" Typography.HistoricalLigatures="False" Typography.AnnotationAlternates="0" Typography.ContextualAlternates="True" Typography.HistoricalForms="False" Typography.Kerning="True" Typography.CapitalSpacing="False" Typography.CaseSensitiveForms="False" Typography.StylisticSet1="False" Typography.StylisticSet2="False" Typography.StylisticSet3="False" Typography.StylisticSet4="False" Typography.StylisticSet5="False" Typography.StylisticSet6="False" Typography.StylisticSet7="False" Typography.StylisticSet8="False" Typography.StylisticSet9="False" Typography.StylisticSet10="False" Typography.StylisticSet11="False" Typography.StylisticSet12="False" Typography.StylisticSet13="False" Typography.StylisticSet14="False" Typography.StylisticSet15="False" Typography.StylisticSet16="False" Typography.StylisticSet17="False" Typography.StylisticSet18="False" Typography.StylisticSet19="False" Typography.StylisticSet20="False" Typography.Fraction="Normal" Typography.SlashedZero="False" Typography.MathematicalGreek="False" Typography.EastAsianExpertForms="False" Typography.Variants="Normal" Typography.Capitals="Normal" Typography.NumeralStyle="Normal" Typography.NumeralAlignment="Normal" Typography.EastAsianWidths="Normal" Typography.EastAsianLanguage="Normal" Typography.StandardSwashes="0" Typography.ContextualSwashes="0" Typography.StylisticAlternates="0"&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Impact" FontSize="20" Foreground="#FFFF4500"&gt;HI EVERYONE&lt;/Run&gt;&lt;Run&gt;
+- - - - - - - - - - - - - - - - - - - - - -
+5/1/2020 1:14:17 PM
+test@test.pl:&lt;/Run&gt;&lt;/Paragraph&gt;&lt;Paragraph&gt;&lt;Run FontFamily="Comic Sans MS" FontSize="72" Foreground="#FFB0E0E6"&gt;TROLOL&lt;/Run&gt;&lt;Run FontFamily="Comic Sans MS" FontStyle="Italic" FontWeight="Bold" FontSize="48" Foreground="#FFFFFF00" TextDecorations="Underline"&gt;O&lt;/Run&gt;&lt;Run FontFamily="Comic Sans MS" FontStyle="Italic" FontWeight="Bold" FontSize="48" Foreground="#FFFF00FF" TextDecorations="Underline"&gt;LOL&lt;/Run&gt;&lt;Run FontFamily="Comic Sans MS" FontStyle="Italic" FontWeight="Bold" FontSize="48" Foreground="#FFFFFF00" TextDecorations="Underline"&gt;OLOLOLOLOL&lt;/Run&gt;&lt;Run&gt;olololololol&lt;/Run&gt;&lt;Run FontFamily="NSimSun" FontWeight="Bold" FontSize="18"&gt;olololololololololo&lt;/Run&gt;&lt;/Paragraph&gt;&lt;/Section&gt;</Text>
+        <Author>test@test.pl</Author>
+        <Read>true</Read>
+        <Time>2020-05-01T14:13:40.1376481-07:00</Time>
+        <Receivers>
+          <string>test@test.pl</string>
           <string>mateusz.piwowarski@student.um.si</string>
           <string>matpiwowarski7@gmail.com</string>
         </Receivers>
