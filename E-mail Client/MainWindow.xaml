@@ -130,15 +130,8 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Background="LightGray"  HorizontalAlignment="Stretch" Margin="10,15,15,15" Height="auto">
-            <Label x:Name="ReceiverLabel" HorizontalAlignment="Left" Margin="10,0,10,0" FontSize="14" VerticalAlignment="Top"></Label>
-            <Label x:Name="AuthorLabel" HorizontalAlignment="Left" Margin="10,0,10,0" FontSize="14" VerticalAlignment="Top"></Label>
-            <Label x:Name="TopicLabel" HorizontalAlignment="left" Margin="10,0,10,0" FontSize="14" VerticalAlignment="Top"></Label>
-            <Label x:Name="TimeLabel" HorizontalAlignment="Right" Margin="10,0,10,0" VerticalAlignment="Top"></Label>
-            <Separator></Separator>
-            <TextBlock x:Name="MessageTextBlock" Margin="20,5,20,5" FontSize="13" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"></TextBlock>
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"   HorizontalAlignment="Stretch" Margin="10,15,15,15" Height="auto">
         </StackPanel>
-        <ListBox x:Name="AttachmentListBox" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Margin="10,10,10,15" Height="50" Width="300" HorizontalAlignment="Left" VerticalAlignment="Bottom" Visibility="Hidden"/>
 
     </Grid>
 </Window>
