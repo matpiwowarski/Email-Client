@@ -89,21 +89,20 @@ namespace E_mail_Client
                         }
                     }
                 }
-
-                Wait3Seconds();
-
-                this.Close();
+                Wait2SecondsAndCloseWindow();
             }
             else
             {
                 MessageBox.Show("The recipient and the subject should be filled.");
             }
         }
-        private void Wait3Seconds()
+
+        public async Task Wait2SecondsAndCloseWindow()
         {
             BusyIndicator.IsBusy = true;
-            Task.Delay(3000);
+            await Task.Delay(2000);
             BusyIndicator.IsBusy = false;
+            this.Close();
         }
 
         private void AddAllReceivers(string receiverString, ObservableCollection<string> receiverSet)
