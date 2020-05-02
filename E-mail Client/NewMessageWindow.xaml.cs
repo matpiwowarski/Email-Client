@@ -28,8 +28,10 @@ namespace E_mail_Client
 
         private void SendButton_Click(object sender, RoutedEventArgs e)
         {
-            if(MailInfo.RecipientTextBox.Text.Length > 0 && MailInfo.SubjectTextBox.Text.Length > 0)
+            if (MailInfo.RecipientTextBox.Text.Length > 0 && MailInfo.SubjectTextBox.Text.Length > 0)
             {
+                BusyIndicator.IsBusy = true;
+
                 String author = String.Empty;
                 String receiverString = String.Empty;
                 String topic = String.Empty;
@@ -99,7 +101,6 @@ namespace E_mail_Client
 
         public async Task Wait2SecondsAndCloseWindow()
         {
-            BusyIndicator.IsBusy = true;
             await Task.Delay(2000);
             BusyIndicator.IsBusy = false;
             this.Close();
