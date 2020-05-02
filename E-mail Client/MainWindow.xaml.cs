@@ -142,7 +142,6 @@ namespace E_mail_Client
             ForwardButton.IsEnabled = false;
             ReplyAllButton.IsEnabled = false;
             ReplyButton.IsEnabled = false;
-            
         }
         private void EnableAllButtons()
         {
@@ -151,7 +150,6 @@ namespace E_mail_Client
             ForwardButton.IsEnabled = true;
             ReplyAllButton.IsEnabled = true;
             ReplyButton.IsEnabled = true;
-
         }
         private void LoadMails(ObservableCollection<Mail> mails)
         {

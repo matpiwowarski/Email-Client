@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -49,10 +50,10 @@ namespace E_mail_Client
                 // add all receivers
                 AddAllReceivers(receiverString, receivers);
 
-                if(_mainWindow != null)
+                if (_mainWindow != null)
                 {
                     // adding into inbox folder
-                    foreach(Mailbox m in _mainWindow.Mailboxes)
+                    foreach (Mailbox m in _mainWindow.Mailboxes)
                     {
                         if (receivers.Contains(m.EmailAddress))
                         {
@@ -89,6 +90,8 @@ namespace E_mail_Client
                     }
                 }
 
+                Wait3Seconds();
+
                 this.Close();
             }
             else
@@ -96,6 +99,13 @@ namespace E_mail_Client
                 MessageBox.Show("The recipient and the subject should be filled.");
             }
         }
+        private void Wait3Seconds()
+        {
+            BusyIndicator.IsBusy = true;
+            Task.Delay(3000);
+            BusyIndicator.IsBusy = false;
+        }
+
         private void AddAllReceivers(string receiverString, ObservableCollection<string> receiverSet)
         {
             if (receiverString.Length > 0)

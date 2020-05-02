@@ -3,40 +3,51 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk1="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:E_mail_Client"
         mc:Ignorable="d"
         Title="New Message" Height="650" Width="750">
-    <Grid Background="LightGray">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="300"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="120"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="70"></RowDefinition>
-        </Grid.RowDefinitions>
-
-        <Label x:Name="TitleLabel" Grid.Column="1" Grid.Row ="0"  Foreground="#FF376DCB" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold">New Message</Label>
-
-        <local:MailInfoUserControl x:Name="MailInfo" Grid.Column="0" Grid.Row="0" Margin="20,10,5,0"/>
-
-        <local:TextEditorUserControl x:Name="TextEditor" Grid.Row="1" Grid.ColumnSpan="2" Margin="10,5,10,10" Padding="10"/>
-
-        <ListBox x:Name="AttachmentListBox" Grid.Row="2" Grid.Column="0" Margin="10,5,0,10" Visibility="Hidden">
-            
-        </ListBox>
+    <xctk1:BusyIndicator x:Name="BusyIndicator" IsBusy="False" DisplayAfter="0">
+        <xctk1:BusyIndicator.BusyContentTemplate>
+            <DataTemplate>
+                <TextBlock Text="Sending Mail..." FontWeight="Bold" Margin="10" HorizontalAlignment="Center"/>
+            </DataTemplate>
+           
+        </xctk1:BusyIndicator.BusyContentTemplate>
         
-        <StackPanel Orientation="Horizontal" Height="60" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right">
-            <Button x:Name="AttachmentButton" Margin="0,5,0,10" Click="AttachmentButton_Click">
-                <Image Source="Resources/attachment.png">
-                    
-                </Image>
-            </Button>
-            <Button x:Name="SendButton" HorizontalAlignment="Right" Margin="5,5,10,10" Width="160" Click="SendButton_Click" Background="#FF376DCB" Foreground="White" FontSize="20">
-                Send
-            </Button>
-        </StackPanel>
-    </Grid>
+        <Grid Background="LightGray">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="300"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="70"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Label x:Name="TitleLabel" Grid.Column="1" Grid.Row ="0"  Foreground="#FF376DCB" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold">New Message</Label>
+
+            <local:MailInfoUserControl x:Name="MailInfo" Grid.Column="0" Grid.Row="0" Margin="20,10,5,0"/>
+
+            <local:TextEditorUserControl x:Name="TextEditor" Grid.Row="1" Grid.ColumnSpan="2" Margin="10,5,10,10" Padding="10"/>
+
+            <ListBox x:Name="AttachmentListBox" Grid.Row="2" Grid.Column="0" Margin="10,5,0,10" Visibility="Hidden">
+
+            </ListBox>
+
+            <StackPanel Orientation="Horizontal" Height="60" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right">
+                <Button x:Name="AttachmentButton" Margin="0,5,0,10" Click="AttachmentButton_Click">
+                    <Image Source="Resources/attachment.png">
+
+                    </Image>
+                </Button>
+                <Button x:Name="SendButton" HorizontalAlignment="Right" Margin="5,5,10,10" Width="160" Click="SendButton_Click" Background="#FF376DCB" Foreground="White" FontSize="20">
+                    Send
+                </Button>
+            </StackPanel>
+        </Grid>
+    </xctk1:BusyIndicator>
 </Window>
