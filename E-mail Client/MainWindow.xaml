@@ -7,6 +7,14 @@
         xmlns:local="clr-namespace:E_mail_Client"
         mc:Ignorable="d"
         Title="E-mail Client" Height="600" Width="1000">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style/AppStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    
     <Grid Background="#FF376DCB">
 
         <Grid.ColumnDefinitions>
@@ -61,7 +69,7 @@
             </Menu>
 
             <ToolBar Grid.Column="1" VerticalAlignment="Top" Margin="10,5,10,5" HorizontalAlignment="Center" Background="#FF376DCB">
-                <Button x:Name="DeleteButton" Click="DeleteButton_Click" IsEnabled="False" Width="100" Height="40" HorizontalAlignment="Left" Background="#FF376DCB">
+                <Button x:Name="DeleteButton" Click="DeleteButton_Click" IsEnabled="False" Style="{StaticResource ResourceKey=ButtonStyle}">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Resources/cross.png" ></Image>
                         <Label FontSize="12" Foreground="White">Delete</Label>
