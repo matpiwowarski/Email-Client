@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:E_mail_Client.Style"
+                    xmlns:xctk1="http://schemas.xceed.com/wpf/xaml/toolkit">
+
+    <Style TargetType="xctk1:WatermarkComboBox" x:Key="WatermarkComboBoxStyle">
+        <Setter Property="Margin" Value="4"/>
+    </Style>
+    <Style TargetType="xctk1:WatermarkTextBox" x:Key="WatermarkTextBoxStyle">
+        <Setter Property="Margin" Value="4"/>
+    </Style>
+
+</ResourceDictionary>
