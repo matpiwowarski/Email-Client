@@ -69,31 +69,31 @@
             </Menu>
 
             <ToolBar Grid.Column="1" VerticalAlignment="Top" Margin="10,5,10,5" HorizontalAlignment="Center" Background="#FF376DCB">
-                <Button x:Name="DeleteButton" Click="DeleteButton_Click" IsEnabled="False" Style="{StaticResource ResourceKey=ButtonStyle}">
+                <Button x:Name="DeleteButton" Style="{StaticResource ResourceKey=ButtonStyle}" Click="DeleteButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Resources/cross.png" ></Image>
                         <Label FontSize="12" Foreground="White">Delete</Label>
                     </StackPanel>
                 </Button>
-                <Button x:Name="ReplyButton" Width="100" Height="40" IsEnabled="False" HorizontalAlignment="Left" Background="#FF376DCB" Click="ReplyButton_Click">
+                <Button x:Name="ReplyButton" Style="{StaticResource ResourceKey=ButtonStyle}" Click="ReplyButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Resources/reply.png" ></Image>
                         <Label FontSize="12" Foreground="White">Reply</Label>
                     </StackPanel>
                 </Button>
-                <Button x:Name="ReplyAllButton" Width="100" Height="40" IsEnabled="False" HorizontalAlignment="Left" Background="#FF376DCB" Click="ReplyAllButton_Click">
+                <Button x:Name="ReplyAllButton" Style="{StaticResource ResourceKey=ButtonStyle}" Click="ReplyAllButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Resources/toall.png"></Image>
                         <Label FontSize="12" Foreground="White">Reply all</Label>
                     </StackPanel>
                 </Button>
-                <Button x:Name="ForwardButton" Width="100" Height="40" IsEnabled="False" HorizontalAlignment="Left" Background="#FF376DCB" Click="ForwardButton_Click">
+                <Button x:Name="ForwardButton" Style="{StaticResource ResourceKey=ButtonStyle}" Click="ForwardButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Resources/forward.png"></Image>
                         <Label FontSize="12" Foreground="White">Forward</Label>
                     </StackPanel>
                 </Button>
-                <Button x:Name="StarButton" IsEnabled="False" Width="100" Height="40" HorizontalAlignment="Left" Background="#FF376DCB" Click="Star_Click">
+                <Button x:Name="StarButton" Style="{StaticResource ResourceKey=ButtonStyle}" Click="Star_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Resources/star.png"></Image>
                         <Label FontSize="12" Foreground="White">Star</Label>

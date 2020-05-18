@@ -6,5 +6,6 @@
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Width" Value="100"/>
         <Setter Property="Height" Value="40"/>
+        <Setter Property="IsEnabled" Value="False"/>
     </Style>
 </ResourceDictionary>
