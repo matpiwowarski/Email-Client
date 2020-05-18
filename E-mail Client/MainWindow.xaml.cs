@@ -27,7 +27,7 @@ namespace E_mail_Client
 
             // to not import data every program run
             ///
-            Deserialize("C:\\Users\\matpi\\Desktop\\E-mail-Client\\E-mail Client\\Data\\data.xml");
+            //Deserialize("C:\\Users\\matpi\\Desktop\\E-mail-Client\\E-mail Client\\Data\\data.xml");
             CreateTreeViewForMailboxList(Mailboxes);
             ///
         }
