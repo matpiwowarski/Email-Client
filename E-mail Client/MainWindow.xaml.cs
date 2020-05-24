@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Threading;
 using System.Xml.Serialization;
 
 namespace E_mail_Client
@@ -19,6 +20,8 @@ namespace E_mail_Client
         public ObservableCollection<Mailbox> Mailboxes;
         private Mailbox _currentMailbox = new Mailbox();
         private Folder _currentFolder = new Folder();
+        DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -27,9 +30,12 @@ namespace E_mail_Client
 
             // to not import data every program run
             ///
-            //Deserialize("C:\\Users\\matpi\\Desktop\\E-mail-Client\\E-mail Client\\Data\\data.xml");
+            Deserialize("C:\\Users\\matpi\\Desktop\\E-mail-Client\\E-mail Client\\Data\\data.xml");
             CreateTreeViewForMailboxList(Mailboxes);
             ///
+            dispatcherTimer.Tick += new EventHandler(SendRandomMessage);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+            dispatcherTimer.Start();
         }
         private void CreateTreeViewForMailboxList(ObservableCollection<Mailbox> mailboxList)
         {
@@ -524,6 +530,14 @@ namespace E_mail_Client
                     MessageView.ContentBox.Document.ContentEnd);
                 tr.Load(ms, DataFormats.Xaml);
             }
+        }
+        private void SendRandomMessage(object sender, EventArgs e)
+        {
+            MailGenerator generator = new MailGenerator();
+            Mail mail = generator.GenerateMail();
+
+            // generate mail every second for 3rd maiilbox
+            Mailboxes[2].Inbox.Add(mail);
         }
     }
 }

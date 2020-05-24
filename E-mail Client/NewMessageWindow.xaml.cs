@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,13 +14,13 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace E_mail_Client
 {
     public partial class NewMessageWindow : Window
     {
         private MainWindow _mainWindow;
-
         public NewMessageWindow(MainWindow mainWindow)
         {
             InitializeComponent();
