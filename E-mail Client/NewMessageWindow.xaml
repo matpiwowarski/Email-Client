@@ -15,15 +15,29 @@
         </ResourceDictionary>
     </Window.Resources>
 
+    <Window.Background>
+        <SolidColorBrush x:Name="WindowBackground" Color="White"/>
+    </Window.Background>
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Button.Click" SourceName="SendButton">
+            <BeginStoryboard>
+                <Storyboard>
+                    <ColorAnimation To="Black" Duration="0:00:02" Storyboard.TargetName="WindowBackground" Storyboard.TargetProperty="Color"></ColorAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+
     <xctk1:BusyIndicator x:Name="BusyIndicator" IsBusy="False" DisplayAfter="0">
         <xctk1:BusyIndicator.BusyContentTemplate>
             <DataTemplate>
                 <TextBlock Text="Sending Mail..." FontWeight="Bold" Margin="10" HorizontalAlignment="Center"/>
             </DataTemplate>
-           
+
         </xctk1:BusyIndicator.BusyContentTemplate>
-        
-        <Grid Background="LightGray">
+
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="300"></ColumnDefinition>

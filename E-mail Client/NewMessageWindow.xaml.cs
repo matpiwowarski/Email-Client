@@ -92,7 +92,7 @@ namespace E_mail_Client
                         }
                     }
                 }
-                Wait2SecondsAndCloseWindow();
+                Wait3SecondsAndCloseWindow();
             }
             else
             {
@@ -100,9 +100,9 @@ namespace E_mail_Client
             }
         }
 
-        public async Task Wait2SecondsAndCloseWindow()
+        public async Task Wait3SecondsAndCloseWindow()
         {
-            await Task.Delay(2000);
+            await Task.Delay(3000);
             BusyIndicator.IsBusy = false;
             this.Close();
         }
@@ -120,7 +120,7 @@ namespace E_mail_Client
 
                 string[] receivers = convertedString2.Split(';');
 
-                foreach(string receiver in receivers)
+                foreach (string receiver in receivers)
                 {
                     receiverSet.Add(receiver);
                 }
@@ -138,9 +138,9 @@ namespace E_mail_Client
             var audioFilter = "Audio(*.MP3)| *.MP3 |";
             dlg.Filter = imageFilter + videoFilter + audioFilter + "All files (*.*)|*.*";
 
-            if(dlg.ShowDialog() == true)
+            if (dlg.ShowDialog() == true)
             {
-                foreach(String file in dlg.FileNames)
+                foreach (String file in dlg.FileNames)
                 {
                     string fileName = System.IO.Path.GetFileName(file);
                     AttachmentListBox.Items.Add(fileName);
