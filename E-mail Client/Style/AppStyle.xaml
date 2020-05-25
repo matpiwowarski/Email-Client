@@ -21,4 +21,11 @@
         <Setter Property="Margin" Value="5,5,10,10"/>
         <Setter Property="Width" Value="160"/>
     </Style>
+
+    <PathGeometry x:Key="SentMessage">
+        <PathFigure StartPoint="40,40">
+            <ArcSegment IsLargeArc="True" Size="5,5" Point="40,41" SweepDirection="Clockwise"/>
+        </PathFigure>
+    </PathGeometry>
+
 </ResourceDictionary>

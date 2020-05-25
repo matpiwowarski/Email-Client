@@ -208,6 +208,10 @@ namespace E_mail_Client
                             _currentFolder.RemoveAt(mailIndex);
                             DisableAllButtons();
                             LoadMails(_currentFolder);
+                            //
+                            EllipseStoryboard.Begin(Dot);
+                            VisibilityStoryboard.Begin(DeletedMessageLabel);
+                            VisibilityStoryboard.Begin(Dot);
 
                             break;
                         case MessageBoxResult.No:
@@ -230,6 +234,7 @@ namespace E_mail_Client
                 
             }
         }
+
         private void Star_Click(object sender, RoutedEventArgs e)
         {
             if (MessagesListView.SelectedItems.Count > 0)
