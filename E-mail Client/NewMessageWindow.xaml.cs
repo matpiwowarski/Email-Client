@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Net.Mail;
 using System.Text;
@@ -144,7 +145,36 @@ namespace E_mail_Client
                 foreach (String file in dlg.FileNames)
                 {
                     string fileName = System.IO.Path.GetFileName(file);
-                    AttachmentListBox.Items.Add(fileName);
+                    if(fileName.Contains(".jpg") || fileName.Contains(".png"))
+                    {
+                        StackPanel item = new StackPanel();
+                        item.Orientation = Orientation.Horizontal;
+                        TextBlock text = new TextBlock();
+                        text.Text = fileName;
+
+                        Border border = new Border();
+                        border.BorderThickness = new Thickness(1, 1, 1, 1);
+                        border.BorderBrush = Brushes.Black;
+
+                        Thickness margin = border.Margin;
+                        margin.Left = 20;
+                        border.Margin = margin;
+
+                        Image img = new Image();
+                        img.Width = 20;
+                        img.Height = 20;
+                        img.Source = new BitmapImage(new Uri(file));
+
+                        border.Child = img;
+
+                        item.Children.Add(text);
+                        item.Children.Add(border);
+                        AttachmentListBox.Items.Add(item);
+                    }
+                    else
+                    {
+                        AttachmentListBox.Items.Add(fileName);
+                    }
                 }
             }
             // make attachment list visible
