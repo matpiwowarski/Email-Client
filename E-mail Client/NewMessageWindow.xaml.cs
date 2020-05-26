@@ -70,6 +70,7 @@ namespace E_mail_Client
                                 }
                             }
                             m.Inbox.Add(mail);
+                            _mainWindow.Story.Begin(this);
                         }
                     }
 

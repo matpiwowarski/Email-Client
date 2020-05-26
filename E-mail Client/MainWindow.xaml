@@ -106,7 +106,7 @@
         </Grid>
         <TreeView x:Name="EmailTreeView" Grid.Column="0" Grid.Row="1" Margin="10,15,5,5" Background="LightGray"/>
 
-        <ListView x:Name="MessagesListView" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" Margin="10,10,5,15" Background="LightGray" FontSize="13">
+        <ListView x:Name="MessagesListView" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" Margin="10,10,5,25" Background="LightGray" FontSize="13">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <EventSetter Event="MouseLeftButtonUp" Handler="Mail_MouseLeftButtonUp" />
@@ -138,7 +138,9 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <local:MessageViewUserControl x:Name="MessageView" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Margin="10,15,15,15" Height="auto" HorizontalAlignment="Stretch"/>
+        <Label Name="NewMessageLabel" Grid.Row="2" Grid.Column="0" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" FontWeight="Heavy" FontSize="18"/>
+
+        <local:MessageViewUserControl x:Name="MessageView" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Margin="10,15,15,25" Height="auto" HorizontalAlignment="Stretch"/>
 
         <Canvas Grid.Row="1" Grid.Column="1" Grid.RowSpan="2">
             <Ellipse Name="Dot" Width="15" Height="15" Fill="Red" Canvas.Top="40" Canvas.Left="40" Visibility="Collapsed">

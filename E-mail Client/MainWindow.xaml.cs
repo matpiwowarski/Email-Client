@@ -9,6 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using System.Xml.Serialization;
@@ -20,8 +21,8 @@ namespace E_mail_Client
         public ObservableCollection<Mailbox> Mailboxes;
         private Mailbox _currentMailbox = new Mailbox();
         private Folder _currentFolder = new Folder();
-        DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
-
+        private DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+        public Storyboard Story = new Storyboard();
         public MainWindow()
         {
             InitializeComponent();
@@ -32,10 +33,23 @@ namespace E_mail_Client
             ///
             Deserialize("C:\\Users\\matpi\\Desktop\\E-mail-Client\\E-mail Client\\Data\\data.xml");
             CreateTreeViewForMailboxList(Mailboxes);
-            ///
+            /// generate random message every 10 seconds
             dispatcherTimer.Tick += new EventHandler(SendRandomMessage);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 10);
             dispatcherTimer.Start();
+            // new message animation
+            StringAnimationUsingKeyFrames frames = new StringAnimationUsingKeyFrames();
+            frames.Duration = new Duration(new TimeSpan(0, 0, 6));
+            frames.FillBehavior = FillBehavior.HoldEnd;
+            frames.KeyFrames.Add(new DiscreteStringKeyFrame("New ", TimeSpan.FromSeconds(1)));
+            frames.KeyFrames.Add(new DiscreteStringKeyFrame("New Message", TimeSpan.FromSeconds(2)));
+            frames.KeyFrames.Add(new DiscreteStringKeyFrame("New Message!", TimeSpan.FromSeconds(3)));
+            frames.KeyFrames.Add(new DiscreteStringKeyFrame("", TimeSpan.FromSeconds(6)));
+
+
+            Storyboard.SetTargetName(frames, NewMessageLabel.Name);
+            Storyboard.SetTargetProperty(frames, new PropertyPath(Label.ContentProperty));
+            Story.Children.Add(frames);
         }
         private void CreateTreeViewForMailboxList(ObservableCollection<Mailbox> mailboxList)
         {
@@ -541,8 +555,9 @@ namespace E_mail_Client
             MailGenerator generator = new MailGenerator();
             Mail mail = generator.GenerateMail();
 
-            // generate mail every second for 3rd maiilbox
+            // generate mail every 10 seconds for 3rd maiilbox
             Mailboxes[2].Inbox.Add(mail);
+            Story.Begin(this);
         }
     }
 }
