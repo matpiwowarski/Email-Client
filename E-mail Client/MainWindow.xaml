@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:xctk1="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:E_mail_Client"
-        mc:Ignorable="d"
+        xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+mc:Ignorable="d"
         Title="E-mail Client" Height="600" Width="1000">
     <Window.Resources>
         <ResourceDictionary>
@@ -25,6 +26,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="5"/>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
@@ -104,9 +106,12 @@
             <xctk1:WatermarkTextBox x:Name="SearchTextBox" Watermark="Search" Grid.Column="2" Margin="5,12,15,12" HorizontalAlignment="Stretch"></xctk1:WatermarkTextBox>
 
         </Grid>
-        <TreeView x:Name="EmailTreeView" Grid.Column="0" Grid.Row="1" Margin="10,15,5,5" Background="LightGray"/>
 
-        <ListView x:Name="MessagesListView" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" Margin="10,10,5,25" Background="LightGray" FontSize="13">
+        <TreeView x:Name="EmailTreeView" Grid.Column="0" Grid.Row="1" Margin="10,15,5,5" Background="LightGray"/>
+        
+        <GridSplitter Grid.Column="0" Grid.Row="2" Height="5" HorizontalAlignment="Stretch" Margin="10,0,5,0"/>
+        
+        <ListView x:Name="MessagesListView" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" Margin="10,5,5,25" Background="LightGray" FontSize="13">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <EventSetter Event="MouseLeftButtonUp" Handler="Mail_MouseLeftButtonUp" />
@@ -138,9 +143,9 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Label Name="NewMessageLabel" Grid.Row="2" Grid.Column="0" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" FontWeight="Heavy" FontSize="18"/>
+        <Label Name="NewMessageLabel" Grid.Row="3" Grid.Column="0" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" FontWeight="Heavy" FontSize="18"/>
 
-        <local:MessageViewUserControl x:Name="MessageView" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Margin="10,15,15,25" Height="auto" HorizontalAlignment="Stretch"/>
+        <local:MessageViewUserControl x:Name="MessageView" Grid.Row="1" Grid.Column="1" Grid.RowSpan="3" Margin="10,15,15,25" Height="auto" HorizontalAlignment="Stretch"/>
 
         <Canvas Grid.Row="1" Grid.Column="1" Grid.RowSpan="2">
             <Ellipse Name="Dot" Width="15" Height="15" Fill="Red" Canvas.Top="40" Canvas.Left="40" Visibility="Collapsed">

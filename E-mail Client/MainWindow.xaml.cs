@@ -46,7 +46,6 @@ namespace E_mail_Client
             frames.KeyFrames.Add(new DiscreteStringKeyFrame("New Message!", TimeSpan.FromSeconds(3)));
             frames.KeyFrames.Add(new DiscreteStringKeyFrame("", TimeSpan.FromSeconds(6)));
 
-
             Storyboard.SetTargetName(frames, NewMessageLabel.Name);
             Storyboard.SetTargetProperty(frames, new PropertyPath(Label.ContentProperty));
             Story.Children.Add(frames);
