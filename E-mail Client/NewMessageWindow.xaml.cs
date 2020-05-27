@@ -65,9 +65,10 @@ namespace E_mail_Client
 
                             if (AttachmentListBox.Items.Count > 0)
                             {
-                                foreach (String item in AttachmentListBox.Items)
+                                foreach(StackPanel item in AttachmentListBox.Items)
                                 {
-                                    mail.AddAttachment(item);
+                                    TextBlock text = (TextBlock)item.Children[0];
+                                    mail.AddAttachment(text.Text.ToString());
                                 }
                             }
                             m.Inbox.Add(mail);
@@ -84,9 +85,10 @@ namespace E_mail_Client
 
                             if (AttachmentListBox.Items.Count > 0)
                             {
-                                foreach (String item in AttachmentListBox.Items)
+                                foreach (StackPanel item in AttachmentListBox.Items)
                                 {
-                                    mail.AddAttachment(item);
+                                    TextBlock text = (TextBlock)item.Children[0];
+                                    mail.AddAttachment(text.Text.ToString());
                                 }
                             }
                             m.Sent.Add(mail);
@@ -173,7 +175,11 @@ namespace E_mail_Client
                     }
                     else
                     {
-                        AttachmentListBox.Items.Add(fileName);
+                        StackPanel item = new StackPanel();
+                        item.Orientation = Orientation.Horizontal;
+                        TextBlock text = new TextBlock();
+                        text.Text = fileName;
+                        AttachmentListBox.Items.Add(item);
                     }
                 }
             }
