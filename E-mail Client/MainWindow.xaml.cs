@@ -31,7 +31,7 @@ namespace E_mail_Client
 
             // to not import data every program run
             ///
-            Deserialize("C:\\Users\\matpi\\Desktop\\E-mail-Client\\E-mail Client\\Data\\data.xml");
+            Deserialize("../../../Data/data.xml");
             CreateTreeViewForMailboxList(Mailboxes);
             /// generate random message every 10 seconds
             dispatcherTimer.Tick += new EventHandler(SendRandomMessage);
