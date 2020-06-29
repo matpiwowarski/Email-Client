@@ -1,3 +1,3 @@
-# E-mail Client
+# Email Client
 ## Human-computer interaction project 
 ### WPF App (.NET Core)
